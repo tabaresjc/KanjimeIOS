@@ -1,0 +1,37 @@
+//
+// Prefix header for all source files of the 'KanjiMe' target in the 'KanjiMe' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+#endif
+
+#import "UIImage+iPhone5.h"
+
+#ifndef MAIN_BG_IMAGE 
+#define MAIN_BG_IMAGE @"ipad-BG-pattern.png"
+
+//RGB color macro
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//RGB color macro with alpha
+#define UIColorFromRGBWithAlpha(rgbValue,a) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
+
+
+#define MAIN_BACK_COLOR UIColorFromRGB(0xefeeee)
+#endif
