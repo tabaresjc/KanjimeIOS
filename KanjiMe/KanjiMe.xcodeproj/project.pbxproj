@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */; };
+		CE00D9E117BE260200136CDA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00D9E017BE260200136CDA /* CoreData.framework */; };
+		CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE2A17BE3F5200BF6125 /* CoreDataTableViewController.m */; };
+		CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE2D17BE4C1500BF6125 /* NamesTableViewController.m */; };
+		CE0FDE3117BE51F500BF6125 /* Collection+Rest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */; };
+		CE0FDE3717BE595500BF6125 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE3617BE595500BF6125 /* Collection.m */; };
 		CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FABC917BCF11A00F2BE59 /* RestApiHelpers.m */; };
 		CE87A7CE17BB81850075538E /* www in Resources */ = {isa = PBXBuildFile; fileRef = CE87A7CD17BB81850075538E /* www */; };
 		CE90D12617533AE6009C5BD3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE90D12517533AE6009C5BD3 /* MobileCoreServices.framework */; };
@@ -61,6 +67,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE00D9BC17BE072500136CDA /* CoreDataKanjiMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataKanjiMe.xcdatamodel; sourceTree = "<group>"; };
+		CE00D9E017BE260200136CDA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CE0FDE2917BE3F5200BF6125 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		CE0FDE2A17BE3F5200BF6125 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		CE0FDE2C17BE4C1500BF6125 /* NamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewController.h; sourceTree = "<group>"; };
+		CE0FDE2D17BE4C1500BF6125 /* NamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewController.m; sourceTree = "<group>"; };
+		CE0FDE2F17BE51F500BF6125 /* Collection+Rest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Collection+Rest.h"; path = "Models/CoreDataModels/Collection+Rest.h"; sourceTree = "<group>"; };
+		CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Collection+Rest.m"; path = "Models/CoreDataModels/Collection+Rest.m"; sourceTree = "<group>"; };
+		CE0FDE3517BE595500BF6125 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
+		CE0FDE3617BE595500BF6125 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
 		CE3FABC817BCF11A00F2BE59 /* RestApiHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiHelpers.h; path = Models/RestApiHelpers.h; sourceTree = "<group>"; };
 		CE3FABC917BCF11A00F2BE59 /* RestApiHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApiHelpers.m; path = Models/RestApiHelpers.m; sourceTree = "<group>"; };
 		CE87A7CD17BB81850075538E /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
@@ -133,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE00D9E117BE260200136CDA /* CoreData.framework in Frameworks */,
 				CE90D12617533AE6009C5BD3 /* MobileCoreServices.framework in Frameworks */,
 				CECEBAEB1751C67300E93B8D /* SystemConfiguration.framework in Frameworks */,
 				CEBDEB21175102AF00593B2F /* QuartzCore.framework in Frameworks */,
@@ -144,6 +161,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE00D9C117BE19D900136CDA /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
+				CE0FDE3517BE595500BF6125 /* Collection.h */,
+				CE0FDE3617BE595500BF6125 /* Collection.m */,
+				CE0FDE2F17BE51F500BF6125 /* Collection+Rest.h */,
+				CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */,
+			);
+			name = CoreDataModel;
+			sourceTree = "<group>";
+		};
 		CE90D0EF175332C6009C5BD3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +182,10 @@
 				CED8FEA71750A30000867230 /* MainDetailViewController.m */,
 				CEC72D93176EC32E00EE2560 /* SearchPostsViewController.h */,
 				CEC72D94176EC32E00EE2560 /* SearchPostsViewController.m */,
+				CE0FDE2917BE3F5200BF6125 /* CoreDataTableViewController.h */,
+				CE0FDE2A17BE3F5200BF6125 /* CoreDataTableViewController.m */,
+				CE0FDE2C17BE4C1500BF6125 /* NamesTableViewController.h */,
+				CE0FDE2D17BE4C1500BF6125 /* NamesTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -238,6 +271,7 @@
 		CED8FE7C1750A2FF00867230 = {
 			isa = PBXGroup;
 			children = (
+				CE00D9E017BE260200136CDA /* CoreData.framework */,
 				CE90D12A175342CE009C5BD3 /* Resources */,
 				CED8FE8E1750A2FF00867230 /* KanjiMe */,
 				CED8FE871750A2FF00867230 /* Frameworks */,
@@ -293,6 +327,7 @@
 		CED8FEB91750A9A300867230 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE00D9C117BE19D900136CDA /* CoreDataModel */,
 				CED9BEB117B7D52200E9FF59 /* RestApiFetcher */,
 			);
 			name = Model;
@@ -437,6 +472,11 @@
 				CEE13AE417BCDE5400E65DF1 /* Name.m in Sources */,
 				CEE13AE617BCDE5400E65DF1 /* RestApiFetcher.m in Sources */,
 				CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */,
+				CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */,
+				CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */,
+				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
+				CE0FDE3117BE51F500BF6125 /* Collection+Rest.m in Sources */,
+				CE0FDE3717BE595500BF6125 /* Collection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +632,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE00D9BC17BE072500136CDA /* CoreDataKanjiMe.xcdatamodel */,
+			);
+			currentVersion = CE00D9BC17BE072500136CDA /* CoreDataKanjiMe.xcdatamodel */;
+			name = CoreDataKanjiMe.xcdatamodeld;
+			path = Models/CoreDataModels/CoreDataKanjiMe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CED8FE7D1750A2FF00867230 /* Project object */;
 }

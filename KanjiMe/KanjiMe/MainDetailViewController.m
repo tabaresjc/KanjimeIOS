@@ -7,24 +7,23 @@
 //
 
 #import "MainDetailViewController.h"
-#import "StylishCellViewCell.h"
-#import "MainAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "StylishCellViewCell.h"
+#import "Collection.h"
+#import "RestApiFetcher.h"
+
 
 @interface MainDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *likeButton;
 @property (strong,nonatomic) StylishCellViewCell *cellOrigin;
-@property (strong, nonatomic) Name * detailItem;
-
-@property (strong, nonatomic) NSObject * objectDetailItem;
-@property (weak,nonatomic) RestApiFetcher* postFetcher;
+@property (strong, nonatomic) Collection *collection;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 - (void)configureView;
 
 @end
 
 @implementation MainDetailViewController
-@synthesize cellOrigin, likeButton, detailItem, spinner, postFetcher = _postFetcher, objectDetailItem;
+@synthesize cellOrigin, likeButton, spinner;
 
 - (void)setStyle
 {
@@ -32,15 +31,6 @@
     [self.view setBackgroundColor:MAIN_BACK_COLOR];
     [self.webView setBackgroundColor:[UIColor clearColor]];
     [self.webView setOpaque:NO];
-}
-
-- (RestApiFetcher *)postFetcher
-{
-    if(!_postFetcher) {
-        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        _postFetcher = appDelegate.apiFetcher;
-    }
-    return _postFetcher;
 }
 
 #pragma mark - Managing the detail item
@@ -52,26 +42,24 @@
     }else{
         self.cellOrigin = nil;
     }
-    self.detailItem = [[Name alloc] initWithBasicObject:newDetailItem];
-    self.objectDetailItem = newDetailItem;
+    self.collection = (Collection *)newDetailItem;
 }
 
 - (void)configureView
 {
     //Update the user interface for the detail item.
-    if (self.detailItem) {
+    if (self.collection) {
         [self.spinner startAnimating];
-        NSInteger postId = [self.detailItem postId];
+        NSString *postId = [NSString stringWithString:self.collection.collectionId];
+        
         dispatch_queue_t dataFormatter = dispatch_queue_create("Data Formatter", NULL);
         dispatch_async(dataFormatter, ^{
             //[NSThread sleepForTimeInterval:2.0];
-            NSString *htmlBody = [RestApiHelpers getHtmlArticle:self.detailItem.content withTitle:self.detailItem.title withSubtitle:self.detailItem.subTitle];
+            NSString *htmlBody = [RestApiHelpers getHtmlArticle:self.collection.body withTitle:self.collection.title withSubtitle:self.collection.subtitle];
             NSString *htmlstring = [RestApiHelpers getStandardHtmlPage:htmlBody];
-            if(postId == [self.detailItem postId]){
-                //[htmlstring writeToURL:[WpUtilities getUrlToWebServerFolder] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            if([self.collection.collectionId isEqualToString:postId]){
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self setLikeArticle:self.detailItem.markFavorite];                    
-                    //[self.webView loadRequest:[NSURLRequest requestWithURL:[WpUtilities getUrlToWebServerFolder]]];
+                    [self setLikeArticle:self.collection.favorite];
                     [self.webView loadHTMLString:htmlstring baseURL:[RestApiHelpers getUrlToWebServerFolder]];
                     [self.spinner stopAnimating];
                 });
@@ -84,8 +72,6 @@
 {
     [super viewDidLoad];
     [self setStyle];
-    
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -105,24 +91,8 @@
 }
 
 - (IBAction)likeArticle:(UIButton *)sender {
-    self.detailItem.markFavorite = !self.detailItem.markFavorite;
-    if(self.cellOrigin){
-        [self.cellOrigin setLike:self.detailItem.markFavorite];        
-    }else{
-        self.postFetcher.refreshMain = YES;
-    }
-    
-    [self setLikeArticle:self.detailItem.markFavorite];
-    
-    if( self.detailItem.markFavorite ){
-        if([self.postFetcher.favoritePosts indexOfObject:self.objectDetailItem]==NSNotFound){
-            [self.postFetcher.favoritePosts addObject:self.objectDetailItem];
-        }
-    }else {
-        if([self.postFetcher.favoritePosts indexOfObject:self.objectDetailItem]!=NSNotFound){
-            [self.postFetcher.favoritePosts removeObject:self.objectDetailItem];
-        }
-    }
+    self.collection.favorite = !self.collection.favorite;
+    [self setLikeArticle:self.collection.favorite];
 }
 
 -(void)setLikeArticle:(BOOL)value {

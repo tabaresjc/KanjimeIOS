@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="547" y="96"/>
         </scene>
-        <!--Last Posts View Controller - Master-->
+        <!--Names Table View Controller - Master-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="LastPostsStoryBoard" title="Master" id="12" customClass="LastPostsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LastPostsStoryBoard" title="Master" id="12" customClass="NamesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,41 +282,6 @@
         <image name="search.png" width="24" height="24"/>
         <image name="star.png" width="24" height="24"/>
     </resources>
-    <classes>
-        <class className="LastPostsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LastPostsViewController.h"/>
-        </class>
-        <class className="MainDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="likeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SearchPostsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchPostsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="postSearchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="StylishCellViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StylishCellViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bgImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="btnLike" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="disclosureImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="subTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="UIRefreshControl" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
