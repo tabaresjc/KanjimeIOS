@@ -33,7 +33,6 @@
 		CE90D27217534328009C5BD3 /* StylishCellViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE90D27117534328009C5BD3 /* StylishCellViewCell.m */; };
 		CE90D27617534540009C5BD3 /* UIImage+iPhone5.m in Sources */ = {isa = PBXBuildFile; fileRef = CE90D27517534540009C5BD3 /* UIImage+iPhone5.m */; };
 		CEBDEB21175102AF00593B2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBDEB20175102AF00593B2F /* QuartzCore.framework */; };
-		CEC72D95176EC32E00EE2560 /* SearchPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC72D94176EC32E00EE2560 /* SearchPostsViewController.m */; };
 		CECEBAEB1751C67300E93B8D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECEBAEA1751C67300E93B8D /* SystemConfiguration.framework */; };
 		CED21C401761D03300D07491 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C3F1761D03300D07491 /* Default@2x.png */; };
 		CED21C421761D05F00D07491 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C411761D05F00D07491 /* Default.png */; };
@@ -53,7 +52,6 @@
 		CED8FEA21750A30000867230 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED8FEA01750A30000867230 /* MainStoryboard_iPhone.storyboard */; };
 		CED8FEA81750A30000867230 /* MainDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED8FEA71750A30000867230 /* MainDetailViewController.m */; };
 		CED8FEAF1750A3A300867230 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8FEAE1750A3A300867230 /* libPods.a */; };
-		CED8FEB51750A78C00867230 /* LastPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED8FEB41750A78C00867230 /* LastPostsViewController.m */; };
 		CEDA7FC6176F3D0D00B79587 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDA7FC4176F3D0D00B79587 /* search.png */; };
 		CEDA7FC7176F3D0D00B79587 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDA7FC5176F3D0D00B79587 /* search@2x.png */; };
 		CEDC7D231764236200C29E93 /* menubar-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC7D211764236200C29E93 /* menubar-landscape.png */; };
@@ -64,6 +62,7 @@
 		CEE13AE617BCDE5400E65DF1 /* RestApiFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE13ADF17BCDE5400E65DF1 /* RestApiFetcher.m */; };
 		CEFEC7B6175B7D9C009FA8D3 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC7B4175B7D9B009FA8D3 /* home.png */; };
 		CEFEC7B7175B7D9C009FA8D3 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC7B5175B7D9C009FA8D3 /* home@2x.png */; };
+		CEFFF23217BF16FC0080603A /* SearchCollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF23117BF16FC0080603A /* SearchCollectionTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,8 +99,6 @@
 		CE90D27417534540009C5BD3 /* UIImage+iPhone5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+iPhone5.h"; sourceTree = "<group>"; };
 		CE90D27517534540009C5BD3 /* UIImage+iPhone5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+iPhone5.m"; sourceTree = "<group>"; };
 		CEBDEB20175102AF00593B2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CEC72D93176EC32E00EE2560 /* SearchPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPostsViewController.h; sourceTree = "<group>"; };
-		CEC72D94176EC32E00EE2560 /* SearchPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPostsViewController.m; sourceTree = "<group>"; };
 		CECEBAEA1751C67300E93B8D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CED21C3F1761D03300D07491 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		CED21C411761D05F00D07491 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
@@ -126,8 +123,6 @@
 		CED8FEA71750A30000867230 /* MainDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainDetailViewController.m; sourceTree = "<group>"; };
 		CED8FEAE1750A3A300867230 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "../Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		CED8FEB01750A43600867230 /* Pods.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../../Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		CED8FEB31750A78C00867230 /* LastPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastPostsViewController.h; sourceTree = "<group>"; };
-		CED8FEB41750A78C00867230 /* LastPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastPostsViewController.m; sourceTree = "<group>"; };
 		CEDA7FC4176F3D0D00B79587 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		CEDA7FC5176F3D0D00B79587 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		CEDC7D211764236200C29E93 /* menubar-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-landscape.png"; sourceTree = "<group>"; };
@@ -142,6 +137,8 @@
 		CEE7605D17BB680700E34B91 /* KanjiMe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KanjiMe-Info.plist"; sourceTree = "<group>"; };
 		CEFEC7B4175B7D9B009FA8D3 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		CEFEC7B5175B7D9C009FA8D3 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		CEFFF23017BF16FC0080603A /* SearchCollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionTableViewController.h; sourceTree = "<group>"; };
+		CEFFF23117BF16FC0080603A /* SearchCollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,16 +173,14 @@
 		CE90D0EF175332C6009C5BD3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CED8FEB31750A78C00867230 /* LastPostsViewController.h */,
-				CED8FEB41750A78C00867230 /* LastPostsViewController.m */,
 				CED8FEA61750A30000867230 /* MainDetailViewController.h */,
 				CED8FEA71750A30000867230 /* MainDetailViewController.m */,
-				CEC72D93176EC32E00EE2560 /* SearchPostsViewController.h */,
-				CEC72D94176EC32E00EE2560 /* SearchPostsViewController.m */,
 				CE0FDE2917BE3F5200BF6125 /* CoreDataTableViewController.h */,
 				CE0FDE2A17BE3F5200BF6125 /* CoreDataTableViewController.m */,
 				CE0FDE2C17BE4C1500BF6125 /* NamesTableViewController.h */,
 				CE0FDE2D17BE4C1500BF6125 /* NamesTableViewController.m */,
+				CEFFF23017BF16FC0080603A /* SearchCollectionTableViewController.h */,
+				CEFFF23117BF16FC0080603A /* SearchCollectionTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -465,10 +460,8 @@
 				CED8FE951750A30000867230 /* main.m in Sources */,
 				CED8FE991750A30000867230 /* MainAppDelegate.m in Sources */,
 				CED8FEA81750A30000867230 /* MainDetailViewController.m in Sources */,
-				CED8FEB51750A78C00867230 /* LastPostsViewController.m in Sources */,
 				CE90D27217534328009C5BD3 /* StylishCellViewCell.m in Sources */,
 				CE90D27617534540009C5BD3 /* UIImage+iPhone5.m in Sources */,
-				CEC72D95176EC32E00EE2560 /* SearchPostsViewController.m in Sources */,
 				CEE13AE417BCDE5400E65DF1 /* Name.m in Sources */,
 				CEE13AE617BCDE5400E65DF1 /* RestApiFetcher.m in Sources */,
 				CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */,
@@ -477,6 +470,7 @@
 				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
 				CE0FDE3117BE51F500BF6125 /* Collection+Rest.m in Sources */,
 				CE0FDE3717BE595500BF6125 /* Collection.m in Sources */,
+				CEFFF23217BF16FC0080603A /* SearchCollectionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

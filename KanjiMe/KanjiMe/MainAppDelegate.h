@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RestApiFetcher.h"
+
 @interface MainAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) RestApiFetcher *apiFetcher;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

@@ -23,9 +23,6 @@ typedef enum httpMethodsType
     HEADER
 } HttpMethods;
 
-@property (nonatomic,strong) NSArray *lastPosts;
-@property (nonatomic,strong) NSMutableArray *favoritePosts;
-@property (nonatomic) BOOL refreshMain;
 
 - (void)getNames:(NSUInteger)count
    startingPoint:(NSUInteger)offset

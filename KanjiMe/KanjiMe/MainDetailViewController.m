@@ -55,7 +55,7 @@
         dispatch_queue_t dataFormatter = dispatch_queue_create("Data Formatter", NULL);
         dispatch_async(dataFormatter, ^{
             //[NSThread sleepForTimeInterval:2.0];
-            NSString *htmlBody = [RestApiHelpers getHtmlArticle:self.collection.body withTitle:self.collection.title withSubtitle:self.collection.subtitle];
+            NSString *htmlBody = [RestApiHelpers getHtmlArticle:self.collection.body withTitle:self.collection.title withSubtitle:self.collection.subtitle withDescription:self.collection.extraTitle];
             NSString *htmlstring = [RestApiHelpers getStandardHtmlPage:htmlBody];
             if([self.collection.collectionId isEqualToString:postId]){
                 dispatch_async(dispatch_get_main_queue(), ^{

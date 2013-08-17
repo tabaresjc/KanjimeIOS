@@ -31,8 +31,6 @@ static NSUInteger const ClientDefaultMaxConcurrentOperationCount = 4;
     self.urlEndpoint = [NSURL URLWithString:API_ENDPOINT_URL];
     self.operationQueue = [[NSOperationQueue alloc] init];
 	[self.operationQueue setMaxConcurrentOperationCount:ClientDefaultMaxConcurrentOperationCount];
-    self.favoritePosts = [[NSMutableArray alloc] init];
-    self.refreshMain = NO;
     return self;
 }
 

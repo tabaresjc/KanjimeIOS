@@ -12,7 +12,8 @@
 + (NSString *)getStandardHtmlPage:(NSString *)content;
 + (NSString *)getHtmlArticle:(NSString *)rawJson
                    withTitle:(NSString *)title
-                withSubtitle:(NSString *)subTitle;
+                withSubtitle:(NSString *)subTitle
+             withDescription:(NSString *)description;
 + (NSURL *)getUrlToWebServerFolder;
 + (NSString *)getDateTimeFromString:(NSString *)rawDateString;
 + (NSString *)getFormattedHtml:(NSString *)rawHtmlString;

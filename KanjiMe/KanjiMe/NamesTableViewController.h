@@ -10,5 +10,4 @@
 
 @interface NamesTableViewController : CoreDataTableViewController
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @end

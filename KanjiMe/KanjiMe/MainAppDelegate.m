@@ -10,7 +10,6 @@
 
 
 @implementation MainAppDelegate
-@synthesize apiFetcher;
 
 -(void)customizeiPhoneTheme
 {
@@ -27,9 +26,9 @@
     [navigationBarAppearance setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     [navigationBarAppearance setBackgroundImage:navBarLandscapeImage forBarMetrics:UIBarMetricsLandscapePhone];
     
-    UISearchBar *searchBarAppearance = [UISearchBar appearance];
-    [searchBarAppearance setBackgroundImage:navBarImage];
-    [searchBarAppearance setBackgroundColor:[UIColor blackColor]];
+    //UISearchBar *searchBarAppearance = [UISearchBar appearance];
+    //[searchBarAppearance setBackgroundImage:navBarImage];
+    //[searchBarAppearance setBackgroundColor:[UIColor blackColor]];
     
     [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];    
     UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
@@ -58,7 +57,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.apiFetcher = [[RestApiFetcher alloc] init];
     [self customizeiPhoneTheme];
     // Override point for customization after application launch.
     return YES;

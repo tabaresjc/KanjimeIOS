@@ -1,51 +1,33 @@
 //
-//  NamesTableViewController.m
+//  SearchCollectionTableViewController.m
 //  KanjiMe
 //
-//  Created by Lion User on 8/16/13.
+//  Created by Lion User on 8/17/13.
 //  Copyright (c) 2013 Alteran System. All rights reserved.
 //
 
-#import "NamesTableViewController.h"
-#import <QuartzCore/QuartzCore.h>
-#import "MainAppDelegate.h"
-#import "RestApiFetcher.h"
-#import "StylishCellViewCell.h"
-#import "Collection+Rest.h"
 #import "SearchCollectionTableViewController.h"
+#import "MainAppDelegate.h"
+#import "NamesTableViewController.h"
+#import "Collection.h"
 
-@interface NamesTableViewController ()
+static NSString *cellIdentifier = @"SearchResult";
+@interface SearchCollectionTableViewController ()
 
 @end
 
-@implementation NamesTableViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+@implementation SearchCollectionTableViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setStyle];
-    [self.refreshControl addTarget:self
-                            action:@selector(refresh)
-                  forControlEvents:UIControlEventValueChanged];
+    [self refresh];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (!self.managedObjectContext) {
-        [self useDocument];
-    }
-
-
+    [self refresh];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,43 +36,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)setStyle
-{
-    [self.view setBackgroundColor:MAIN_BACK_COLOR];
-    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
-    self.tableView.contentInset = inset;
-}
-
 - (IBAction)refresh
 {
-    [self.refreshControl beginRefreshing];    
-    RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
-    [apiFetcher getNames:10000
-                startingPoint:1
-                      success:^(id jsonData) {
-                          NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
-                          for (NSDictionary *collection in collections) {
-                              [Collection syncCollectionWithCD:collection inManagedObjectContext:self.managedObjectContext];
-                          }
-                          dispatch_async(dispatch_get_main_queue(), ^{                              
-                              [self.refreshControl endRefreshing];
-                          });
-                      }
-                      failure:^(NSError *error) {
-                          dispatch_async(dispatch_get_main_queue(), ^{
-                              [self.refreshControl endRefreshing];
-                          });
-                      }
-     ];
+    if (!self.managedObjectContext) {
+        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = appDelegate.managedObjectContext;
+    }
 }
 
 - (void)useDocument
@@ -126,17 +77,16 @@
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
                                                                   ascending:YES
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = nil;
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"favorite = TRUE"];
+        [request setPredicate:predicate];
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:managedObjectContext
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
-        
     } else {
         self.fetchedResultsController = nil;
     }
-    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.managedObjectContext = _managedObjectContext;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
@@ -149,7 +99,7 @@
     }
     
     if (indexPath) {
-        if ([segue.identifier isEqualToString:@"showDetail"]) {
+        if ([segue.identifier isEqualToString:@"showSearchResult"]) {
             Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
             if ([segue.destinationViewController respondsToSelector:@selector(setDetail:withCell:)]) {
                 [segue.destinationViewController performSelector:@selector(setDetail:withCell:)
@@ -162,14 +112,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    StylishCellViewCell *cell = (StylishCellViewCell *)[tableView dequeueReusableCellWithIdentifier:@"PostRow" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.titleLabel.text = collection.title;
-    cell.subTitleLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
-    cell.like = collection.favorite;
+    cell.textLabel.text = collection.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
     
     return cell;
+}
+
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
 }
 
 @end

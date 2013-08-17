@@ -47,10 +47,11 @@
 + (NSString *)getHtmlArticle:(NSString *)rawJson
                    withTitle:(NSString *)title
                 withSubtitle:(NSString *)subTitle
+             withDescription:(NSString *)description
 {
     
-    NSString *htmlRaw = [NSString stringWithFormat:@"<h2>Name: %@</h2><h3>Kanji: %@</h3><br/>",
-                         title,subTitle];
+    NSString *htmlRaw = [NSString stringWithFormat:@"<h2>Name: %@</h2><h4>Kanji: %@</h4><h4>Katakana: %@</h4><br/>",
+                         title,subTitle,description];
     NSDictionary *data = [RestApiHelpers getDataFromJson:rawJson];
     
     if(data){
