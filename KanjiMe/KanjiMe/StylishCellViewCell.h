@@ -16,5 +16,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (nonatomic) BOOL like;
 
-
 @end

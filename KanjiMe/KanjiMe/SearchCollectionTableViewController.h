@@ -8,7 +8,6 @@
 
 #import "CoreDataTableViewController.h"
 
-@interface SearchCollectionTableViewController : CoreDataTableViewController 
+@interface SearchCollectionTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UISearchBar *postSearchBar;
 @end

@@ -16,7 +16,7 @@
 @end
 
 @implementation StylishCellViewCell
-@synthesize titleLabel, subTitleLabel, bgImageView, disclosureImageView, isNotFirtRun,btnLike;
+@synthesize titleLabel, subTitleLabel, bgImageView, disclosureImageView, isNotFirtRun, btnLike;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -37,7 +37,7 @@
         [disclosureImageView setImage:[UIImage tallImageNamed:@"ipad-arrow-selected.png"]];
         [titleLabel setTextColor:[UIColor whiteColor]];
         [titleLabel setShadowColor:[UIColor colorWithRed:25.0/255 green:96.0/255 blue:148.0/255 alpha:1.0]];
-        [subTitleLabel setTextColor:[UIColor whiteColor]];
+        [subTitleLabel setTextColor:[UIColor whiteColor]];        
     }
     else
     {
@@ -47,6 +47,7 @@
         [titleLabel setTextColor:[UIColor darkTextColor]];
         [titleLabel setShadowColor:[UIColor whiteColor]];
         [subTitleLabel setTextColor:[UIColor darkGrayColor]];
+        
     }
     
     [titleLabel setShadowOffset:CGSizeMake(0, -1)];
@@ -71,9 +72,12 @@
 {
     _like = like;
     if(like){
-        [self.btnLike setBackgroundColor:UIColorFromRGBWithAlpha(0xFFC125,0.6)];
+        //[self.btnLike setBackgroundColor:UIColorFromRGBWithAlpha(0xFFC125,0.6)];
+        [self.btnLike setHighlighted:YES];
+        
     }else{
-        [self.btnLike setBackgroundColor:UIColorFromRGBWithAlpha(0xfffffc,0.6)];
+        //[self.btnLike setBackgroundColor:UIColorFromRGBWithAlpha(0xfffffc,0.6)];
+        [self.btnLike setHighlighted:NO];
     }        
 }
 

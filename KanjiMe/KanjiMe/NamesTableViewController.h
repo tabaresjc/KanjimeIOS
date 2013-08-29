@@ -8,6 +8,6 @@
 
 #import "CoreDataTableViewController.h"
 
-@interface NamesTableViewController : CoreDataTableViewController
+@interface NamesTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

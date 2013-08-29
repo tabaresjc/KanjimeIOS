@@ -13,10 +13,12 @@
 
 static NSString *cellIdentifier = @"SearchResult";
 @interface SearchCollectionTableViewController ()
-
+@property (strong, nonatomic) NSFetchedResultsController *filteredNames;
 @end
 
 @implementation SearchCollectionTableViewController
+@synthesize filteredNames;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,37 +94,120 @@ static NSString *cellIdentifier = @"SearchResult";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender
 {
-    NSIndexPath *indexPath = nil;
-    
-    if ([sender isKindOfClass:[UITableViewCell class]]) {
-        indexPath = [self.tableView indexPathForCell:sender];
-    }
-    
-    if (indexPath) {
-        if ([segue.identifier isEqualToString:@"showSearchResult"]) {
-            Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            if ([segue.destinationViewController respondsToSelector:@selector(setDetail:withCell:)]) {
-                [segue.destinationViewController performSelector:@selector(setDetail:withCell:)
-                                                      withObject:collection
-                                                      withObject:nil];
+    if ([[segue identifier] isEqualToString:@"showSearchResult"]) {
+        if([segue.destinationViewController respondsToSelector:@selector(setDetail:withCell:)]){
+            Collection *object = nil;
+            if([self.searchDisplayController isActive]){
+                    NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+                    object = [self.filteredNames objectAtIndexPath:indexPath];
+                
+            } else {
+                if ([sender isKindOfClass:[UITableViewCell class]]) {
+                    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+                    object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                }                
+            }
+            if(object){
+                [segue.destinationViewController performSelector:@selector(setDetail:withCell:) withObject:object withObject:Nil];
             }
         }
     }
 }
 
+#pragma mark - UITableViewDataSource
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        return [[[self.filteredNames sections] objectAtIndex:section] name];
+    } else {
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] name];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        return [self.filteredNames sectionForSectionIndexTitle:title atIndex:index];
+    } else {
+        return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+    }
+    
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        return [self.filteredNames sectionIndexTitles];
+    } else {
+        return [self.fetchedResultsController sectionIndexTitles];
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        return [[self.filteredNames sections] count];
+    } else {
+        return [[self.fetchedResultsController sections] count];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        return [[[self.filteredNames sections] objectAtIndex:section] numberOfObjects];
+    } else {
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [self performSegueWithIdentifier: @"showSearchResult" sender: self];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.textLabel.text = collection.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
-    
-    return cell;
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+        Collection *collection = [self.filteredNames objectAtIndexPath:indexPath];
+        
+        cell.textLabel.text = collection.title;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
+        
+        return cell;
+        
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        cell.textLabel.text = collection.title;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
+        
+        return cell;
+    }
 }
 
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@",searchText];
+    [request setPredicate:predicate];
+    
+    self.filteredNames = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    NSError *error;
+    [self.filteredNames performFetch:&error];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
