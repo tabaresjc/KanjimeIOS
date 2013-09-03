@@ -58,6 +58,13 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MyriadPro-Regular.otf</string>
+		<string>MyriadPro-Cond.otf</string>
+		<string>MyriadPro-BoldIt.otf</string>
+		<string>MyriadPro-BoldCond.otf</string>
+	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIStatusBarStyle</key>

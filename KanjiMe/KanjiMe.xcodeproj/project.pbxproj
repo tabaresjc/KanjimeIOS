@@ -14,8 +14,11 @@
 		CE0FDE3117BE51F500BF6125 /* Collection+Rest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */; };
 		CE0FDE3717BE595500BF6125 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE3617BE595500BF6125 /* Collection.m */; };
 		CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FABC917BCF11A00F2BE59 /* RestApiHelpers.m */; };
+		CE73142E17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE73142C17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf */; };
+		CE73142F17D5DFEA002EF4F6 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE73142D17D5DFEA002EF4F6 /* MyriadPro-Regular.otf */; };
+		CE73143217D5E080002EF4F6 /* MyriadPro-BoldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE73143017D5E080002EF4F6 /* MyriadPro-BoldCond.otf */; };
+		CE73143317D5E080002EF4F6 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE73143117D5E080002EF4F6 /* MyriadPro-Cond.otf */; };
 		CE811B3F17CE4A0F00252A30 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CE811B3E17CE4A0F00252A30 /* MBProgressHUD.m */; };
-		CE87A7CE17BB81850075538E /* www in Resources */ = {isa = PBXBuildFile; fileRef = CE87A7CD17BB81850075538E /* www */; };
 		CE90D12617533AE6009C5BD3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE90D12517533AE6009C5BD3 /* MobileCoreServices.framework */; };
 		CE90D1DC175342CF009C5BD3 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = CE90D13A175342CE009C5BD3 /* back.png */; };
 		CE90D1DD175342CF009C5BD3 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE90D13B175342CE009C5BD3 /* back@2x.png */; };
@@ -53,8 +56,7 @@
 		CED7788717CF258500C8C1B1 /* FeedController1.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787C17CF258500C8C1B1 /* FeedController1.m */; };
 		CED7788817CF258500C8C1B1 /* FeedController2.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787E17CF258500C8C1B1 /* FeedController2.m */; };
 		CED7788917CF258500C8C1B1 /* FeedController3.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7788017CF258500C8C1B1 /* FeedController3.m */; };
-		CED7788A17CF258500C8C1B1 /* FeedController4.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7788217CF258500C8C1B1 /* FeedController4.m */; };
-		CED7788C17CF25C100C8C1B1 /* FeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED7788B17CF25C100C8C1B1 /* FeedStoryboard.storyboard */; };
+		CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7788E17CF328600C8C1B1 /* FeedDetailViewController.m */; };
 		CED8FE891750A2FF00867230 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8FE881750A2FF00867230 /* UIKit.framework */; };
 		CED8FE931750A30000867230 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CED8FE911750A30000867230 /* InfoPlist.strings */; };
 		CED8FE951750A30000867230 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CED8FE941750A30000867230 /* main.m */; };
@@ -91,9 +93,12 @@
 		CE0FDE3617BE595500BF6125 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
 		CE3FABC817BCF11A00F2BE59 /* RestApiHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiHelpers.h; path = Models/RestApiHelpers.h; sourceTree = "<group>"; };
 		CE3FABC917BCF11A00F2BE59 /* RestApiHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApiHelpers.m; path = Models/RestApiHelpers.m; sourceTree = "<group>"; };
+		CE73142C17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
+		CE73142D17D5DFEA002EF4F6 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		CE73143017D5E080002EF4F6 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
+		CE73143117D5E080002EF4F6 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
 		CE811B3D17CE4A0F00252A30 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CE811B3E17CE4A0F00252A30 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		CE87A7CD17BB81850075538E /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
 		CE90D12517533AE6009C5BD3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CE90D13A175342CE009C5BD3 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		CE90D13B175342CE009C5BD3 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
@@ -140,9 +145,8 @@
 		CED7787E17CF258500C8C1B1 /* FeedController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedController2.m; sourceTree = "<group>"; };
 		CED7787F17CF258500C8C1B1 /* FeedController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedController3.h; sourceTree = "<group>"; };
 		CED7788017CF258500C8C1B1 /* FeedController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedController3.m; sourceTree = "<group>"; };
-		CED7788117CF258500C8C1B1 /* FeedController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedController4.h; sourceTree = "<group>"; };
-		CED7788217CF258500C8C1B1 /* FeedController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedController4.m; sourceTree = "<group>"; };
-		CED7788B17CF25C100C8C1B1 /* FeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedStoryboard.storyboard; sourceTree = "<group>"; };
+		CED7788D17CF328600C8C1B1 /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailViewController.h; sourceTree = "<group>"; };
+		CED7788E17CF328600C8C1B1 /* FeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailViewController.m; sourceTree = "<group>"; };
 		CED8FE851750A2FF00867230 /* KanjiMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanjiMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED8FE881750A2FF00867230 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CED8FE921750A30000867230 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -206,6 +210,17 @@
 			name = CoreDataModel;
 			sourceTree = "<group>";
 		};
+		CE73142B17D5DFBF002EF4F6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE73143017D5E080002EF4F6 /* MyriadPro-BoldCond.otf */,
+				CE73143117D5E080002EF4F6 /* MyriadPro-Cond.otf */,
+				CE73142C17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf */,
+				CE73142D17D5DFEA002EF4F6 /* MyriadPro-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		CE811B3C17CE4A0F00252A30 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +233,12 @@
 		CE90D0EF175332C6009C5BD3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CED7787017CF258500C8C1B1 /* FeedControllers */,
 				CE90D26F17534305009C5BD3 /* Cells */,
 				CED8FEA61750A30000867230 /* MainDetailViewController.h */,
 				CED8FEA71750A30000867230 /* MainDetailViewController.m */,
+				CED7788D17CF328600C8C1B1 /* FeedDetailViewController.h */,
+				CED7788E17CF328600C8C1B1 /* FeedDetailViewController.m */,
 				CE0FDE2917BE3F5200BF6125 /* CoreDataTableViewController.h */,
 				CE0FDE2A17BE3F5200BF6125 /* CoreDataTableViewController.m */,
 				CE0FDE2C17BE4C1500BF6125 /* NamesTableViewController.h */,
@@ -234,7 +252,6 @@
 		CE90D0F117533301009C5BD3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CED7788B17CF25C100C8C1B1 /* FeedStoryboard.storyboard */,
 				CED8FEA01750A30000867230 /* MainStoryboard_iPhone.storyboard */,
 			);
 			name = Views;
@@ -245,7 +262,6 @@
 			children = (
 				CEF0CED617CEF2EE00B24533 /* star_on.png */,
 				CEF0CED717CEF2EE00B24533 /* star_on@2x.png */,
-				CE87A7CD17BB81850075538E /* www */,
 				CEE1128F1771F01E00286908 /* star.png */,
 				CEE112901771F01E00286908 /* star@2x.png */,
 				CEDA7FC4176F3D0D00B79587 /* search.png */,
@@ -345,8 +361,6 @@
 				CED7787E17CF258500C8C1B1 /* FeedController2.m */,
 				CED7787F17CF258500C8C1B1 /* FeedController3.h */,
 				CED7788017CF258500C8C1B1 /* FeedController3.m */,
-				CED7788117CF258500C8C1B1 /* FeedController4.h */,
-				CED7788217CF258500C8C1B1 /* FeedController4.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -386,7 +400,7 @@
 		CED8FE8E1750A2FF00867230 /* KanjiMe */ = {
 			isa = PBXGroup;
 			children = (
-				CED7787017CF258500C8C1B1 /* FeedControllers */,
+				CE73142B17D5DFBF002EF4F6 /* Fonts */,
 				CED2E4AB1753A38000028823 /* Delegates */,
 				CE90D27317534540009C5BD3 /* Libraries */,
 				CE90D0F117533301009C5BD3 /* Views */,
@@ -520,10 +534,12 @@
 				CEDA7FC7176F3D0D00B79587 /* search@2x.png in Resources */,
 				CEE112911771F01E00286908 /* star.png in Resources */,
 				CEE112921771F01E00286908 /* star@2x.png in Resources */,
-				CE87A7CE17BB81850075538E /* www in Resources */,
 				CEF0CED817CEF2EE00B24533 /* star_on.png in Resources */,
 				CEF0CED917CEF2EE00B24533 /* star_on@2x.png in Resources */,
-				CED7788C17CF25C100C8C1B1 /* FeedStoryboard.storyboard in Resources */,
+				CE73142E17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf in Resources */,
+				CE73142F17D5DFEA002EF4F6 /* MyriadPro-Regular.otf in Resources */,
+				CE73143217D5E080002EF4F6 /* MyriadPro-BoldCond.otf in Resources */,
+				CE73143317D5E080002EF4F6 /* MyriadPro-Cond.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +588,7 @@
 				CED7788717CF258500C8C1B1 /* FeedController1.m in Sources */,
 				CED7788817CF258500C8C1B1 /* FeedController2.m in Sources */,
 				CED7788917CF258500C8C1B1 /* FeedController3.m in Sources */,
-				CED7788A17CF258500C8C1B1 /* FeedController4.m in Sources */,
+				CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

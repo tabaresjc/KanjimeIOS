@@ -10,26 +10,12 @@
 
 @interface FeedCell4 : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UIImageView* picImageView;
 
-@property (nonatomic, weak) IBOutlet UIImageView* profileImageView;
 
-@property (nonatomic, weak) IBOutlet UIView* feedContainer;
+@property (nonatomic, strong) IBOutlet UIView* feedContainer;
 
-@property (nonatomic, weak) IBOutlet UILabel* nameLabel;
-
-@property (nonatomic, weak) IBOutlet UILabel* updateLabel;
-
-@property (nonatomic, weak) IBOutlet UILabel* dateLabel;
-
-@property (nonatomic, weak) IBOutlet UILabel* commentCountLabel;
-
-@property (nonatomic, weak) IBOutlet UILabel* likeCountLabel;
-
-@property (nonatomic, weak) IBOutlet UIImageView* commentIconImageView;
-
-@property (nonatomic, weak) IBOutlet UIImageView* likeIconImageView;
-
-@property (nonatomic, weak) IBOutlet UIView* socialContainer;
+@property (strong, nonatomic) IBOutlet UILabel *kanjiLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lineOne;
+@property (strong, nonatomic) IBOutlet UILabel *lineTwo;
 
 @end
