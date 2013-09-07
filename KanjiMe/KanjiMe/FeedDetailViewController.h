@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedDetailViewController : UIViewController <UITableViewDataSource>
+@interface FeedDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView* feedTableView;
 - (void)setDetail:(id)newDetailItem withCell:(id)cell;

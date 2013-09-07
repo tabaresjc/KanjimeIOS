@@ -9,8 +9,10 @@
 #import "NamesTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
 #import "MainAppDelegate.h"
 #import "RestApiFetcher.h"
+#import "RestApiConstant.h"
 #import "StylishCellViewCell.h"
 #import "Collection+Rest.h"
 #import "SearchCollectionTableViewController.h"
@@ -285,10 +287,44 @@ shouldReloadTableForSearchString:(NSString *)searchString
     return YES;
 }
 
+- (IBAction)callShareActionSheet:(id)sender {
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    [shareActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [shareActionSheet showInView:self.tabBarController.view];
+}
 
-- (IBAction)shareToFacebook:(id)sender {
-    NSURL* url = [NSURL URLWithString:@"http://kanjime.learnjapanese123.com/"];
-    [FBDialogs presentShareDialogWithLink:url
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+        {
+            [self shareToFacebook];
+        }
+        break;
+        case 1:
+        {
+            [self shareToTwitter];
+        }
+        break;
+        default:
+            break;
+    }
+}
+
+- (NSString *)getCommonDescriptor
+{
+    return [NSString stringWithFormat:@"KanjiMe: Find your Japanese name at %@", WEB_ENDPOINT_URL];
+    
+}
+
+- (void)shareToFacebook
+{
+    [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:WEB_ENDPOINT_URL]
+                                     name:@"KanjiMe! iOS"
+                                  caption:@"KanjiMe!"
+                              description:[self getCommonDescriptor]
+                                  picture:[NSURL URLWithString:@"http://kanjime.learnjapanese123.com/img/iTunesArtwork.png"]
+                              clientState:nil
                                   handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                                       if(error) {
                                           NSLog(@"Error: %@", error.description);
@@ -296,8 +332,30 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                           NSLog(@"Success!");
                                       }
                                   }];
+    
 }
 
-
+- (void)shareToTwitter
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:[self getCommonDescriptor]];
+        [tweetSheet addImage:[UIImage imageNamed:@"iTunesArtwork.png"]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Sorry"
+                                  message:@"You can't send a tweet right now, make sure"
+                                  "your device has an internet connection and you have"
+                                  "at least one Twitter account setup"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
 
 @end

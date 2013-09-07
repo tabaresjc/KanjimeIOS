@@ -1,21 +1,22 @@
 //
-//  FeedCell4.m
-//  ADVFlatUI
+//  FeedHeaderCell.m
+//  KanjiMe
 //
-//  Created by Tope on 03/06/2013.
-//  Copyright (c) 2013 App Design Vault. All rights reserved.
+//  Created by Lion User on 9/7/13.
+//  Copyright (c) 2013 Alteran System. All rights reserved.
 //
 
-#import "FeedCell4.h"
+#import "FeedHeaderCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation FeedCell4
+@implementation FeedHeaderCell
+@synthesize titleLabel, subTitleLabel, likeButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
+        // Initialization code
     }
     return self;
 }
@@ -27,13 +28,13 @@
     // Configure the view for the selected state
 }
 
-
 -(void)awakeFromNib{
-    self.feedContainer.backgroundColor = [UIColor whiteColor];    
-    self.feedContainer.layer.cornerRadius = 3.0f;
-    self.feedContainer.clipsToBounds = YES;    
-    self.kanjiLabel.layer.cornerRadius = 3.0f;
+    self.headerContainer.backgroundColor = [UIColor whiteColor];
+    self.headerContainer.layer.cornerRadius = 3.0f;
+    self.headerContainer.clipsToBounds = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.likeButton.layer.cornerRadius = 4.0f;
 }
+
 
 @end

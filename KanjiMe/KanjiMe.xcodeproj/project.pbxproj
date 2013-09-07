@@ -49,6 +49,7 @@
 		CED21C501761D1C300D07491 /* ipad-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */; };
 		CED21C531761D20800D07491 /* ipad-BG-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C511761D20800D07491 /* ipad-BG-pattern.png */; };
 		CED21C541761D20800D07491 /* ipad-BG-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */; };
+		CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */; };
 		CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787317CF258500C8C1B1 /* FeedCell1.m */; };
 		CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787517CF258500C8C1B1 /* FeedCell2.m */; };
 		CED7788517CF258500C8C1B1 /* FeedCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787717CF258500C8C1B1 /* FeedCell3.m */; };
@@ -73,6 +74,8 @@
 		CEE112921771F01E00286908 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE112901771F01E00286908 /* star@2x.png */; };
 		CEE13AE417BCDE5400E65DF1 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE13ADA17BCDE5400E65DF1 /* Name.m */; };
 		CEE13AE617BCDE5400E65DF1 /* RestApiFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE13ADF17BCDE5400E65DF1 /* RestApiFetcher.m */; };
+		CEE7347617DB162A0071B564 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE7347517DB162A0071B564 /* Social.framework */; };
+		CEE7347817DB19390071B564 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE7347717DB19390071B564 /* iTunesArtwork.png */; };
 		CEF0CED817CEF2EE00B24533 /* star_on.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF0CED617CEF2EE00B24533 /* star_on.png */; };
 		CEF0CED917CEF2EE00B24533 /* star_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF0CED717CEF2EE00B24533 /* star_on@2x.png */; };
 		CEFEC7B6175B7D9C009FA8D3 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC7B4175B7D9B009FA8D3 /* home.png */; };
@@ -131,6 +134,8 @@
 		CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-arrow@2x.png"; sourceTree = "<group>"; };
 		CED21C511761D20800D07491 /* ipad-BG-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern.png"; sourceTree = "<group>"; };
 		CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern@2x.png"; sourceTree = "<group>"; };
+		CED41E6317DB67720029B5D6 /* FeedHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedHeaderCell.h; sourceTree = "<group>"; };
+		CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedHeaderCell.m; sourceTree = "<group>"; };
 		CED7787217CF258500C8C1B1 /* FeedCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell1.h; sourceTree = "<group>"; };
 		CED7787317CF258500C8C1B1 /* FeedCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCell1.m; sourceTree = "<group>"; };
 		CED7787417CF258500C8C1B1 /* FeedCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell2.h; sourceTree = "<group>"; };
@@ -171,6 +176,8 @@
 		CEE13ADD17BCDE5400E65DF1 /* RestApiConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiConstant.h; path = Models/RestApiConstant.h; sourceTree = "<group>"; };
 		CEE13ADE17BCDE5400E65DF1 /* RestApiFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiFetcher.h; path = Models/RestApiFetcher.h; sourceTree = "<group>"; };
 		CEE13ADF17BCDE5400E65DF1 /* RestApiFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApiFetcher.m; path = Models/RestApiFetcher.m; sourceTree = "<group>"; };
+		CEE7347517DB162A0071B564 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CEE7347717DB19390071B564 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		CEE7605D17BB680700E34B91 /* KanjiMe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KanjiMe-Info.plist"; sourceTree = "<group>"; };
 		CEF0CED617CEF2EE00B24533 /* star_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_on.png; sourceTree = "<group>"; };
 		CEF0CED717CEF2EE00B24533 /* star_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_on@2x.png"; sourceTree = "<group>"; };
@@ -185,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE7347617DB162A0071B564 /* Social.framework in Frameworks */,
 				CE00D9E117BE260200136CDA /* CoreData.framework in Frameworks */,
 				CE90D12617533AE6009C5BD3 /* MobileCoreServices.framework in Frameworks */,
 				CECEBAEB1751C67300E93B8D /* SystemConfiguration.framework in Frameworks */,
@@ -260,6 +268,7 @@
 		CE90D12A175342CE009C5BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEE7347717DB19390071B564 /* iTunesArtwork.png */,
 				CEF0CED617CEF2EE00B24533 /* star_on.png */,
 				CEF0CED717CEF2EE00B24533 /* star_on@2x.png */,
 				CEE1128F1771F01E00286908 /* star.png */,
@@ -348,6 +357,8 @@
 				CED7787717CF258500C8C1B1 /* FeedCell3.m */,
 				CED7787817CF258500C8C1B1 /* FeedCell4.h */,
 				CED7787917CF258500C8C1B1 /* FeedCell4.m */,
+				CED41E6317DB67720029B5D6 /* FeedHeaderCell.h */,
+				CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -368,6 +379,7 @@
 		CED8FE7C1750A2FF00867230 = {
 			isa = PBXGroup;
 			children = (
+				CEE7347517DB162A0071B564 /* Social.framework */,
 				CE90D12A175342CE009C5BD3 /* Resources */,
 				CED8FE8E1750A2FF00867230 /* KanjiMe */,
 				CED8FE871750A2FF00867230 /* Frameworks */,
@@ -540,6 +552,7 @@
 				CE73142F17D5DFEA002EF4F6 /* MyriadPro-Regular.otf in Resources */,
 				CE73143217D5E080002EF4F6 /* MyriadPro-BoldCond.otf in Resources */,
 				CE73143317D5E080002EF4F6 /* MyriadPro-Cond.otf in Resources */,
+				CEE7347817DB19390071B564 /* iTunesArtwork.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +602,7 @@
 				CED7788817CF258500C8C1B1 /* FeedController2.m in Sources */,
 				CED7788917CF258500C8C1B1 /* FeedController3.m in Sources */,
 				CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */,
+				CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

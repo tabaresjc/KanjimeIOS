@@ -50,6 +50,13 @@
 	<string>Kanji Me</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MyriadPro-Regular.otf</string>
+		<string>MyriadPro-Cond.otf</string>
+		<string>MyriadPro-BoldIt.otf</string>
+		<string>MyriadPro-BoldCond.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
 	<key>UIPrerenderedIcon</key>
@@ -57,13 +64,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>MyriadPro-Regular.otf</string>
-		<string>MyriadPro-Cond.otf</string>
-		<string>MyriadPro-BoldIt.otf</string>
-		<string>MyriadPro-BoldCond.otf</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>

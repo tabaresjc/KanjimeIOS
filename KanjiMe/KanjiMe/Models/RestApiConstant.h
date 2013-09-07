@@ -12,5 +12,6 @@
 #define API_ACCOUNT_SID @"0d7e95e1e1508a9d6f36a2a31c931b677229b97b"
 #define API_ACCOUNT_USERNAME @"admin"
 #define API_ENDPOINT_URL @"http://kanjime.learnjapanese123.com/"
+#define WEB_ENDPOINT_URL @"http://kanjime.learnjapanese123.com/"
 
 #endif

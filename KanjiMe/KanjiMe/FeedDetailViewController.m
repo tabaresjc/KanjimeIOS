@@ -7,9 +7,14 @@
 //
 
 #import "FeedDetailViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
 #import "RestApiHelpers.h"
+#import "RestApiConstant.h"
 #import "Collection.h"
 #import "FeedCell4.h"
+#import "FeedHeaderCell.h"
+
 
 @interface FeedDetailViewController ()
 @property (strong, nonatomic) NSArray *listOfNames;
@@ -51,6 +56,7 @@
     id data = [NSJSONSerialization JSONObjectWithData:[self.collection.body dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&e];
     
     self.listOfNames = [data valueForKeyPath:@"kanjiList"];
+    self.title = self.collection.title;
     //NSLog(@"%@",self.listOfNames);
 }
 
@@ -66,7 +72,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
     self.feedTableView.backgroundColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
     self.feedTableView.separatorColor = [UIColor clearColor];
@@ -83,56 +89,64 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.listOfNames count];
+    return section==0 ? 1 : [self.listOfNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FeedCell4* cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell4"];
-    NSDictionary *dataObject = [self.listOfNames objectAtIndex:indexPath.row];
-    
-    NSDictionary *attributes = [(NSAttributedString *)cell.kanjiLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
-    
-    // Set new text with extracted attributes
-    cell.kanjiLabel.attributedText = [[NSAttributedString alloc] initWithString:[dataObject objectForKey:@"kanji"] attributes:attributes];
-    NSString *meaning = [self returnString:[dataObject valueForKey:@"meaning"]];
-    NSString *kunyomi = [self returnString:[dataObject valueForKey:@"kunyomi"]];
-    NSString *onyomi = [self returnString:[dataObject valueForKey:@"onyomi"]];
-    
-    NSMutableAttributedString *lineOne = [self getString:@"Meaning:\r" withText:meaning];
-    cell.lineOne.attributedText = lineOne;
-    NSMutableAttributedString *lineTwo_One = [self getString:@"Kun-Yomi:\r" withText:kunyomi];
-    NSMutableAttributedString *lineTwo_Two = [self getString:@"On-Yomi:\r" withText:onyomi];
-    
-    int count = [kunyomi length] + [onyomi length] + 10 + 9;
-    NSString *spacing;
-    if(count > 200)
-        spacing = @"\r";
-    else if(count > 150)
-        spacing = @"\r\r";
-    else if(count > 100)
-        spacing = @"\r\r\r";
-    else if(count > 80)
-        spacing = @"\r\r\r\r";
-    else
-        spacing = @"\r\r\r\r\r\r";
-    
-    NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:spacing];
-    [lineTwo insertAttributedString:lineTwo_Two atIndex:0];
-    [lineTwo insertAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\r\r"] atIndex:0];
-    [lineTwo insertAttributedString:lineTwo_One atIndex:0];
-    
-    cell.lineTwo.attributedText = lineTwo;
-    cell.lineTwo.numberOfLines = 0;
-    
-    
-    return cell;
+    if(indexPath.section==0){
+        FeedHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCellHeader"];
+        
+        NSDictionary *subTitleAtributes = [cell.subTitleLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
+        
+        cell.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Kanji: %@",self.collection.subtitle] attributes:subTitleAtributes];
+        cell.subTitleLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Katakana: %@",self.collection.extraTitle] attributes:subTitleAtributes];
+        cell.likeButton.selected = self.collection.favorite;
+        
+        return cell;
+    } else {
+        FeedCell4* cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell4"];
+        NSDictionary *dataObject = [self.listOfNames objectAtIndex:indexPath.row];
+        
+        NSDictionary *attributes = [(NSAttributedString *)cell.kanjiLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
+        
+        // Set new text with extracted attributes
+        cell.kanjiLabel.attributedText = [[NSAttributedString alloc] initWithString:[dataObject objectForKey:@"kanji"] attributes:attributes];
+        NSString *meaning = [self returnString:[dataObject valueForKey:@"meaning"]];
+        NSString *kunyomi = [self returnString:[dataObject valueForKey:@"kunyomi"]];
+        NSString *onyomi = [self returnString:[dataObject valueForKey:@"onyomi"]];
+        
+        NSMutableAttributedString *lineOne = [self getString:@"Meaning:\r" withText:meaning];
+        cell.lineOne.attributedText = lineOne;
+        NSMutableAttributedString *lineTwo_One = [self getString:@"Kun-Yomi:\r" withText:kunyomi];
+        NSMutableAttributedString *lineTwo_Two = [self getString:@"On-Yomi:\r" withText:onyomi];
+        
+        NSString *spacing = @"\r\r\r\r\r";
+        NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:spacing];
+        [lineTwo insertAttributedString:lineTwo_Two atIndex:0];
+        [lineTwo insertAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\r\r"] atIndex:0];
+        [lineTwo insertAttributedString:lineTwo_One atIndex:0];
+        
+        cell.lineTwo.attributedText = lineTwo;
+        cell.lineTwo.lineBreakMode = NSLineBreakByClipping;
+        
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0) {
+        return 75.0f;
+    } else {
+        return 265.0f;
+    }
 }
 
 - (NSMutableAttributedString *)getString:(NSString *)title withText:(NSString *)text
@@ -187,56 +201,82 @@
     return [string substringWithRange:NSMakeRange(0, value)];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (IBAction)callLike:(UIButton *)sender {
+    self.collection.favorite = !self.collection.favorite;
+    sender.selected = self.collection.favorite;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (IBAction)callShareActionSheet:(id)sender {
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    [shareActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [shareActionSheet showInView:self.tabBarController.view];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    switch (buttonIndex) {
+        case 0:
+        {
+            [self shareToFacebook];
+        }
+            break;
+        case 1:
+        {
+            [self shareToTwitter];
+        }
+            break;
+        default:
+            break;
+    }
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)getCommonDescriptor
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return [NSString stringWithFormat:@"Check it out! The kanji for %@ is %@, Find yours at %@", self.collection.title, self.collection.subtitle, WEB_ENDPOINT_URL];
+    
 }
-*/
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)shareToFacebook
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:WEB_ENDPOINT_URL]
+                                     name:@"KanjiMe! iOS"
+                                  caption:@"KanjiMe!"
+                              description:[self getCommonDescriptor]
+                                  picture:[NSURL URLWithString:@"http://kanjime.learnjapanese123.com/img/iTunesArtwork.png"]
+                              clientState:nil
+                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                      if(error) {
+                                          NSLog(@"Error: %@", error.description);
+                                      } else {
+                                          NSLog(@"Success!");
+                                      }
+                                  }];
+    
+}
+
+
+- (void)shareToTwitter
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:[self getCommonDescriptor]];
+        
+        [tweetSheet addImage:[UIImage imageNamed:@"iTunesArtwork.png"]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Sorry"
+                                  message:@"You can't send a tweet right now, make sure"
+                                  "your device has an internet connection and you have"
+                                  "at least one Twitter account setup"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 @end
