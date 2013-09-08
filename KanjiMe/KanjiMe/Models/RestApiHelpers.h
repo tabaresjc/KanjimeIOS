@@ -19,4 +19,5 @@
 + (NSString *)getFormattedHtml:(NSString *)rawHtmlString;
 + (NSDictionary *)getDataFromJson:(NSString *)jsonString;
 + (NSString *)formatFields: (NSString *)content;
++ (void)setAlertMessage:(NSString *)message withTitle:(NSString *)title;
 @end

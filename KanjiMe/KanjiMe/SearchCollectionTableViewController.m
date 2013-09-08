@@ -192,6 +192,27 @@ static NSString *cellIdentifier = @"SearchResult";
     }
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        collection.favorite = NO;
+    }
+}
+
+
+- (IBAction)editButton:(UIBarButtonItem *)sender {
+    if( self.tableView.editing ){
+        [self.tableView setEditing:NO animated:YES];
+        sender.title = @"Edit";
+    }else{
+        [self.tableView setEditing:YES animated:YES];
+        sender.title = @"Cancel";
+    }
+}
+
+
+
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];

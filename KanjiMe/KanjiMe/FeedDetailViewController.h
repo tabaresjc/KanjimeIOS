@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import "GADBannerView.h"
 
-@interface FeedDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface FeedDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+    // Declare one as an instance variable
+    GADBannerView *bannerView_;
+}
 
 @property (nonatomic, weak) IBOutlet UITableView* feedTableView;
 - (void)setDetail:(id)newDetailItem withCell:(id)cell;

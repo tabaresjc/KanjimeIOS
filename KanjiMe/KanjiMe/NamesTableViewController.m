@@ -43,9 +43,13 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 {
     [super viewDidLoad];
     [self setStyle];
+
     [self.refreshControl addTarget:self
                             action:@selector(refresh)
                   forControlEvents:UIControlEventValueChanged];
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,6 +90,8 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Loading...";
+    
+    [self.tableView reloadData];
     
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     [apiFetcher getNames:10000
@@ -288,7 +294,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 }
 
 - (IBAction)callShareActionSheet:(id)sender {
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", @"Email", nil];
     [shareActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [shareActionSheet showInView:self.tabBarController.view];
 }
@@ -300,12 +306,17 @@ shouldReloadTableForSearchString:(NSString *)searchString
         {
             [self shareToFacebook];
         }
-        break;
+            break;
         case 1:
         {
             [self shareToTwitter];
         }
-        break;
+            break;
+        case 2:
+        {
+            [self shareByEmail];
+        }
+            break;
         default:
             break;
     }
@@ -357,5 +368,59 @@ shouldReloadTableForSearchString:(NSString *)searchString
         [alertView show];
     }
 }
+
+- (void)shareByEmail
+{
+    
+    // Email Subject
+    NSString *emailTitle = @"KanjiMe! iOS";
+    // Email Content
+    NSString *messageBody = [self getCommonDescriptor];
+    // To address
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    MBProgressHUD *emailMessageWindow = [MBProgressHUD showHUDAddedTo:self.view
+                                                             animated:YES];
+    emailMessageWindow.mode = MBProgressHUDModeIndeterminate;
+    emailMessageWindow.labelText = @"Sending message...";
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            emailMessageWindow.labelText = @"Cancelled";
+            break;
+        case MFMailComposeResultSaved:
+            emailMessageWindow.labelText = @"Saved";
+            break;
+        case MFMailComposeResultSent:
+            emailMessageWindow.labelText = @"Sent";
+            break;
+        case MFMailComposeResultFailed:
+            emailMessageWindow.labelText = @"Fail";
+            break;
+        default:
+            break;
+    }
+    // Close the Mail Interface
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NSThread sleepForTimeInterval:0.5];
+            [emailMessageWindow hide:YES];
+        });
+    }];
+}
+
 
 @end

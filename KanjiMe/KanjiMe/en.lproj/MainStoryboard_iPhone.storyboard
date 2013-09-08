@@ -101,7 +101,7 @@
                                     <outlet property="disclosureImageView" destination="SJg-8i-Q0Y" id="gRY-zG-PPO"/>
                                     <outlet property="subTitleLabel" destination="S3F-qh-s7Y" id="vXv-yh-HOv"/>
                                     <outlet property="titleLabel" destination="BVR-Fj-8c7" id="5fk-Wv-LXe"/>
-                                    <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
+                                    <segue destination="0a1-AF-Ixo" kind="push" identifier="showDetail" id="wZB-kX-5Zn"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchNameRow" textLabel="8xd-vA-4ql" detailTextLabel="Ld0-LA-N8K" rowHeight="45" style="IBUITableViewCellStyleSubtitle" id="lTh-mQ-B4x">
@@ -199,7 +199,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="21" kind="push" identifier="showSearchResult" id="sQI-Fo-1GO"/>
+                                    <segue destination="0a1-AF-Ixo" kind="push" identifier="showSearchResult" id="Nh4-Pm-rNo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -210,6 +210,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="C6r-ey-kZf">
                         <barButtonItem key="backBarButtonItem" title="Back" id="uny-1H-0Uh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Qcc-He-Zh6">
+                            <connections>
+                                <action selector="editButton:" destination="XkR-ab-hPn" id="MKD-em-CgW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="nCN-BJ-EyA" id="gFv-Xz-Y6U"/>
@@ -227,27 +232,49 @@
             </objects>
             <point key="canvasLocation" x="1008" y="810"/>
         </scene>
-        <!--Feed Detail View Controller - Detail-->
-        <scene sceneID="24">
+        <!--Feed Detail View Controller-->
+        <scene sceneID="k6I-h7-aGj">
             <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="FeedDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="left" id="22">
+                <tableViewController id="0a1-AF-Ixo" customClass="FeedDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="4X5-Be-HsG">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pLY-yt-39a">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCellHeader" rowHeight="75" id="Is1-1J-mMA" customClass="FeedHeaderCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="75"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AdBanner" rowHeight="50" id="BqK-ZC-RQQ" customClass="FeedCell4">
+                                <rect key="frame" x="0.0" y="22" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCellHeader" id="aJo-WH-1sq" customClass="FeedHeaderCell">
+                                <rect key="frame" x="0.0" y="72" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CN-4f-oLr">
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CN-4f-oLr">
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-Ax-tfx">
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="LQM-bh-cSl"/>
+                                                        <constraint firstAttribute="width" constant="50" id="MiG-fL-LZ5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                                    <state key="normal" image="star.png">
+                                                        <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="star_on.png"/>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUF-1k-hea">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="220" id="4BW-7G-WTP"/>
@@ -281,311 +308,283 @@
                                                     </attributedString>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-Ax-tfx">
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="LQM-bh-cSl"/>
-                                                        <constraint firstAttribute="width" constant="50" id="MiG-fL-LZ5"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                    <state key="normal" image="star.png">
-                                                        <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="selected" image="star_on.png"/>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="callLike:" destination="21" eventType="touchUpInside" id="Tsk-8j-Pn3"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="YUF-1k-hea" firstAttribute="top" secondItem="1CN-4f-oLr" secondAttribute="top" constant="6" id="4De-Wr-raC"/>
+                                                <constraint firstItem="YUF-1k-hea" firstAttribute="top" secondItem="OF5-Ax-tfx" secondAttribute="top" type="default" id="Bci-H9-x8C"/>
+                                                <constraint firstItem="yTx-nv-diB" firstAttribute="bottom" secondItem="OF5-Ax-tfx" secondAttribute="bottom" type="default" id="HzI-RY-NvG"/>
+                                                <constraint firstItem="YUF-1k-hea" firstAttribute="leading" secondItem="1CN-4f-oLr" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VuM-hy-zMi"/>
+                                                <constraint firstAttribute="trailing" secondItem="OF5-Ax-tfx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="axN-ea-cHB"/>
+                                                <constraint firstItem="yTx-nv-diB" firstAttribute="leading" secondItem="1CN-4f-oLr" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="buV-QJ-4ka"/>
+                                                <constraint firstItem="yTx-nv-diB" firstAttribute="trailing" secondItem="YUF-1k-hea" secondAttribute="trailing" type="default" id="eKh-wk-Cmh"/>
+                                            </constraints>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="1CN-4f-oLr" firstAttribute="leading" secondItem="Is1-1J-mMA" secondAttribute="leading" constant="9" id="1CC-Wn-Tpf"/>
-                                            <constraint firstAttribute="centerY" secondItem="1CN-4f-oLr" secondAttribute="centerY" type="user" id="2vl-67-aLR"/>
-                                            <constraint firstItem="YUF-1k-hea" firstAttribute="top" secondItem="OF5-Ax-tfx" secondAttribute="top" type="default" id="Apa-3k-ILv"/>
-                                            <constraint firstItem="YUF-1k-hea" firstAttribute="leading" secondItem="Is1-1J-mMA" secondAttribute="leading" constant="20" type="default" id="LK5-ED-9NG"/>
-                                            <constraint firstAttribute="trailing" secondItem="OF5-Ax-tfx" secondAttribute="trailing" constant="20" type="default" id="Zda-4s-FF8"/>
-                                            <constraint firstItem="1CN-4f-oLr" firstAttribute="top" secondItem="Is1-1J-mMA" secondAttribute="top" constant="7" id="eJP-fm-7Ht"/>
-                                            <constraint firstItem="yTx-nv-diB" firstAttribute="top" secondItem="Is1-1J-mMA" secondAttribute="top" constant="37" id="g9p-4h-qYc"/>
-                                            <constraint firstItem="1CN-4f-oLr" firstAttribute="centerX" secondItem="Is1-1J-mMA" secondAttribute="centerX" type="default" id="mhq-jz-UAX"/>
-                                            <constraint firstItem="YUF-1k-hea" firstAttribute="trailing" secondItem="yTx-nv-diB" secondAttribute="trailing" type="default" id="tEi-67-bOG"/>
-                                            <constraint firstItem="yTx-nv-diB" firstAttribute="leading" secondItem="Is1-1J-mMA" secondAttribute="leading" constant="20" type="default" id="vFw-Cq-L98"/>
-                                            <constraint firstAttribute="centerY" secondItem="OF5-Ax-tfx" secondAttribute="centerY" type="user" id="y2d-cM-A2Y"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="headerContainer" destination="1CN-4f-oLr" id="OVg-E0-7sA"/>
-                                            <outlet property="likeButton" destination="OF5-Ax-tfx" id="0tC-6U-Tbv"/>
-                                            <outlet property="subTitleLabel" destination="yTx-nv-diB" id="Q5N-Xh-yLj"/>
-                                            <outlet property="titleLabel" destination="YUF-1k-hea" id="YEW-Qg-qBT"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell4" rowHeight="265" id="13k-0i-GvF" customClass="FeedCell4">
-                                        <rect key="frame" x="0.0" y="97" width="320" height="265"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1CN-4f-oLr" secondAttribute="bottom" constant="5" id="C9A-jf-6S8"/>
+                                    <constraint firstItem="1CN-4f-oLr" firstAttribute="top" secondItem="aJo-WH-1sq" secondAttribute="top" constant="4" id="Dtk-ik-f3o"/>
+                                    <constraint firstItem="1CN-4f-oLr" firstAttribute="centerX" secondItem="aJo-WH-1sq" secondAttribute="centerX" type="default" id="HFS-bp-1L3"/>
+                                    <constraint firstItem="1CN-4f-oLr" firstAttribute="leading" secondItem="aJo-WH-1sq" secondAttribute="leading" constant="9" id="N1y-5J-Qbh"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="headerContainer" destination="1CN-4f-oLr" id="aC9-gd-HGd"/>
+                                    <outlet property="likeButton" destination="OF5-Ax-tfx" id="rqw-fR-Q9R"/>
+                                    <outlet property="subTitleLabel" destination="yTx-nv-diB" id="iNf-BS-r8D"/>
+                                    <outlet property="titleLabel" destination="YUF-1k-hea" id="AAm-lY-c85"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell4" rowHeight="265" id="13k-0i-GvF" customClass="FeedCell4">
+                                <rect key="frame" x="0.0" y="142" width="320" height="265"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-fB-Gzg">
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-fB-Gzg">
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="fi8-M4-i9V">
-                                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="70" id="3PP-mu-E8z"/>
-                                                                <constraint firstAttribute="height" constant="70" id="loz-NO-el3"/>
-                                                            </constraints>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="富">
-                                                                    <attributes>
-                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <font key="NSFont" size="45" name="HiraMinProN-W6"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="193" translatesAutoresizingMaskIntoConstraints="NO" id="vVU-ke-Bnt">
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="193" id="XhB-pQ-PyG"/>
-                                                            </constraints>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Meaning: the definition of the kanji">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="12" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="12" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8Pq-5w-OtY">
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="155" id="3m6-PU-NHV"/>
-                                                            </constraints>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Kun-Yomi:">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-BoldCond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="11" name="HiraKakuProN-W3"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="まも">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=".">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="る">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «mamo.ru», ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="まも">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=".">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="り">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «mamo.ri», ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="もり">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «mori», ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="もり">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «mori», ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="かみ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «kami»">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="  ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="11" name="LucidaGrande"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="On-Yomi:">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-BoldCond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-BoldCond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="11" name="HiraKakuProN-W3"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="シュ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «shu», ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="ス">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" «su»        ">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="fi8-M4-i9V">
+                                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="vVU-ke-Bnt" firstAttribute="top" secondItem="fi8-M4-i9V" secondAttribute="top" type="default" id="5dI-2Z-GME"/>
-                                                        <constraint firstItem="8Pq-5w-OtY" firstAttribute="top" secondItem="QK7-fB-Gzg" secondAttribute="top" constant="85" id="Im7-T3-5tw"/>
-                                                        <constraint firstItem="8Pq-5w-OtY" firstAttribute="centerX" secondItem="QK7-fB-Gzg" secondAttribute="centerX" type="default" id="ZzG-ez-00h"/>
-                                                        <constraint firstItem="vVU-ke-Bnt" firstAttribute="leading" secondItem="fi8-M4-i9V" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aQS-t1-qbF"/>
-                                                        <constraint firstItem="8Pq-5w-OtY" firstAttribute="leading" secondItem="fi8-M4-i9V" secondAttribute="leading" type="default" id="dqJ-Q0-e3t"/>
-                                                        <constraint firstAttribute="trailing" secondItem="vVU-ke-Bnt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="g02-sU-mNs"/>
-                                                        <constraint firstItem="fi8-M4-i9V" firstAttribute="top" secondItem="QK7-fB-Gzg" secondAttribute="top" constant="9" id="j22-U7-UH5"/>
-                                                        <constraint firstItem="fi8-M4-i9V" firstAttribute="bottom" secondItem="vVU-ke-Bnt" secondAttribute="bottom" type="default" id="mt2-Wo-9ya"/>
+                                                        <constraint firstAttribute="width" constant="70" id="3PP-mu-E8z"/>
+                                                        <constraint firstAttribute="height" constant="70" id="loz-NO-el3"/>
                                                     </constraints>
-                                                </view>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="富">
+                                                            <attributes>
+                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="45" name="HiraMinProN-W6"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="193" translatesAutoresizingMaskIntoConstraints="NO" id="vVU-ke-Bnt">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="193" id="XhB-pQ-PyG"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Meaning: the definition of the kanji">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="12" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8Pq-5w-OtY">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="155" id="3m6-PU-NHV"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Kun-Yomi:">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-BoldCond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="11" name="HiraKakuProN-W3"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="まも">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=".">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="る">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «mamo.ru», ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="まも">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=".">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="り">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «mamo.ri», ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="もり">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «mori», ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="もり">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «mori», ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="かみ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «kami»">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="  ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="On-Yomi:">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-BoldCond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-BoldCond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="11" name="HiraKakuProN-W3"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="シュ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «shu», ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="ス">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" «su»        ">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                                <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="vVU-ke-Bnt" firstAttribute="top" secondItem="fi8-M4-i9V" secondAttribute="top" type="default" id="5dI-2Z-GME"/>
+                                                <constraint firstItem="8Pq-5w-OtY" firstAttribute="top" secondItem="QK7-fB-Gzg" secondAttribute="top" constant="85" id="Im7-T3-5tw"/>
+                                                <constraint firstItem="8Pq-5w-OtY" firstAttribute="centerX" secondItem="QK7-fB-Gzg" secondAttribute="centerX" type="default" id="ZzG-ez-00h"/>
+                                                <constraint firstItem="vVU-ke-Bnt" firstAttribute="leading" secondItem="fi8-M4-i9V" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aQS-t1-qbF"/>
+                                                <constraint firstItem="8Pq-5w-OtY" firstAttribute="leading" secondItem="fi8-M4-i9V" secondAttribute="leading" type="default" id="dqJ-Q0-e3t"/>
+                                                <constraint firstAttribute="trailing" secondItem="vVU-ke-Bnt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="g02-sU-mNs"/>
+                                                <constraint firstItem="fi8-M4-i9V" firstAttribute="top" secondItem="QK7-fB-Gzg" secondAttribute="top" constant="9" id="j22-U7-UH5"/>
+                                                <constraint firstItem="fi8-M4-i9V" firstAttribute="bottom" secondItem="vVU-ke-Bnt" secondAttribute="bottom" type="default" id="mt2-Wo-9ya"/>
+                                            </constraints>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="QK7-fB-Gzg" secondAttribute="bottom" constant="9" id="EdG-xu-aA4"/>
-                                            <constraint firstItem="QK7-fB-Gzg" firstAttribute="leading" secondItem="13k-0i-GvF" secondAttribute="leading" constant="9" id="Uc5-oZ-gjd"/>
-                                            <constraint firstItem="QK7-fB-Gzg" firstAttribute="top" secondItem="13k-0i-GvF" secondAttribute="top" constant="1" id="W7s-f8-Oe0"/>
-                                            <constraint firstItem="QK7-fB-Gzg" firstAttribute="centerX" secondItem="13k-0i-GvF" secondAttribute="centerX" type="default" id="uEe-Db-h68"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="feedContainer" destination="QK7-fB-Gzg" id="uy7-fy-ma4"/>
-                                            <outlet property="kanjiLabel" destination="fi8-M4-i9V" id="A8N-mI-3KR"/>
-                                            <outlet property="lineOne" destination="vVU-ke-Bnt" id="dRh-vb-Say"/>
-                                            <outlet property="lineTwo" destination="8Pq-5w-OtY" id="8T2-f4-GZm"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="pLY-yt-39a" firstAttribute="top" secondItem="22" secondAttribute="top" constant="-2" type="user" id="MdP-OW-dLD"/>
-                            <constraint firstItem="pLY-yt-39a" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="Yih-VI-QSB"/>
-                            <constraint firstItem="pLY-yt-39a" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="xRx-1F-uPx"/>
-                            <constraint firstItem="pLY-yt-39a" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="yiE-R7-4X6"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Like" image="star.png" id="voY-q7-MyZ"/>
-                    <navigationItem key="navigationItem" id="26">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="z9I-df-fax"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="QaY-5N-Ylm">
-                            <connections>
-                                <action selector="callShareActionSheet:" destination="21" id="DjD-US-fqJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QK7-fB-Gzg" secondAttribute="bottom" constant="9" id="EdG-xu-aA4"/>
+                                    <constraint firstItem="QK7-fB-Gzg" firstAttribute="leading" secondItem="13k-0i-GvF" secondAttribute="leading" constant="9" id="Uc5-oZ-gjd"/>
+                                    <constraint firstItem="QK7-fB-Gzg" firstAttribute="top" secondItem="13k-0i-GvF" secondAttribute="top" constant="1" id="W7s-f8-Oe0"/>
+                                    <constraint firstItem="QK7-fB-Gzg" firstAttribute="centerX" secondItem="13k-0i-GvF" secondAttribute="centerX" type="default" id="uEe-Db-h68"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="feedContainer" destination="QK7-fB-Gzg" id="uy7-fy-ma4"/>
+                                    <outlet property="kanjiLabel" destination="fi8-M4-i9V" id="A8N-mI-3KR"/>
+                                    <outlet property="lineOne" destination="vVU-ke-Bnt" id="dRh-vb-Say"/>
+                                    <outlet property="lineTwo" destination="8Pq-5w-OtY" id="8T2-f4-GZm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0a1-AF-Ixo" id="6h5-y6-rTm"/>
+                            <outlet property="delegate" destination="0a1-AF-Ixo" id="tp1-Yb-DBp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="QKF-Cs-FdV"/>
                     <connections>
-                        <outlet property="feedTableView" destination="pLY-yt-39a" id="oIS-if-IkZ"/>
+                        <outlet property="feedTableView" destination="4X5-Be-HsG" id="W2a-Wi-zrz"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M4n-1P-TFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1471" y="96"/>
+            <point key="canvasLocation" x="1639" y="96"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="B8U-4s-es1">
@@ -646,7 +645,7 @@
                 <relationship kind="outlet" name="lineTwo" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="FeedDetailViewController" superclassName="UIViewController">
+        <class className="FeedDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedDetailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="feedTableView" candidateClass="UITableView"/>
@@ -690,6 +689,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jZb-fq-zAk"/>
+        <segue reference="wZB-kX-5Zn"/>
     </inferredMetricsTieBreakers>
 </document>
