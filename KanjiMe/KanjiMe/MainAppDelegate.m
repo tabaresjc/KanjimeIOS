@@ -30,7 +30,15 @@
     //[searchBarAppearance setBackgroundImage:navBarImage];
     //[searchBarAppearance setBackgroundColor:[UIColor blackColor]];
     
-    [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];    
+    [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];
+    //UIImage *barButton = [[UIImage tallImageNamed:@"menubar-clear.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    
+    //[[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    
+    //UIImage *backButton = [[UIImage tallImageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    
+    //[[UIBarButtonItem appearance] setBackButtonBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
     UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
     UIImage *maxImage = [UIImage tallImageNamed:@"ipad-slider-track.png"];
     UIImage *thumbImage = [UIImage tallImageNamed:@"ipad-slider-handle.png"];

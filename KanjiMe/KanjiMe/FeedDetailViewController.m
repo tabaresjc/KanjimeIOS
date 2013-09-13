@@ -17,11 +17,13 @@
 #import "MBProgressHUD.h"
 
 @interface FeedDetailViewController ()
+
 @property (strong, nonatomic) NSArray *listOfNames;
 @property (strong, nonatomic) Collection *collection;
 @property (strong, nonatomic) UIFont *fontForTitle;
 @property (strong, nonatomic) UIFont *fontForText;
 @property (strong, nonatomic) UIFont *fontForRemark;
+
 @end
 
 @implementation FeedDetailViewController
@@ -73,29 +75,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Create a view of the standard size at the top of the screen.
-    // Available AdSize constants are explained in GADAdSize.h.
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    
-    // Specify the ad's "unit identifier". This is your AdMob Publisher ID.
-    bannerView_.adUnitID = @"ca-app-pub-9096893656708907/5942382873";
-    
-    // Let the runtime know which UIViewController to restore after taking
-    // the user wherever the ad goes and add it to the view hierarchy.
-    bannerView_.rootViewController = self;
-    [self.view addSubview:bannerView_];
-    
-    
-    GADRequest *request = [GADRequest request];
-    request.testDevices = [NSArray arrayWithObjects:@"2be07610ffc77e998855454a203a7b3a", nil];
-    // Initiate a generic request to load it with an ad.
-    [bannerView_ loadRequest:request];
-    
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
     self.feedTableView.backgroundColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
     self.feedTableView.separatorColor = [UIColor clearColor];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,24 +89,42 @@
 
 #pragma mark - Table view data source
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if(section==0){
+        // Create a view of the standard size at the top of the screen.
+        // Available AdSize constants are explained in GADAdSize.h.
+        if(!bannerView_){
+            // Create a view of the standard size at the top of the screen.
+            // Available AdSize constants are explained in GADAdSize.h.
+            bannerView_ = [AdMobLoader getNewBannerView:self];
+            // Initiate a generic request to load it with an ad.
+            [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
+        }
+        return bannerView_;
+    } else {
+        return nil;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return section==0 ? 55.0f : 0.0f;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return section!=2 ? 1 : [self.listOfNames count];
+    return section==0 ? 1 : [self.listOfNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section==0){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AdBanner"];
-        return cell;
-    } else if(indexPath.section==1){
         FeedHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCellHeader"];
         
         NSDictionary *subTitleAtributes = [cell.subTitleLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
@@ -165,13 +166,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0) {
-        return 55.0f;
-    } else if(indexPath.section==1) {
-        return 75.0f;
-    } else {
-        return 265.0f;
-    }
+    return indexPath.section==0 ? 75.0f : 265.0f;
 }
 
 - (NSMutableAttributedString *)getString:(NSString *)title withText:(NSString *)text

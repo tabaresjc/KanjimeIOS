@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="tGQ-JG-gXR">
+                        <searchBar key="tableHeaderView" contentMode="scaleToFill" id="tGQ-JG-gXR">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -166,6 +166,11 @@
                         <outlet property="searchResultsDelegate" destination="12" id="CFg-rk-0b9"/>
                     </connections>
                 </searchDisplayController>
+                <view contentMode="scaleToFill" id="gc2-P1-TMI">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1008" y="96"/>
         </scene>
@@ -274,6 +279,9 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="callLike:" destination="0a1-AF-Ixo" eventType="touchUpInside" id="9Xt-cU-5A0"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUF-1k-hea">
                                                     <constraints>
@@ -577,7 +585,13 @@
                             <outlet property="delegate" destination="0a1-AF-Ixo" id="tp1-Yb-DBp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QKF-Cs-FdV"/>
+                    <navigationItem key="navigationItem" id="QKF-Cs-FdV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RaS-SX-yvr">
+                            <connections>
+                                <action selector="callShareActionSheet:" destination="0a1-AF-Ixo" id="fl0-bN-eRd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="feedTableView" destination="4X5-Be-HsG" id="W2a-Wi-zrz"/>
                     </connections>

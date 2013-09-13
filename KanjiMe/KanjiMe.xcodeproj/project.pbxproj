@@ -49,6 +49,7 @@
 		CED21C501761D1C300D07491 /* ipad-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */; };
 		CED21C531761D20800D07491 /* ipad-BG-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C511761D20800D07491 /* ipad-BG-pattern.png */; };
 		CED21C541761D20800D07491 /* ipad-BG-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */; };
+		CED38DDF17E33DDC0057EB3F /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */; };
 		CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */; };
 		CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787317CF258500C8C1B1 /* FeedCell1.m */; };
 		CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787517CF258500C8C1B1 /* FeedCell2.m */; };
@@ -76,6 +77,8 @@
 		CEDDD08B17DC1176008FF32E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDDD08A17DC1176008FF32E /* AudioToolbox.framework */; };
 		CEDDD08D17DC118D008FF32E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDDD08C17DC118C008FF32E /* CoreGraphics.framework */; };
 		CEDDD08F17DC11A6008FF32E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDDD08E17DC11A6008FF32E /* AdSupport.framework */; };
+		CEDEDB1017DC5D940049F78C /* menubar-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDEDB0E17DC5D940049F78C /* menubar-clear.png */; };
+		CEDEDB1117DC5D940049F78C /* menubar-clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDEDB0F17DC5D940049F78C /* menubar-clear@2x.png */; };
 		CEE112911771F01E00286908 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE1128F1771F01E00286908 /* star.png */; };
 		CEE112921771F01E00286908 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE112901771F01E00286908 /* star@2x.png */; };
 		CEE13AE417BCDE5400E65DF1 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE13ADA17BCDE5400E65DF1 /* Name.m */; };
@@ -140,6 +143,8 @@
 		CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-arrow@2x.png"; sourceTree = "<group>"; };
 		CED21C511761D20800D07491 /* ipad-BG-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern.png"; sourceTree = "<group>"; };
 		CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern@2x.png"; sourceTree = "<group>"; };
+		CED38DDD17E33DDC0057EB3F /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobLoader.h; sourceTree = "<group>"; };
+		CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobLoader.m; sourceTree = "<group>"; };
 		CED41E6317DB67720029B5D6 /* FeedHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedHeaderCell.h; sourceTree = "<group>"; };
 		CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedHeaderCell.m; sourceTree = "<group>"; };
 		CED7787217CF258500C8C1B1 /* FeedCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell1.h; sourceTree = "<group>"; };
@@ -189,6 +194,8 @@
 		CEDDD08A17DC1176008FF32E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEDDD08C17DC118C008FF32E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CEDDD08E17DC11A6008FF32E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CEDEDB0E17DC5D940049F78C /* menubar-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-clear.png"; sourceTree = "<group>"; };
+		CEDEDB0F17DC5D940049F78C /* menubar-clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-clear@2x.png"; sourceTree = "<group>"; };
 		CEE1128F1771F01E00286908 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		CEE112901771F01E00286908 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		CEE13AD917BCDE5400E65DF1 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Name.h; path = Models/Name.h; sourceTree = "<group>"; };
@@ -292,6 +299,8 @@
 		CE90D12A175342CE009C5BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEDEDB0E17DC5D940049F78C /* menubar-clear.png */,
+				CEDEDB0F17DC5D940049F78C /* menubar-clear@2x.png */,
 				CEE7347717DB19390071B564 /* iTunesArtwork.png */,
 				CEF0CED617CEF2EE00B24533 /* star_on.png */,
 				CEF0CED717CEF2EE00B24533 /* star_on@2x.png */,
@@ -471,6 +480,8 @@
 			children = (
 				CE00D9C117BE19D900136CDA /* CoreDataModel */,
 				CED9BEB117B7D52200E9FF59 /* RestApiFetcher */,
+				CED38DDD17E33DDC0057EB3F /* AdMobLoader.h */,
+				CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -602,6 +613,8 @@
 				CE73143317D5E080002EF4F6 /* MyriadPro-Cond.otf in Resources */,
 				CEE7347817DB19390071B564 /* iTunesArtwork.png in Resources */,
 				CEDDD08717DC1128008FF32E /* README.txt in Resources */,
+				CEDEDB1017DC5D940049F78C /* menubar-clear.png in Resources */,
+				CEDEDB1117DC5D940049F78C /* menubar-clear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +664,7 @@
 				CED7788917CF258500C8C1B1 /* FeedController3.m in Sources */,
 				CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */,
 				CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */,
+				CED38DDF17E33DDC0057EB3F /* AdMobLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

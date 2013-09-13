@@ -8,12 +8,13 @@
 
 #import "CoreDataTableViewController.h"
 #import <MessageUI/MessageUI.h>
-#import "GADBannerView.h"
+#import "AdMobLoader.h"
 
-@interface NamesTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface NamesTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UITabBarDelegate> {
     // Declare one as an instance variable
     GADBannerView *bannerView_;
 }
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @end

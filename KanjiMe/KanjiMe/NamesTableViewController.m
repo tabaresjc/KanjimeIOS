@@ -23,12 +23,12 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 @interface NamesTableViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *filteredNames;
-
+@property BOOL setView;
 
 @end
 
 @implementation NamesTableViewController
-@synthesize filteredNames;
+@synthesize filteredNames, setView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,25 +41,45 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     [self setStyle];
-
+    [self.tableView setContentInset:UIEdgeInsetsMake(50,0,0,0)];
+    /*
+     UIViewController *shareViewController = [[UIViewController alloc] init];
+     shareViewController.tabBarItem.title = @"Share";
+     shareViewController.tabBarItem.image = [UIImage imageNamed:@"search.png"];
+     
+     NSMutableArray * vcs = [NSMutableArray
+     arrayWithArray:[self.tabBarController viewControllers]];
+     [vcs addObject:shareViewController];
+     [self.tabBarController setViewControllers:vcs];
+     */
+    
+    [super viewDidLoad];
+    if (!self.managedObjectContext) {
+        [self useDocument];
+    } else {
+        [self refresh];
+    }
+    // Create a view of the standard size at the top of the screen.
+    // Available AdSize constants are explained in GADAdSize.h.
+    bannerView_ = [AdMobLoader getNewBannerView:self];
+    
+    // Let the runtime know which UIViewController to restore after taking
+    // the user wherever the ad goes and add it to the view hierarchy.
+    
+    [self.view addSubview:bannerView_];
+    
+    CGRect banFrame = bannerView_.frame;
+    banFrame.origin.y = -50;
+    [bannerView_ setFrame:banFrame];
+    
+    // Initiate a generic request to load it with an ad.
+    [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
+    
     [self.refreshControl addTarget:self
                             action:@selector(refresh)
                   forControlEvents:UIControlEventValueChanged];
-    
-    
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    if (!self.managedObjectContext) {
-        [self useDocument];
-    }
-
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,17 +102,16 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     [self.view setBackgroundColor:MAIN_BACK_COLOR];
     //UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
     //self.tableView.contentInset = inset;
-
 }
 
-- (IBAction)refresh
+- (void)refresh
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Loading...";
     
-    [self.tableView reloadData];
-    
+    [self.tableView reloadData];    
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     [apiFetcher getNames:10000
                 startingPoint:1
@@ -186,6 +205,37 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 }
 
 #pragma mark - UITableViewDataSource
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *uview = nil;
+    
+//    if(section==0 && tableView != self.searchDisplayController.searchResultsTableView){
+//        // Create a view of the standard size at the top of the screen.
+//        // Available AdSize constants are explained in GADAdSize.h.
+//        if(!bannerView_) {
+//            bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+//            
+//            // Specify the ad's "unit identifier". This is your AdMob Publisher ID.
+//            bannerView_.adUnitID = ADMOB_ID;
+//            
+//            // Let the runtime know which UIViewController to restore after taking
+//            // the user wherever the ad goes and add it to the view hierarchy.
+//            bannerView_.rootViewController = self;
+//            
+//            GADRequest *request = [GADRequest request];
+//            //request.testDevices = [NSArray arrayWithObjects:@"2be07610ffc77e998855454a203a7b3a", nil];
+//            // Initiate a generic request to load it with an ad.
+//            [bannerView_ loadRequest:request];
+//        }
+//        return bannerView_;
+//    }
+    return uview;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return section==0 && tableView != self.searchDisplayController.searchResultsTableView ? 0.0f : 0.0f;
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
