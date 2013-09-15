@@ -50,6 +50,10 @@
 		CED21C531761D20800D07491 /* ipad-BG-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C511761D20800D07491 /* ipad-BG-pattern.png */; };
 		CED21C541761D20800D07491 /* ipad-BG-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */; };
 		CED38DDF17E33DDC0057EB3F /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */; };
+		CED38DF817E3540C0057EB3F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = CED38DF617E3540C0057EB3F /* facebook.png */; };
+		CED38DF917E3540C0057EB3F /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED38DF717E3540C0057EB3F /* facebook@2x.png */; };
+		CED38DFC17E3541A0057EB3F /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CED38DFA17E3541A0057EB3F /* twitter.png */; };
+		CED38DFD17E3541A0057EB3F /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED38DFB17E3541A0057EB3F /* twitter@2x.png */; };
 		CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */; };
 		CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787317CF258500C8C1B1 /* FeedCell1.m */; };
 		CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787517CF258500C8C1B1 /* FeedCell2.m */; };
@@ -145,6 +149,10 @@
 		CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern@2x.png"; sourceTree = "<group>"; };
 		CED38DDD17E33DDC0057EB3F /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobLoader.h; sourceTree = "<group>"; };
 		CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobLoader.m; sourceTree = "<group>"; };
+		CED38DF617E3540C0057EB3F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		CED38DF717E3540C0057EB3F /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		CED38DFA17E3541A0057EB3F /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		CED38DFB17E3541A0057EB3F /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 		CED41E6317DB67720029B5D6 /* FeedHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedHeaderCell.h; sourceTree = "<group>"; };
 		CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedHeaderCell.m; sourceTree = "<group>"; };
 		CED7787217CF258500C8C1B1 /* FeedCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell1.h; sourceTree = "<group>"; };
@@ -299,6 +307,10 @@
 		CE90D12A175342CE009C5BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CED38DFA17E3541A0057EB3F /* twitter.png */,
+				CED38DFB17E3541A0057EB3F /* twitter@2x.png */,
+				CED38DF617E3540C0057EB3F /* facebook.png */,
+				CED38DF717E3540C0057EB3F /* facebook@2x.png */,
 				CEDEDB0E17DC5D940049F78C /* menubar-clear.png */,
 				CEDEDB0F17DC5D940049F78C /* menubar-clear@2x.png */,
 				CEE7347717DB19390071B564 /* iTunesArtwork.png */,
@@ -615,6 +627,10 @@
 				CEDDD08717DC1128008FF32E /* README.txt in Resources */,
 				CEDEDB1017DC5D940049F78C /* menubar-clear.png in Resources */,
 				CEDEDB1117DC5D940049F78C /* menubar-clear@2x.png in Resources */,
+				CED38DF817E3540C0057EB3F /* facebook.png in Resources */,
+				CED38DF917E3540C0057EB3F /* facebook@2x.png in Resources */,
+				CED38DFC17E3541A0057EB3F /* twitter.png in Resources */,
+				CED38DFD17E3541A0057EB3F /* twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

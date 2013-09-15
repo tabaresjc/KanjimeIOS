@@ -18,6 +18,7 @@
 #import "SearchCollectionTableViewController.h"
 #import "MBProgressHUD.h"
 
+
 static NSString *cellIdentifier = @"NameRow";
 static NSString *searchCellIdentifier = @"SearchNameRow";
 
@@ -41,9 +42,10 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    self.tabBarController.delegate = self;
     [self setStyle];
-    [self.tableView setContentInset:UIEdgeInsetsMake(50,0,0,0)];
+    
     /*
      UIViewController *shareViewController = [[UIViewController alloc] init];
      shareViewController.tabBarItem.title = @"Share";
@@ -61,6 +63,8 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     } else {
         [self refresh];
     }
+    
+    
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
     bannerView_ = [AdMobLoader getNewBannerView:self];
@@ -73,14 +77,16 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     CGRect banFrame = bannerView_.frame;
     banFrame.origin.y = -50;
     [bannerView_ setFrame:banFrame];
-    
     // Initiate a generic request to load it with an ad.
     [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
     
     [self.refreshControl addTarget:self
                             action:@selector(refresh)
                   forControlEvents:UIControlEventValueChanged];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,8 +106,9 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 - (void)setStyle
 {
     [self.view setBackgroundColor:MAIN_BACK_COLOR];
-    //UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
-    //self.tableView.contentInset = inset;
+    UIEdgeInsets inset = UIEdgeInsetsMake(50, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    self.tableView.contentOffset = CGPointMake(0.0f, -50.0f);
 }
 
 - (void)refresh
@@ -471,6 +478,36 @@ shouldReloadTableForSearchString:(NSString *)searchString
         });
     }];
 }
+
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    switch (viewController.tabBarItem.tag) {
+        case 3:
+        {
+            if(appDelegate.collection){
+                [appDelegate.collection shareToFacebook];
+            } else {
+                [self shareToFacebook];
+            }
+            return NO;
+        }
+        case 4:
+        {
+            if(appDelegate.collection){
+                [appDelegate.collection shareToTwitter:self];
+            } else {
+                [self shareToTwitter];
+            }
+            return NO;
+        }
+        default:
+            return YES;
+    }
+}
+
 
 
 @end

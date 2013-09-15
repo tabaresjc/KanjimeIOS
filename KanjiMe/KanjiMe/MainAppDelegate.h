@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Collection.h"
 
 @interface MainAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) Collection *collection;
+
 @end

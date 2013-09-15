@@ -8,7 +8,7 @@
         <scene sceneID="11">
             <objects>
                 <navigationController id="3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home.png" id="ux8-5V-JAZ"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="home.png" id="ux8-5V-JAZ"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,11 +134,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kanji Me!" id="36">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dIx-36-mk1"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="hgk-Gt-9bd">
-                            <connections>
-                                <action selector="callShareActionSheet:" destination="12" id="VuM-Pb-y5L"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="tXi-yw-ROR">
                         <autoresizingMask key="autoresizingMask"/>
@@ -614,6 +609,8 @@
                     <connections>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="McJ-UD-NaG"/>
                         <segue destination="hds-DZ-9PA" kind="relationship" relationship="viewControllers" id="MuU-3o-VTP"/>
+                        <segue destination="R0f-dl-zMS" kind="relationship" relationship="viewControllers" id="oHw-oP-9MQ"/>
+                        <segue destination="WnL-Bm-vZg" kind="relationship" relationship="viewControllers" id="hhO-Pa-8EZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBc-fq-MJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -624,7 +621,7 @@
         <scene sceneID="QeE-Sz-3kZ">
             <objects>
                 <navigationController id="hds-DZ-9PA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="opY-Em-JVU"/>
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="favorites" id="opY-Em-JVU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t89-oV-hLj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -639,12 +636,44 @@
             </objects>
             <point key="canvasLocation" x="547" y="810"/>
         </scene>
+        <!--View Controller - Twitter-->
+        <scene sceneID="LoE-mI-2b7">
+            <objects>
+                <viewController id="WnL-Bm-vZg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3TF-X3-rgL">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="4" title="Twitter" image="twitter.png" id="h8C-yO-cSW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQa-AL-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="2143"/>
+        </scene>
+        <!--View Controller - Facebook-->
+        <scene sceneID="wXA-N8-0kb">
+            <objects>
+                <viewController id="R0f-dl-zMS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TXg-8J-eQh">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="3" title="Facebook" image="facebook.png" id="rg4-mx-YnA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gc-mG-cUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="547" y="1471"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="facebook.png" width="32" height="32"/>
         <image name="home.png" width="24" height="24"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
         <image name="star.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
+        <image name="twitter.png" width="32" height="32"/>
     </resources>
     <classes>
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
@@ -679,6 +708,9 @@
         </class>
         <class className="NamesTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callShareActionSheet:"/>
+            </relationships>
         </class>
         <class className="SearchCollectionTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchCollectionTableViewController.h"/>

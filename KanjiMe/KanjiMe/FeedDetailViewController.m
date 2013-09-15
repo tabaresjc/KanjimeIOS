@@ -15,6 +15,7 @@
 #import "FeedCell4.h"
 #import "FeedHeaderCell.h"
 #import "MBProgressHUD.h"
+#import "MainAppDelegate.h"
 
 @interface FeedDetailViewController ()
 
@@ -79,6 +80,18 @@
     self.feedTableView.dataSource = self;
     self.feedTableView.backgroundColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
     self.feedTableView.separatorColor = [UIColor clearColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.collection = self.collection;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.collection = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -255,57 +268,23 @@
     }
 }
 
-- (NSString *)getCommonDescriptor
-{
-    return [NSString stringWithFormat:@"Check it out! The kanji for %@ is %@, Find yours at %@", self.collection.title, self.collection.subtitle, WEB_ENDPOINT_URL];
-    
-}
-
 - (void)shareToFacebook
 {
-    [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:WEB_ENDPOINT_URL]
-                                     name:@"KanjiMe! iOS"
-                                  caption:@"KanjiMe!"
-                              description:[self getCommonDescriptor]
-                                  picture:[NSURL URLWithString:@"http://kanjime.learnjapanese123.com/img/iTunesArtwork.png"]
-                              clientState:nil
-                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-                                      if(error) {
-                                          NSLog(@"Error: %@", error.description);
-                                      } else {
-                                          NSLog(@"Success!");
-                                      }
-                                  }];
-    
+    [self.collection shareToFacebook];
 }
 
 
 - (void)shareToTwitter
 {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:[self getCommonDescriptor]];
-        
-        [tweetSheet addImage:[UIImage imageNamed:@"iTunesArtwork.png"]];
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-    }
-    else
-    {
-        [RestApiHelpers setAlertMessage:@"You can't send a tweet right now, make sure"
-         "your device has an internet connection and you have"
-         "at least one Twitter account setup"
-                    withTitle:@"Sorry"];
-    }
+    [self.collection shareToTwitter:self];
 }
 
 - (void)shareByEmail
 {
-  
     // Email Subject
     NSString *emailTitle = @"KanjiMe! iOS";
     // Email Content
-    NSString *messageBody = [self getCommonDescriptor];
+    NSString *messageBody = [self.collection getCommonDescriptor];
     // To address
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
@@ -315,8 +294,6 @@
         
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
-    
-
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
