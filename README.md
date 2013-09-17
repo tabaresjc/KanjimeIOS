@@ -3,9 +3,7 @@ KanjiMe!
 
 [![KanjiMe](http://kanjime.learnjapanese123.com/ico/icon-114.png)](http://kanjime.learnjapanese123.com)
 
-KanjiMe is an iOS
-
-The KanjiMe is an aplication targeted for fans of the Japanese Language & Culture that would like to know how their names could be converted to Japanese Kanji. 
+KanjiMe is an iOS Aplication targeted for fans of the Japanese Language & Culture that would like to know how their names could be converted to Japanese Kanji. 
 
 Also the fans will be able to request their names to be converted and to be published along with hundreds of names that are already converted.
 
@@ -15,6 +13,9 @@ Technical resources
 * HTTP Authentication 
 * MVC Pattern
 * jSON / XML
+* Share with Facebook/Twitter & Google+
+* Integration with Paypal SDK
+* Integration with Admob SDK
 
 
 Some Links
