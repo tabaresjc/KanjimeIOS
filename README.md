@@ -10,8 +10,9 @@ Also the fans will be able to request their names to be converted and to be publ
 Technical resources
 -------------------
 * Fetch data from RestFul WebService created with CakePhp
-* HTTP Authentication 
+* HTTP Authentication
 * MVC Pattern
+* Core Data
 * jSON / XML
 * Share with Facebook/Twitter & Google+
 * Integration with Paypal SDK
