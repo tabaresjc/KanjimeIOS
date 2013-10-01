@@ -4,6 +4,257 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller - Credits-->
+        <scene sceneID="wUd-0R-ADo">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="7by-l6-wgi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Credits" image="info.png" id="w6G-HL-Hrz"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gRa-sg-5Uf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="m0Y-bS-Nsq" kind="relationship" relationship="rootViewController" id="4HL-I9-tvv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5LA-fz-LeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="-617"/>
+        </scene>
+        <!--Credits View Controller-->
+        <scene sceneID="l2z-9w-IUr">
+            <objects>
+                <viewController id="m0Y-bS-Nsq" customClass="CreditsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ip8-Ld-OSb">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXo-am-iqB">
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tl-Lq-qxp">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="facebook_color_48.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendToWebView:" destination="m0Y-bS-Nsq" eventType="touchUpInside" id="zP9-Xv-NCx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJg-PF-MiC">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="twitter_color_48.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendToWebView:" destination="m0Y-bS-Nsq" eventType="touchUpInside" id="VG7-Ex-Ei9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpk-SS-sDH">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="youtube_color_48.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendToWebView:" destination="m0Y-bS-Nsq" eventType="touchUpInside" id="yrw-yt-8RZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-4L-zSg">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="learnjapaneselogo_48.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendToWebView:" destination="m0Y-bS-Nsq" eventType="touchUpInside" id="sV3-HC-D0Z"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caD-DE-ezX">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="KwN-Ku-xUP"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Content Provided by">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="18" name="MyriadPro-BoldCond"/>
+                                                    <font key="NSOriginalFont" size="18" name="MyriadPro-BoldCond"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="neW-R7-1nM">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="7AA-YW-ksF"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Juan Tabares juan.ctt@live.com">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                    <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uos-BB-iR8">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="ntL-sC-ruj"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Kazue Kaneko www.learnjapanese123.com">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="14" name="MyriadPro-Cond"/>
+                                                    <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Icon@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="nkd-fw-vKb">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="96" id="FJu-bF-de9"/>
+                                            <constraint firstAttribute="width" constant="96" id="gTk-Ze-2eX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voa-HS-HjQ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="zgE-0B-2rC"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Developed by">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="18" name="MyriadPro-BoldCond"/>
+                                                    <font key="NSOriginalFont" size="18" name="MyriadPro-BoldCond"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="XBM-s6-e1B">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cfR-a7-QEl"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Copyright @2013 LearnJapanese123.com All Rights Reserved">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="12" name="MyriadPro-Cond"/>
+                                                    <font key="NSOriginalFont" size="14" name="MyriadPro-Cond"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nkd-fw-vKb" firstAttribute="top" secondItem="pXo-am-iqB" secondAttribute="top" constant="20" symbolic="YES" type="default" id="1C5-y3-u1R"/>
+                                    <constraint firstItem="caD-DE-ezX" firstAttribute="centerX" secondItem="nkd-fw-vKb" secondAttribute="centerX" type="default" id="2H4-hU-q6F"/>
+                                    <constraint firstItem="Voa-HS-HjQ" firstAttribute="leading" secondItem="pXo-am-iqB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3Wk-Yy-mVP"/>
+                                    <constraint firstItem="mJg-PF-MiC" firstAttribute="leading" secondItem="2Tl-Lq-qxp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="4SE-i5-DgD"/>
+                                    <constraint firstItem="2Tl-Lq-qxp" firstAttribute="leading" secondItem="pXo-am-iqB" secondAttribute="leading" constant="52" id="4W6-DT-Hvv"/>
+                                    <constraint firstItem="XBM-s6-e1B" firstAttribute="top" secondItem="pXo-am-iqB" secondAttribute="top" constant="395" id="4y0-Pb-vOC"/>
+                                    <constraint firstItem="uos-BB-iR8" firstAttribute="top" secondItem="caD-DE-ezX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="54z-oj-KZr"/>
+                                    <constraint firstItem="gT7-4L-zSg" firstAttribute="leading" secondItem="kpk-SS-sDH" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="5Nm-xR-bAW"/>
+                                    <constraint firstItem="XBM-s6-e1B" firstAttribute="leading" secondItem="pXo-am-iqB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8Ft-j8-bca"/>
+                                    <constraint firstItem="caD-DE-ezX" firstAttribute="leading" secondItem="pXo-am-iqB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8VW-rP-8zo"/>
+                                    <constraint firstItem="gT7-4L-zSg" firstAttribute="top" secondItem="kpk-SS-sDH" secondAttribute="top" type="default" id="Azh-64-yhQ"/>
+                                    <constraint firstItem="caD-DE-ezX" firstAttribute="top" secondItem="nkd-fw-vKb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BO9-Xz-0W7"/>
+                                    <constraint firstAttribute="bottom" secondItem="XBM-s6-e1B" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="JnB-PP-qIQ"/>
+                                    <constraint firstItem="kpk-SS-sDH" firstAttribute="top" secondItem="mJg-PF-MiC" secondAttribute="top" type="default" id="MD5-Ju-XJb"/>
+                                    <constraint firstItem="Voa-HS-HjQ" firstAttribute="top" secondItem="pXo-am-iqB" secondAttribute="top" constant="308" id="Wxj-lQ-C7Y"/>
+                                    <constraint firstItem="2Tl-Lq-qxp" firstAttribute="top" secondItem="mJg-PF-MiC" secondAttribute="top" type="default" id="Xm6-y5-66U"/>
+                                    <constraint firstItem="XBM-s6-e1B" firstAttribute="centerX" secondItem="pXo-am-iqB" secondAttribute="centerX" type="default" id="XwW-w5-Jcf"/>
+                                    <constraint firstItem="neW-R7-1nM" firstAttribute="leading" secondItem="pXo-am-iqB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ybv-tC-4hb"/>
+                                    <constraint firstAttribute="trailing" secondItem="uos-BB-iR8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eL0-wB-YF4"/>
+                                    <constraint firstItem="neW-R7-1nM" firstAttribute="top" secondItem="pXo-am-iqB" secondAttribute="top" constant="332" id="fEP-oX-Xc3"/>
+                                    <constraint firstAttribute="trailing" secondItem="neW-R7-1nM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hON-kb-6qq"/>
+                                    <constraint firstItem="kpk-SS-sDH" firstAttribute="leading" secondItem="mJg-PF-MiC" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hPD-BX-Zly"/>
+                                    <constraint firstAttribute="trailing" secondItem="XBM-s6-e1B" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jgQ-m0-znT"/>
+                                    <constraint firstItem="uos-BB-iR8" firstAttribute="leading" secondItem="pXo-am-iqB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="n9I-Pe-RTN"/>
+                                    <constraint firstAttribute="trailing" secondItem="caD-DE-ezX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oa8-Dj-9Tc"/>
+                                    <constraint firstItem="2Tl-Lq-qxp" firstAttribute="top" secondItem="pXo-am-iqB" secondAttribute="top" constant="204" id="wxZ-7d-Wls"/>
+                                    <constraint firstAttribute="trailing" secondItem="Voa-HS-HjQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zWd-Vm-15p"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pXo-am-iqB" firstAttribute="top" secondItem="ip8-Ld-OSb" secondAttribute="top" type="default" id="2vC-6I-eII"/>
+                            <constraint firstItem="pXo-am-iqB" firstAttribute="leading" secondItem="ip8-Ld-OSb" secondAttribute="leading" type="default" id="ZNc-9f-NXA"/>
+                            <constraint firstItem="pXo-am-iqB" firstAttribute="trailing" secondItem="ip8-Ld-OSb" secondAttribute="trailing" type="default" id="aTB-As-SHa"/>
+                            <constraint firstItem="pXo-am-iqB" firstAttribute="bottom" secondItem="ip8-Ld-OSb" secondAttribute="bottom" type="default" id="p7k-LC-pFX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lSJ-Mw-Akc"/>
+                    <connections>
+                        <outlet property="developerContent" destination="neW-R7-1nM" id="hfE-3U-cJB"/>
+                        <outlet property="developerTitle" destination="Voa-HS-HjQ" id="kTs-Ad-Y91"/>
+                        <outlet property="footer" destination="XBM-s6-e1B" id="Kih-hz-BjL"/>
+                        <outlet property="providerContent" destination="uos-BB-iR8" id="OCG-i0-dHp"/>
+                        <outlet property="providerTitle" destination="caD-DE-ezX" id="EJw-UR-WXO"/>
+                        <segue destination="5AW-dr-ZM7" kind="push" identifier="SendUrl" id="aFb-n0-UjC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wtP-e3-fPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="-617"/>
+        </scene>
+        <!--Web Detail View Controller-->
+        <scene sceneID="Oys-Sp-gP6">
+            <objects>
+                <viewController id="5AW-dr-ZM7" customClass="WebDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MIX-nD-YYW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24L-F7-KTN">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-qM-RCS"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pFT-qM-RCS" firstAttribute="centerX" secondItem="24L-F7-KTN" secondAttribute="centerX" type="default" id="IDx-M4-o9Y"/>
+                            <constraint firstItem="24L-F7-KTN" firstAttribute="leading" secondItem="MIX-nD-YYW" secondAttribute="leading" type="default" id="MvP-rZ-fEQ"/>
+                            <constraint firstItem="pFT-qM-RCS" firstAttribute="top" secondItem="MIX-nD-YYW" secondAttribute="top" constant="218" id="dHl-zH-mRm"/>
+                            <constraint firstItem="24L-F7-KTN" firstAttribute="top" secondItem="MIX-nD-YYW" secondAttribute="top" type="default" id="dp2-wY-lwL"/>
+                            <constraint firstItem="24L-F7-KTN" firstAttribute="bottom" secondItem="MIX-nD-YYW" secondAttribute="bottom" type="default" id="l3Y-Ak-AEI"/>
+                            <constraint firstItem="24L-F7-KTN" firstAttribute="trailing" secondItem="MIX-nD-YYW" secondAttribute="trailing" type="default" id="nhT-gq-nKf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ncq-v5-hRE"/>
+                    <connections>
+                        <outlet property="mainWebView" destination="24L-F7-KTN" id="hIT-yb-etu"/>
+                        <outlet property="spinner" destination="pFT-qM-RCS" id="FWM-YD-a5g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u41-fb-yRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1497" y="-617"/>
+        </scene>
         <!--Navigation Controller - Home-->
         <scene sceneID="11">
             <objects>
@@ -580,13 +831,7 @@
                             <outlet property="delegate" destination="0a1-AF-Ixo" id="tp1-Yb-DBp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QKF-Cs-FdV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RaS-SX-yvr">
-                            <connections>
-                                <action selector="callShareActionSheet:" destination="0a1-AF-Ixo" id="fl0-bN-eRd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="QKF-Cs-FdV"/>
                     <connections>
                         <outlet property="feedTableView" destination="4X5-Be-HsG" id="W2a-Wi-zrz"/>
                     </connections>
@@ -611,6 +856,7 @@
                         <segue destination="hds-DZ-9PA" kind="relationship" relationship="viewControllers" id="MuU-3o-VTP"/>
                         <segue destination="R0f-dl-zMS" kind="relationship" relationship="viewControllers" id="oHw-oP-9MQ"/>
                         <segue destination="WnL-Bm-vZg" kind="relationship" relationship="viewControllers" id="hhO-Pa-8EZ"/>
+                        <segue destination="7by-l6-wgi" kind="relationship" relationship="viewControllers" id="8Av-9E-hBa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBc-fq-MJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -636,7 +882,7 @@
             </objects>
             <point key="canvasLocation" x="547" y="810"/>
         </scene>
-        <!--View Controller - Twitter-->
+        <!--View Controller - Tattoo-->
         <scene sceneID="LoE-mI-2b7">
             <objects>
                 <viewController id="WnL-Bm-vZg" sceneMemberID="viewController">
@@ -645,13 +891,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="4" title="Twitter" image="twitter.png" id="h8C-yO-cSW"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Tattoo" image="brush.png" id="h8C-yO-cSW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQa-AL-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552" y="2143"/>
         </scene>
-        <!--View Controller - Facebook-->
+        <!--View Controller - Share-->
         <scene sceneID="wXA-N8-0kb">
             <objects>
                 <viewController id="R0f-dl-zMS" sceneMemberID="viewController">
@@ -660,7 +906,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="Facebook" image="facebook.png" id="rg4-mx-YnA"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Share" image="comment_check.png" id="rg4-mx-YnA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gc-mG-cUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -668,16 +914,32 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebook.png" width="32" height="32"/>
+        <image name="Icon@2x.png" width="114" height="114"/>
+        <image name="brush.png" width="32" height="32"/>
+        <image name="comment_check.png" width="32" height="32"/>
+        <image name="facebook_color_48.png" width="48" height="48"/>
         <image name="home.png" width="24" height="24"/>
+        <image name="info.png" width="32" height="32"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
+        <image name="learnjapaneselogo_48.png" width="48" height="48"/>
         <image name="star.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
-        <image name="twitter.png" width="32" height="32"/>
+        <image name="twitter_color_48.png" width="48" height="48"/>
+        <image name="youtube_color_48.png" width="48" height="48"/>
     </resources>
     <classes>
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="CreditsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreditsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="developerContent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="developerTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="footer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="providerContent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="providerTitle" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="FeedCell4" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedCell4.h"/>
@@ -708,9 +970,6 @@
         </class>
         <class className="NamesTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="callShareActionSheet:"/>
-            </relationships>
         </class>
         <class className="SearchCollectionTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchCollectionTableViewController.h"/>
@@ -727,6 +986,13 @@
         </class>
         <class className="UIRefreshControl" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
+        <class className="WebDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mainWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
