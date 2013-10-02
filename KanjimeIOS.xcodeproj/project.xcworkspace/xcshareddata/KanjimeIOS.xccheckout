@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>11F76904-C1F8-4796-9225-4A2595B3C688</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KanjimeIOS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>90D81DB9-E3DD-4AD5-A6AB-662FE5582DA7</key>
+		<string>ssh://github.com/juanctt/KanjimeIOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KanjimeIOS.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>90D81DB9-E3DD-4AD5-A6AB-662FE5582DA7</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/juanctt/KanjimeIOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>90D81DB9-E3DD-4AD5-A6AB-662FE5582DA7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>90D81DB9-E3DD-4AD5-A6AB-662FE5582DA7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KanjimeIOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
