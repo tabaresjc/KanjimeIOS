@@ -8,6 +8,7 @@
 
 #import "StylishCellViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UtilHelper.h"
 
 @interface  StylishCellViewCell()
 @property (nonatomic) BOOL isNotFirtRun;
@@ -21,9 +22,9 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
     if (self) {
         // Initialization code
-        
     }
     return self;
 }
@@ -41,8 +42,8 @@
     }
     else
     {
-        [bgImageView setImage:nil];
-        [self.bgImageView setBackgroundColor:UIColorFromRGB(0xfffffb)];
+        [self.bgImageView setImage:nil];
+        [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];        
         [disclosureImageView setImage:[UIImage tallImageNamed:@"ipad-arrow.png"]];
         [titleLabel setTextColor:[UIColor darkTextColor]];
         [titleLabel setShadowColor:[UIColor whiteColor]];
@@ -72,11 +73,9 @@
 {
     _like = like;
     if(like){
-        //[self.btnLike setBackgroundColor:UIColorFromRGBWithAlpha(0xFFC125,0.6)];
         [self.btnLike setHighlighted:YES];
         
     }else{
-        //[self.btnLike setBackgroundColor:UIColorFromRGBWithAlpha(0xfffffc,0.6)];
         [self.btnLike setHighlighted:NO];
     }        
 }

@@ -29,7 +29,7 @@
 }
 
 -(void)awakeFromNib{
-    self.headerContainer.backgroundColor = [UIColor whiteColor];
+    [self.headerContainer setBackgroundColor:CELLS_BACK_COLOR];
     self.headerContainer.layer.cornerRadius = 3.0f;
     self.headerContainer.clipsToBounds = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;

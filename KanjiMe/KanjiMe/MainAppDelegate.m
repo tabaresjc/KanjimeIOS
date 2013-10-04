@@ -35,7 +35,8 @@
         //[navigationBarAppearance setBackgroundImage:navBarLandscapeImage forBarMetrics:UIBarMetricsLandscapePhone];
     } else {
         [navigationBarAppearance setTintColor:[UIColor whiteColor]];
-        [navigationBarAppearance setBarTintColor:[UIColor redColor]];
+        UIImage *navBarImage = navBarImage = [[UIImage tallImageNamed:@"menubar-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0, 0, 20.0)];
+        [navigationBarAppearance setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     }
     [navigationBarAppearance setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                       UIColorFromRGB(0xf5f5f5), NSForegroundColorAttributeName,
@@ -45,7 +46,7 @@
     if([UtilHelper isVersion6AndBelow]) {
         [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];
     }
-    _window.tintColor = [UIColor whiteColor];
+    
     //UIImage *barButton = [[UIImage tallImageNamed:@"menubar-clear.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
     //[[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
     //UIImage *backButton = [[UIImage tallImageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];

@@ -8,6 +8,7 @@
 
 #import "FeedCell4.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UtilHelper.h"
 
 @implementation FeedCell4
 
@@ -29,7 +30,12 @@
 
 
 -(void)awakeFromNib{
-    self.feedContainer.backgroundColor = [UIColor whiteColor];    
+    if ([UtilHelper isVersion6AndBelow]) {
+        self.feedContainer.backgroundColor = [UIColor whiteColor];
+    } else {
+        self.feedContainer.tintColor = [UIColor whiteColor];
+    }
+    
     self.feedContainer.layer.cornerRadius = 3.0f;
     self.feedContainer.clipsToBounds = YES;    
     self.kanjiLabel.layer.cornerRadius = 3.0f;

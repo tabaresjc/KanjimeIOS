@@ -10,10 +10,7 @@
 
 @interface FeedCell4 : UITableViewCell
 
-
-
 @property (nonatomic, strong) IBOutlet UIView* feedContainer;
-
 @property (strong, nonatomic) IBOutlet UILabel *kanjiLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lineOne;
 @property (strong, nonatomic) IBOutlet UILabel *lineTwo;

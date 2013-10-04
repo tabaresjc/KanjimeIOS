@@ -17,7 +17,7 @@
 #import "Collection+Rest.h"
 #import "SearchCollectionTableViewController.h"
 #import "MBProgressHUD.h"
-
+#import "UtilHelper.h"
 
 static NSString *cellIdentifier = @"NameRow";
 static NSString *searchCellIdentifier = @"SearchNameRow";
@@ -271,7 +271,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     } else {
         StylishCellViewCell *cell = (StylishCellViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
+
         cell.titleLabel.text = collection.title;
         cell.subTitleLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
         cell.like = collection.favorite;
@@ -460,11 +460,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
         case 3:
         {
             [self callShareActionSheet];
-            return NO;
-        }
-        case 4:
-        {
-            
             return NO;
         }
         default:

@@ -171,7 +171,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Credits" id="lSJ-Mw-Akc"/>
+                    <navigationItem key="navigationItem" title="Credits" id="lSJ-Mw-Akc">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="u2q-DO-9PL"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="developerContent" destination="neW-R7-1nM" id="hfE-3U-cJB"/>
                         <outlet property="developerTitle" destination="Voa-HS-HjQ" id="kTs-Ad-Y91"/>
@@ -268,7 +270,6 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V96-t7-GFq">
                                             <rect key="frame" x="5" y="4" width="310" height="39"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="ipad-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="SJg-8i-Q0Y">
                                             <rect key="frame" x="291" y="17" width="9" height="13"/>
@@ -401,7 +402,7 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Favorites" id="C6r-ey-kZf">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="uny-1H-0Uh"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="a88-1H-OKn"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Qcc-He-Zh6">
                             <connections>
                                 <action selector="editButton:" destination="XkR-ab-hPn" id="MKD-em-CgW"/>
@@ -507,7 +508,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="YUF-1k-hea" firstAttribute="top" secondItem="1CN-4f-oLr" secondAttribute="top" constant="6" id="4De-Wr-raC"/>
                                                 <constraint firstItem="YUF-1k-hea" firstAttribute="top" secondItem="OF5-Ax-tfx" secondAttribute="top" id="Bci-H9-x8C"/>
@@ -744,7 +745,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="vVU-ke-Bnt" firstAttribute="top" secondItem="fi8-M4-i9V" secondAttribute="top" id="5dI-2Z-GME"/>
                                                 <constraint firstItem="8Pq-5w-OtY" firstAttribute="top" secondItem="QK7-fB-Gzg" secondAttribute="top" constant="85" id="Im7-T3-5tw"/>
@@ -802,7 +803,7 @@
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="McJ-UD-NaG"/>
                         <segue destination="hds-DZ-9PA" kind="relationship" relationship="viewControllers" id="MuU-3o-VTP"/>
                         <segue destination="R0f-dl-zMS" kind="relationship" relationship="viewControllers" id="oHw-oP-9MQ"/>
-                        <segue destination="WnL-Bm-vZg" kind="relationship" relationship="viewControllers" id="hhO-Pa-8EZ"/>
+                        <segue destination="We6-ZB-qMA" kind="relationship" relationship="viewControllers" id="hhO-Pa-8EZ"/>
                         <segue destination="7by-l6-wgi" kind="relationship" relationship="viewControllers" id="8Av-9E-hBa"/>
                     </connections>
                 </tabBarController>
@@ -829,24 +830,86 @@
             </objects>
             <point key="canvasLocation" x="547" y="810"/>
         </scene>
-        <!--View Controller - Tattoo-->
+        <!--Tattoo View Controller - Request Tatoo-->
         <scene sceneID="LoE-mI-2b7">
             <objects>
-                <viewController id="WnL-Bm-vZg" sceneMemberID="viewController">
+                <viewController id="WnL-Bm-vZg" customClass="TattooViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z8t-FR-2sm"/>
                         <viewControllerLayoutGuide type="bottom" id="adD-T5-Azb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3TF-X3-rgL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get your own tattoo design for your name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Cyw-VC-bdF">
+                                <rect key="frame" x="20" y="20" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BwP-zk-Y16">
+                                <rect key="frame" x="20" y="132" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ii-Xx-aAc">
+                                <rect key="frame" x="20" y="103" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjC-Or-3Oq">
+                                <rect key="frame" x="20" y="199" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-BL-4UA">
+                                <rect key="frame" x="20" y="170" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EPe-mU-ItU">
+                                <rect key="frame" x="20" y="266" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRZ-dS-x90">
+                                <rect key="frame" x="20" y="237" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-01-2UN">
+                                <rect key="frame" x="88" y="331" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Request Tattoo" backgroundImage="ipad-button-red.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.14901960780000001" green="0.28235294119999998" blue="0.0" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="4" title="Tattoo" image="cart.png" id="h8C-yO-cSW"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Request Tatoo" id="CYg-Gl-P3V">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2bt-ty-lVu"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="inputEmail" destination="EPe-mU-ItU" id="cTM-Xy-aU9"/>
+                        <outlet property="inputLastName" destination="yjC-Or-3Oq" id="kyP-oz-xNN"/>
+                        <outlet property="inputName" destination="BwP-zk-Y16" id="tZ5-nU-BVC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQa-AL-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552" y="2143"/>
+            <point key="canvasLocation" x="1078" y="2143"/>
         </scene>
         <!--View Controller - Share-->
         <scene sceneID="wXA-N8-0kb">
@@ -867,6 +930,25 @@
             </objects>
             <point key="canvasLocation" x="547" y="1471"/>
         </scene>
+        <!--Navigation Controller - Tattoo-->
+        <scene sceneID="00j-QB-FLd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="We6-ZB-qMA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="4" title="Tattoo" image="cart.png" id="h8C-yO-cSW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ifi-TM-5sJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WnL-Bm-vZg" kind="relationship" relationship="rootViewController" id="FNs-JY-b5g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o7Y-V5-v9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="2143"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Icon.png" width="60" height="60"/>
@@ -876,6 +958,7 @@
         <image name="home.png" width="24" height="24"/>
         <image name="info.png" width="32" height="32"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
+        <image name="ipad-button-red.png" width="159" height="51"/>
         <image name="learnjapaneselogo_48.png" width="48" height="48"/>
         <image name="star.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
@@ -889,6 +972,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wZB-kX-5Zn"/>
+        <segue reference="Nh4-Pm-rNo"/>
     </inferredMetricsTieBreakers>
 </document>
