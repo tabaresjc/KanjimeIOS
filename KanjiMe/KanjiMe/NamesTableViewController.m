@@ -25,7 +25,6 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 @interface NamesTableViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *filteredNames;
 @property BOOL setView;
-
 @end
 
 @implementation NamesTableViewController
@@ -46,47 +45,35 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     self.tabBarController.delegate = self;
     [self setStyle];
     
-    /*
-     UIViewController *shareViewController = [[UIViewController alloc] init];
-     shareViewController.tabBarItem.title = @"Share";
-     shareViewController.tabBarItem.image = [UIImage imageNamed:@"search.png"];
-     
-     NSMutableArray * vcs = [NSMutableArray
-     arrayWithArray:[self.tabBarController viewControllers]];
-     [vcs addObject:shareViewController];
-     [self.tabBarController setViewControllers:vcs];
-     */
-    
     [super viewDidLoad];
     if (!self.managedObjectContext) {
         [self useDocument];
     } else {
         [self refresh];
-    }
-    
-    
+    }    
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
     bannerView_ = [AdMobLoader getNewBannerView:self];
-    
+    [bannerView_ setDelegate:self];
     // Let the runtime know which UIViewController to restore after taking
     // the user wherever the ad goes and add it to the view hierarchy.
     
+    // Initiate a generic request to load it with an ad.
+    [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)view {
+    [UIView beginAnimations:@"BannerSlide" context:nil];
+    UIEdgeInsets inset = UIEdgeInsetsMake(50, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    self.tableView.contentOffset = CGPointMake(0.0f, -50.0f);
     [self.view addSubview:bannerView_];
     
     CGRect banFrame = bannerView_.frame;
     banFrame.origin.y = -50;
     [bannerView_ setFrame:banFrame];
-    // Initiate a generic request to load it with an ad.
-    [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
-    
-    [self.refreshControl addTarget:self
-                            action:@selector(refresh)
-                  forControlEvents:UIControlEventValueChanged];
-    
+    [UIView commitAnimations];
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -106,36 +93,35 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 - (void)setStyle
 {
     [self.view setBackgroundColor:MAIN_BACK_COLOR];
-    UIEdgeInsets inset = UIEdgeInsetsMake(50, 0, 0, 0);
-    self.tableView.contentInset = inset;
-    self.tableView.contentOffset = CGPointMake(0.0f, -50.0f);
+}
+
+
+- (IBAction)refreshNames:(id)sender {
+    [self refresh];
 }
 
 - (void)refresh
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading...";
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];    
     
     [self.tableView reloadData];    
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     [apiFetcher getNames:10000
                 startingPoint:1
                       success:^(id jsonData) {
-                          hud.labelText = @"Updating...";
+                          
                           NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
                           for (NSDictionary *collection in collections) {
                               [Collection syncCollectionWithCD:collection inManagedObjectContext:self.managedObjectContext];
                           }
                           dispatch_async(dispatch_get_main_queue(), ^{                              
-                              [hud hide:YES];
+                              [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                               [self.refreshControl endRefreshing];
                           });
                       }
                       failure:^(NSError *error) {
                           dispatch_async(dispatch_get_main_queue(), ^{
-                              [hud hide:YES];
+                              [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                               [self.refreshControl endRefreshing];
                           });
                       }

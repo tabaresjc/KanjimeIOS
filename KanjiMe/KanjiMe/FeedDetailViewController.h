@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "AdMobLoader.h"
+#import "GADBannerViewDelegate.h"
 
-@interface FeedDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface FeedDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, GADBannerViewDelegate> {
     // Declare one as an instance variable
     GADBannerView *bannerView_;
 }
 
 @property (nonatomic, weak) IBOutlet UITableView* feedTableView;
 - (void)setDetail:(id)newDetailItem withCell:(id)cell;
-
 @end

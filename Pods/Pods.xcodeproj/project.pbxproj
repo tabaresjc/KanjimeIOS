@@ -18,7 +18,6 @@
 		17C61F6719964BAE9EBFD5B8 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B503357966B84CB295ADF91D /* Pods-dummy.m */; };
 		18D0698688A14878AC177188 /* attrask.c in Sources */ = {isa = PBXBuildFile; fileRef = 0800B057A6DD480EB716B2C3 /* attrask.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
 		198FB5287A8F4881A54FB5D6 /* streamio.c in Sources */ = {isa = PBXBuildFile; fileRef = 19657A2C398E4B2BB24C1323 /* streamio.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
-		1C5ED8FDAB3949199332DD16 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 38CCC65C55DB4C0A8397E543 /* SVProgressHUD.h */; };
 		2151749ECAFF46A5BF808462 /* charsets.c in Sources */ = {isa = PBXBuildFile; fileRef = 50D423A6B16F45EAA7A503F4 /* charsets.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
 		273D0A497F774DDC9FB9A6F3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A80BE28FFBD4B55AF7FACF8 /* SSKeychain.m */; };
 		28135D757A6141C8AA320FC2 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2434FFDBBA094842950834B7 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
@@ -45,7 +44,6 @@
 		6929ECC817D5416DA1445755 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EED0BCF342C4C35BAF2C170 /* SSKeychain.h */; };
 		6B608109B8B04E5C82412D26 /* AFJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B3D48B8110494AB692C626 /* AFJSONRequestOperation.h */; };
 		6CDCA057337D4D159FBB62DE /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBDD517A6A6492AA573FF8F /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		6D615E9AFF724CA6B56B9644 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F747477A0A340C6888CA82B /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 		7182C54D066B4FA897858C20 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0654BC937F46EAAF2C19DD /* CTidy.m */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
 		719F59C456B0415CAF5BC303 /* tidy-int.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FAA2EBB455C4DD799BBD624 /* tidy-int.h */; };
 		73FF3AC17503451DA69B62B9 /* lexer.c in Sources */ = {isa = PBXBuildFile; fileRef = 358E0FF3DFD2459EA8FB8717 /* lexer.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
@@ -109,7 +107,6 @@
 		0BAA034D3BF34D3CA492F611 /* UIDeviceHardware.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIDeviceHardware.h; path = UIDeviceIdentifier/UIDeviceIdentifier/UIDeviceHardware.h; sourceTree = SOURCE_ROOT; };
 		0CC76EB3D1B14566A23EAE95 /* attrdict.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = attrdict.c; path = CTidy/libtidy/src/attrdict.c; sourceTree = SOURCE_ROOT; };
 		0DBB610A1C0A4DFBBB066AB4 /* mappedio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mappedio.h; path = CTidy/libtidy/src/mappedio.h; sourceTree = SOURCE_ROOT; };
-		0F747477A0A340C6888CA82B /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD/SVProgressHUD.m; sourceTree = SOURCE_ROOT; };
 		0FAA2EBB455C4DD799BBD624 /* tidy-int.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "tidy-int.h"; path = "CTidy/libtidy/src/tidy-int.h"; sourceTree = SOURCE_ROOT; };
 		1679D08C358747989DA4C54D /* AFHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = SOURCE_ROOT; };
 		186A5C646F9A42A9B7F971E9 /* parser.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = parser.c; path = CTidy/libtidy/src/parser.c; sourceTree = SOURCE_ROOT; };
@@ -129,7 +126,6 @@
 		342116FD19D641B183CC1C14 /* libPods-WordPressTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordPressTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A8C1D91834B8384DE19FF /* attrs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = attrs.h; path = CTidy/libtidy/src/attrs.h; sourceTree = SOURCE_ROOT; };
 		358E0FF3DFD2459EA8FB8717 /* lexer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = lexer.c; path = CTidy/libtidy/src/lexer.c; sourceTree = SOURCE_ROOT; };
-		38CCC65C55DB4C0A8397E543 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD/SVProgressHUD.h; sourceTree = SOURCE_ROOT; };
 		3AF8E91ACAF24FD3B6F16E0A /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
 		3CEAFBE3170D4C29A6AA9FDE /* config.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = config.h; path = CTidy/libtidy/src/config.h; sourceTree = SOURCE_ROOT; };
 		3ED43400F2484CA399CB14BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -321,19 +317,9 @@
 				FA109D2D2279404AB863E9CA /* Reachability */,
 				C4EDF5A570EF4043B916208B /* SFHFKeychainUtils */,
 				BA0B36C137A24CC3914FBD10 /* SSKeychain */,
-				58CFDA561C0843CFA4066EC4 /* SVProgressHUD */,
 				1C19E6516730405AA9EF5325 /* UIDeviceIdentifier */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		58CFDA561C0843CFA4066EC4 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				38CCC65C55DB4C0A8397E543 /* SVProgressHUD.h */,
-				0F747477A0A340C6888CA82B /* SVProgressHUD.m */,
-			);
-			name = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		5D0294FF83C8445B8C2D680D /* AFNetworking */ = {
@@ -529,7 +515,6 @@
 				61A0BB140F894DAEADFFAE8F /* Reachability.h in Headers */,
 				509E1C73BFBB4F1C9370BD28 /* SFHFKeychainUtils.h in Headers */,
 				6929ECC817D5416DA1445755 /* SSKeychain.h in Headers */,
-				1C5ED8FDAB3949199332DD16 /* SVProgressHUD.h in Headers */,
 				52F7E7724D81410D9A0D0404 /* UIDeviceHardware.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,7 +569,7 @@
 		C7A8F2A6477342B1BDDC52AB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 57E80FEA35A64EC29B6F07CB /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -657,7 +642,6 @@
 				11F79C9D27BF4E48872FF732 /* Reachability.m in Sources */,
 				A108A8BB125342B08F4E7A83 /* SFHFKeychainUtils.m in Sources */,
 				273D0A497F774DDC9FB9A6F3 /* SSKeychain.m in Sources */,
-				6D615E9AFF724CA6B56B9644 /* SVProgressHUD.m in Sources */,
 				A707E86A8ED941F1900BB99F /* UIDeviceHardware.m in Sources */,
 				17C61F6719964BAE9EBFD5B8 /* Pods-dummy.m in Sources */,
 			);
@@ -671,7 +655,6 @@
 			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -704,7 +687,6 @@
 			baseConfigurationReference = 59C53C1BF96646F788F365D3 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -738,7 +720,6 @@
 			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -771,7 +752,6 @@
 			baseConfigurationReference = 59C53C1BF96646F788F365D3 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -803,7 +783,6 @@
 			baseConfigurationReference = 59C53C1BF96646F788F365D3 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -835,7 +814,10 @@
 		DD16E0CFC417486193D656AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -844,7 +826,6 @@
 			baseConfigurationReference = 59C53C1BF96646F788F365D3 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -876,7 +857,10 @@
 		F8A3B7C515CC41A3BB6109CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -885,7 +869,6 @@
 			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -916,7 +899,6 @@
 			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

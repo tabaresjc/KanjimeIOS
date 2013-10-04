@@ -80,6 +80,30 @@
     self.feedTableView.dataSource = self;
     self.feedTableView.backgroundColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
     self.feedTableView.separatorColor = [UIColor clearColor];
+    
+    // Create a view of the standard size at the top of the screen.
+    // Available AdSize constants are explained in GADAdSize.h.
+    bannerView_ = [AdMobLoader getNewBannerView:self];
+    [bannerView_ setDelegate:self];
+    // Let the runtime know which UIViewController to restore after taking
+    // the user wherever the ad goes and add it to the view hierarchy.
+    
+    // Initiate a generic request to load it with an ad.
+    [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
+    
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)view {
+    [UIView beginAnimations:@"BannerSlide" context:nil];
+    UIEdgeInsets inset = UIEdgeInsetsMake(50, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    self.tableView.contentOffset = CGPointMake(0.0f, -50.0f);
+    [self.view addSubview:bannerView_];
+    
+    CGRect banFrame = bannerView_.frame;
+    banFrame.origin.y = -50;
+    [bannerView_ setFrame:banFrame];
+    [UIView commitAnimations];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -101,28 +125,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if(section==0){
-        // Create a view of the standard size at the top of the screen.
-        // Available AdSize constants are explained in GADAdSize.h.
-        if(!bannerView_){
-            // Create a view of the standard size at the top of the screen.
-            // Available AdSize constants are explained in GADAdSize.h.
-            bannerView_ = [AdMobLoader getNewBannerView:self];
-            // Initiate a generic request to load it with an ad.
-            [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
-        }
-        return bannerView_;
-    } else {
-        return nil;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return section==0 ? 55.0f : 0.0f;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.

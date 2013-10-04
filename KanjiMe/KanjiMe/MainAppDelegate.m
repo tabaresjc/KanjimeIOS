@@ -7,67 +7,65 @@
 //
 
 #import "MainAppDelegate.h"
-
+#import "UtilHelper.h"
 
 @implementation MainAppDelegate
 
 -(void)customizeiPhoneTheme
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    // General
+    if([UtilHelper isVersion6AndBelow]) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    } else {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
     
-    UIImage *navBarImage = [UIImage imageNamed:@"menubar"];
-    navBarImage = [navBarImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0, 0, 20.0)];
-    
-    UIImage *navBarLandscapeImage = [UIImage imageNamed:@"menubar-landscape"];
-    navBarLandscapeImage = [navBarLandscapeImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0, 0, 20.0)];
-    
-    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
-    [navigationBarAppearance setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-    [navigationBarAppearance setBackgroundImage:navBarLandscapeImage forBarMetrics:UIBarMetricsLandscapePhone];
-    
-    //UISearchBar *searchBarAppearance = [UISearchBar appearance];
-    //[searchBarAppearance setBackgroundImage:navBarImage];
-    //[searchBarAppearance setBackgroundColor:[UIColor blackColor]];
-    
-    [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];
-    //UIImage *barButton = [[UIImage tallImageNamed:@"menubar-clear.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-    
-    //[[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    
-    //UIImage *backButton = [[UIImage tallImageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-    
-    //[[UIBarButtonItem appearance] setBackButtonBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
-    UIImage *maxImage = [UIImage tallImageNamed:@"ipad-slider-track.png"];
-    UIImage *thumbImage = [UIImage tallImageNamed:@"ipad-slider-handle.png"];
-    
-    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
-    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
-    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
-    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
-    
+    // Tab Bar Appeareance
     UIImage* tabBarBackground = [UIImage tallImageNamed:@"tabbar.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
     
+    // Navigation Bar Appereance
+    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    if([UtilHelper isVersion6AndBelow]) {
+        UIImage *navBarImage = navBarImage = [[UIImage tallImageNamed:@"menubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0, 0, 20.0)];
+        [navigationBarAppearance setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+        //navBarLandscapeImage = [[UIImage imageNamed:@"menubar-landscape"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0, 0, 20.0)];
+        //[navigationBarAppearance setBackgroundImage:navBarLandscapeImage forBarMetrics:UIBarMetricsLandscapePhone];
+    } else {
+        [navigationBarAppearance setTintColor:[UIColor whiteColor]];
+        [navigationBarAppearance setBarTintColor:[UIColor redColor]];
+    }
     [navigationBarAppearance setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                      UIColorFromRGB(0xf5f5f5), UITextAttributeTextColor,
-                                                      UIColorFromRGBWithAlpha(0x000000, 0.8),
-                                                      UITextAttributeTextShadowColor,
-                                                      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-                                                      UITextAttributeTextShadowOffset,
-                                                      [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];
+                                                      UIColorFromRGB(0xf5f5f5), NSForegroundColorAttributeName,
+                                                      [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+
+    // Menu Bar Buttons
+    if([UtilHelper isVersion6AndBelow]) {
+        [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];
+    }
+    _window.tintColor = [UIColor whiteColor];
+    //UIImage *barButton = [[UIImage tallImageNamed:@"menubar-clear.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    //[[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    //UIImage *backButton = [[UIImage tallImageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    //[[UIBarButtonItem appearance] setBackButtonBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    
+//    UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
+//    UIImage *maxImage = [UIImage tallImageNamed:@"ipad-slider-track.png"];
+//    UIImage *thumbImage = [UIImage tallImageNamed:@"ipad-slider-handle.png"];
+//    
+//    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+//    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
+//    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+//    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
 }
 
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self customizeiPhoneTheme];
+    [self customizeiPhoneTheme];    
     // Override point for customization after application launch.
     return YES;
 }

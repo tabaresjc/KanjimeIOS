@@ -9,8 +9,10 @@
 #import "CoreDataTableViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "AdMobLoader.h"
+#import "GADBannerViewDelegate.h"
 
-@interface NamesTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UITabBarControllerDelegate> {
+@interface NamesTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UITabBarControllerDelegate, GADBannerViewDelegate>
+{
     // Declare one as an instance variable
     GADBannerView *bannerView_;
 }
