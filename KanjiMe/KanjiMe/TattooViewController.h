@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PayPalMobile.h"
 
-@interface TattooViewController : UIViewController <UITextFieldDelegate>
+@interface TattooViewController : UIViewController <UITextFieldDelegate, PayPalPaymentDelegate>
 
 @end

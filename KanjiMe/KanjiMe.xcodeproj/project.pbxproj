@@ -119,6 +119,8 @@
 		CF0C9D8117FD39020026E99C /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0C9D7F17FD39020026E99C /* Icon-57.png */; };
 		CF0C9D8217FD39020026E99C /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0C9D8017FD39020026E99C /* Icon-114.png */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
+		CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553318001D2600E8A434 /* welcome_tattoo.png */; };
+		CFEC553618001D2600E8A434 /* welcome_tattoo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */; };
 		CFF657D817FFBE5200AE4C9D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */; };
 		CFF657DA17FFBE6900AE4C9D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */; };
 		CFF657DC17FFBE7600AE4C9D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */; };
@@ -126,6 +128,9 @@
 		CFF657E017FFBEBF00AE4C9D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657DF17FFBEBF00AE4C9D /* OpenGLES.framework */; };
 		CFF657E217FFBEDE00AE4C9D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657E117FFBEDE00AE4C9D /* Security.framework */; };
 		CFF657EC17FFBFA000AE4C9D /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657EB17FFBFA000AE4C9D /* libPayPalMobile.a */; };
+		CFF7624E180016F600F9042D /* tattoosample.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF7624C180016F600F9042D /* tattoosample.png */; };
+		CFF7624F180016F600F9042D /* tattoosample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF7624D180016F600F9042D /* tattoosample@2x.png */; };
+		CFF762521800191E00F9042D /* WelcomeTattooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF762511800191E00F9042D /* WelcomeTattooViewController.m */; };
 		CFF80E4117FEFE1B00AAB76E /* TattooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */; };
 		CFFA936F17FD633300E7820D /* menubar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936D17FD633300E7820D /* menubar-7.png */; };
 		CFFA937017FD633300E7820D /* menubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936E17FD633300E7820D /* menubar-7@2x.png */; };
@@ -298,6 +303,8 @@
 		CF0C9D7F17FD39020026E99C /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		CF0C9D8017FD39020026E99C /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CFEC553318001D2600E8A434 /* welcome_tattoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_tattoo.png; sourceTree = "<group>"; };
+		CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_tattoo@2x.png"; sourceTree = "<group>"; };
 		CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -308,6 +315,10 @@
 		CFF657E917FFBF8900AE4C9D /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPayment.h; path = PayPalMobile/PayPalPayment.h; sourceTree = "<group>"; };
 		CFF657EA17FFBF8900AE4C9D /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPaymentViewController.h; path = PayPalMobile/PayPalPaymentViewController.h; sourceTree = "<group>"; };
 		CFF657EB17FFBFA000AE4C9D /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPayPalMobile.a; path = KanjiMe/Libraries/PayPalMobile/libPayPalMobile.a; sourceTree = "<group>"; };
+		CFF7624C180016F600F9042D /* tattoosample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tattoosample.png; sourceTree = "<group>"; };
+		CFF7624D180016F600F9042D /* tattoosample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tattoosample@2x.png"; sourceTree = "<group>"; };
+		CFF762501800191E00F9042D /* WelcomeTattooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeTattooViewController.h; sourceTree = "<group>"; };
+		CFF762511800191E00F9042D /* WelcomeTattooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeTattooViewController.m; sourceTree = "<group>"; };
 		CFF80E3F17FEFE1B00AAB76E /* TattooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TattooViewController.h; sourceTree = "<group>"; };
 		CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TattooViewController.m; sourceTree = "<group>"; };
 		CFFA936D17FD633300E7820D /* menubar-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-7.png"; sourceTree = "<group>"; };
@@ -384,6 +395,7 @@
 				CE73142D17D5DFEA002EF4F6 /* MyriadPro-Regular.otf */,
 			);
 			name = Fonts;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CE811B3C17CE4A0F00252A30 /* MBProgressHUD */ = {
@@ -414,6 +426,8 @@
 				CEA769E317E7015500DD2A80 /* WebDetailViewController.m */,
 				CFF80E3F17FEFE1B00AAB76E /* TattooViewController.h */,
 				CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */,
+				CFF762501800191E00F9042D /* WelcomeTattooViewController.h */,
+				CFF762511800191E00F9042D /* WelcomeTattooViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -429,41 +443,15 @@
 		CE90D12A175342CE009C5BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CF06C65617FEA851001EF31E /* AppSocial */,
+				CFF7624B180016B800F9042D /* Miscellaneous */,
+				CFF7624A1800169800F9042D /* MenuBar */,
 				CF06C63517FEA846001EF31E /* AppButtons */,
-				CF01931B17FDA6A200474CCB /* AppMenu */,
 				CFFEBAFC17FC550C00E771B8 /* AppIcon */,
 				CFFEBB1517FC577000E771B8 /* AppLaunch */,
-				CE90D13A175342CE009C5BD3 /* back.png */,
-				CE90D13B175342CE009C5BD3 /* back@2x.png */,
-				CED21C491761D1C300D07491 /* ipad-arrow-selected.png */,
-				CED21C4A1761D1C300D07491 /* ipad-arrow-selected@2x.png */,
-				CED21C4B1761D1C300D07491 /* ipad-arrow.png */,
-				CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */,
-				CED21C511761D20800D07491 /* ipad-BG-pattern.png */,
-				CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */,
-				CE90D16A175342CE009C5BD3 /* ipad-list-element.png */,
-				CE90D16B175342CE009C5BD3 /* ipad-list-element@2x.png */,
-				CE90D16C175342CE009C5BD3 /* ipad-list-item-selected.png */,
-				CE90D16D175342CE009C5BD3 /* ipad-list-item-selected@2x.png */,
-				CFFA936D17FD633300E7820D /* menubar-7.png */,
-				CFFA936E17FD633300E7820D /* menubar-7@2x.png */,
-				CE90D192175342CF009C5BD3 /* menubar-button.png */,
-				CE90D193175342CF009C5BD3 /* menubar-button@2x.png */,
-				CEDEDB0E17DC5D940049F78C /* menubar-clear.png */,
-				CEDEDB0F17DC5D940049F78C /* menubar-clear@2x.png */,
-				CEDC7D211764236200C29E93 /* menubar-landscape.png */,
-				CEDC7D221764236200C29E93 /* menubar-landscape@2x.png */,
-				CE90D194175342CF009C5BD3 /* menubar.png */,
-				CE90D195175342CF009C5BD3 /* menubar@2x.png */,
-				CEE1128F1771F01E00286908 /* star.png */,
-				CEE112901771F01E00286908 /* star@2x.png */,
-				CEF0CED617CEF2EE00B24533 /* star_on.png */,
-				CEF0CED717CEF2EE00B24533 /* star_on@2x.png */,
-				CE90D1C9175342CF009C5BD3 /* tabbar-active.png */,
-				CE90D1CA175342CF009C5BD3 /* tabbar-active@2x.png */,
-				CE90D1CB175342CF009C5BD3 /* tabbar.png */,
-				CE90D1CC175342CF009C5BD3 /* tabbar@2x.png */,
+				CF01931B17FDA6A200474CCB /* AppMenu */,
+				CF06C65617FEA851001EF31E /* AppSocial */,
+				CE73142B17D5DFBF002EF4F6 /* Fonts */,
+				CFF762491800166500F9042D /* TabBar */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -480,6 +468,7 @@
 		CE90D27317534540009C5BD3 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CEDDCDB517DC109D008FF32E /* GoogleAdMob */,
 				CFF657E717FFBF7400AE4C9D /* PaypalMobile */,
 				CE811B3C17CE4A0F00252A30 /* MBProgressHUD */,
 				CE90D27417534540009C5BD3 /* UIImage+iPhone5.h */,
@@ -586,10 +575,8 @@
 		CED8FE8E1750A2FF00867230 /* KanjiMe */ = {
 			isa = PBXGroup;
 			children = (
-				CEDDCDB517DC109D008FF32E /* GoogleAdMob */,
 				CE90D0EF175332C6009C5BD3 /* Controller */,
 				CED2E4AB1753A38000028823 /* Delegates */,
-				CE73142B17D5DFBF002EF4F6 /* Fonts */,
 				CFD2EAC717FC4CE900C4446B /* Images.xcassets */,
 				CE90D27317534540009C5BD3 /* Libraries */,
 				CED8FEB91750A9A300867230 /* Model */,
@@ -652,7 +639,6 @@
 				CEDDD08517DC1128008FF32E /* README.txt */,
 			);
 			name = GoogleAdMob;
-			path = Libraries;
 			sourceTree = "<group>";
 		};
 		CF01931B17FDA6A200474CCB /* AppMenu */ = {
@@ -718,6 +704,61 @@
 				CFF657EA17FFBF8900AE4C9D /* PayPalPaymentViewController.h */,
 			);
 			name = PaypalMobile;
+			sourceTree = "<group>";
+		};
+		CFF762491800166500F9042D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE90D1C9175342CF009C5BD3 /* tabbar-active.png */,
+				CE90D1CA175342CF009C5BD3 /* tabbar-active@2x.png */,
+				CE90D1CB175342CF009C5BD3 /* tabbar.png */,
+				CE90D1CC175342CF009C5BD3 /* tabbar@2x.png */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		CFF7624A1800169800F9042D /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				CFFA936D17FD633300E7820D /* menubar-7.png */,
+				CFFA936E17FD633300E7820D /* menubar-7@2x.png */,
+				CE90D192175342CF009C5BD3 /* menubar-button.png */,
+				CE90D193175342CF009C5BD3 /* menubar-button@2x.png */,
+				CEDEDB0E17DC5D940049F78C /* menubar-clear.png */,
+				CEDEDB0F17DC5D940049F78C /* menubar-clear@2x.png */,
+				CEDC7D211764236200C29E93 /* menubar-landscape.png */,
+				CEDC7D221764236200C29E93 /* menubar-landscape@2x.png */,
+				CE90D194175342CF009C5BD3 /* menubar.png */,
+				CE90D195175342CF009C5BD3 /* menubar@2x.png */,
+			);
+			name = MenuBar;
+			sourceTree = "<group>";
+		};
+		CFF7624B180016B800F9042D /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				CFEC553318001D2600E8A434 /* welcome_tattoo.png */,
+				CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */,
+				CE90D13A175342CE009C5BD3 /* back.png */,
+				CE90D13B175342CE009C5BD3 /* back@2x.png */,
+				CED21C491761D1C300D07491 /* ipad-arrow-selected.png */,
+				CED21C4A1761D1C300D07491 /* ipad-arrow-selected@2x.png */,
+				CED21C4B1761D1C300D07491 /* ipad-arrow.png */,
+				CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */,
+				CED21C511761D20800D07491 /* ipad-BG-pattern.png */,
+				CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */,
+				CE90D16A175342CE009C5BD3 /* ipad-list-element.png */,
+				CE90D16B175342CE009C5BD3 /* ipad-list-element@2x.png */,
+				CE90D16C175342CE009C5BD3 /* ipad-list-item-selected.png */,
+				CE90D16D175342CE009C5BD3 /* ipad-list-item-selected@2x.png */,
+				CEE1128F1771F01E00286908 /* star.png */,
+				CEE112901771F01E00286908 /* star@2x.png */,
+				CEF0CED617CEF2EE00B24533 /* star_on.png */,
+				CEF0CED717CEF2EE00B24533 /* star_on@2x.png */,
+				CFF7624C180016F600F9042D /* tattoosample.png */,
+				CFF7624D180016F600F9042D /* tattoosample@2x.png */,
+			);
+			name = Miscellaneous;
 			sourceTree = "<group>";
 		};
 		CFFEBAFC17FC550C00E771B8 /* AppIcon */ = {
@@ -824,6 +865,7 @@
 				CE90D20D175342D0009C5BD3 /* ipad-list-element@2x.png in Resources */,
 				CFFEBB0A17FC550C00E771B8 /* Icon-76@2x.png in Resources */,
 				CE90D20E175342D0009C5BD3 /* ipad-list-item-selected.png in Resources */,
+				CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */,
 				CF01932717FDA6A200474CCB /* home@2x.png in Resources */,
 				CE90D20F175342D0009C5BD3 /* ipad-list-item-selected@2x.png in Resources */,
 				CF06C64D17FEA846001EF31E /* ipad-button-green@2x.png in Resources */,
@@ -847,6 +889,7 @@
 				CF06C64A17FEA846001EF31E /* ipad-button-green-pressed.png in Resources */,
 				CE90D26E175342D0009C5BD3 /* tabbar@2x.png in Resources */,
 				CF06C66517FEA852001EF31E /* youtube_color_48.png in Resources */,
+				CFF7624F180016F600F9042D /* tattoosample@2x.png in Resources */,
 				CFFEBB1117FC550C00E771B8 /* Icon.png in Resources */,
 				CF01932E17FDA75B00474CCB /* cart.png in Resources */,
 				CED21C4D1761D1C300D07491 /* ipad-arrow-selected.png in Resources */,
@@ -870,6 +913,7 @@
 				CEF0CED917CEF2EE00B24533 /* star_on@2x.png in Resources */,
 				CE73142E17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf in Resources */,
 				CF06C65417FEA846001EF31E /* ipad-button-red.png in Resources */,
+				CFEC553618001D2600E8A434 /* welcome_tattoo@2x.png in Resources */,
 				CFFEBB1017FC550C00E771B8 /* Icon-Small@2x.png in Resources */,
 				CE73142F17D5DFEA002EF4F6 /* MyriadPro-Regular.otf in Resources */,
 				CE73143217D5E080002EF4F6 /* MyriadPro-BoldCond.otf in Resources */,
@@ -879,6 +923,7 @@
 				CF06C64617FEA846001EF31E /* ipad-button-blue-pressed.png in Resources */,
 				CEDDD08717DC1128008FF32E /* README.txt in Resources */,
 				CFFEBB0F17FC550C00E771B8 /* Icon-Small.png in Resources */,
+				CFF7624E180016F600F9042D /* tattoosample.png in Resources */,
 				CEDEDB1017DC5D940049F78C /* menubar-clear.png in Resources */,
 				CEDEDB1117DC5D940049F78C /* menubar-clear@2x.png in Resources */,
 				CFFEBB1217FC550C00E771B8 /* Icon@2x.png in Resources */,
@@ -925,6 +970,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED8FE951750A30000867230 /* main.m in Sources */,
+				CFF762521800191E00F9042D /* WelcomeTattooViewController.m in Sources */,
 				CED8FE991750A30000867230 /* MainAppDelegate.m in Sources */,
 				CE90D27217534328009C5BD3 /* StylishCellViewCell.m in Sources */,
 				CE90D27617534540009C5BD3 /* UIImage+iPhone5.m in Sources */,
