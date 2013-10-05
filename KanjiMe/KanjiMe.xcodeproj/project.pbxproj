@@ -119,6 +119,13 @@
 		CF0C9D8117FD39020026E99C /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0C9D7F17FD39020026E99C /* Icon-57.png */; };
 		CF0C9D8217FD39020026E99C /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0C9D8017FD39020026E99C /* Icon-114.png */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
+		CFF657D817FFBE5200AE4C9D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */; };
+		CFF657DA17FFBE6900AE4C9D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */; };
+		CFF657DC17FFBE7600AE4C9D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */; };
+		CFF657DE17FFBE8D00AE4C9D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657DD17FFBE8D00AE4C9D /* libxml2.dylib */; };
+		CFF657E017FFBEBF00AE4C9D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657DF17FFBEBF00AE4C9D /* OpenGLES.framework */; };
+		CFF657E217FFBEDE00AE4C9D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657E117FFBEDE00AE4C9D /* Security.framework */; };
+		CFF657EC17FFBFA000AE4C9D /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657EB17FFBFA000AE4C9D /* libPayPalMobile.a */; };
 		CFF80E4117FEFE1B00AAB76E /* TattooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */; };
 		CFFA936F17FD633300E7820D /* menubar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936D17FD633300E7820D /* menubar-7.png */; };
 		CFFA937017FD633300E7820D /* menubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936E17FD633300E7820D /* menubar-7@2x.png */; };
@@ -291,6 +298,16 @@
 		CF0C9D7F17FD39020026E99C /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		CF0C9D8017FD39020026E99C /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CFF657DD17FFBE8D00AE4C9D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		CFF657DF17FFBEBF00AE4C9D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CFF657E117FFBEDE00AE4C9D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CFF657E817FFBF8900AE4C9D /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalMobile.h; path = PayPalMobile/PayPalMobile.h; sourceTree = "<group>"; };
+		CFF657E917FFBF8900AE4C9D /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPayment.h; path = PayPalMobile/PayPalPayment.h; sourceTree = "<group>"; };
+		CFF657EA17FFBF8900AE4C9D /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPaymentViewController.h; path = PayPalMobile/PayPalPaymentViewController.h; sourceTree = "<group>"; };
+		CFF657EB17FFBFA000AE4C9D /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPayPalMobile.a; path = KanjiMe/Libraries/PayPalMobile/libPayPalMobile.a; sourceTree = "<group>"; };
 		CFF80E3F17FEFE1B00AAB76E /* TattooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TattooViewController.h; sourceTree = "<group>"; };
 		CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TattooViewController.m; sourceTree = "<group>"; };
 		CFFA936D17FD633300E7820D /* menubar-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-7.png"; sourceTree = "<group>"; };
@@ -319,6 +336,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF657E217FFBEDE00AE4C9D /* Security.framework in Frameworks */,
+				CFF657E017FFBEBF00AE4C9D /* OpenGLES.framework in Frameworks */,
+				CFF657DC17FFBE7600AE4C9D /* CoreVideo.framework in Frameworks */,
+				CFF657DA17FFBE6900AE4C9D /* CoreMedia.framework in Frameworks */,
+				CFF657D817FFBE5200AE4C9D /* AVFoundation.framework in Frameworks */,
 				CEDDD08F17DC11A6008FF32E /* AdSupport.framework in Frameworks */,
 				CECEBAEB1751C67300E93B8D /* SystemConfiguration.framework in Frameworks */,
 				CEDDD08D17DC118D008FF32E /* CoreGraphics.framework in Frameworks */,
@@ -329,10 +351,12 @@
 				CE00D9E117BE260200136CDA /* CoreData.framework in Frameworks */,
 				CE90D12617533AE6009C5BD3 /* MobileCoreServices.framework in Frameworks */,
 				CEBDEB21175102AF00593B2F /* QuartzCore.framework in Frameworks */,
-				CED8FEAF1750A3A300867230 /* libPods.a in Frameworks */,
 				CED8FE891750A2FF00867230 /* UIKit.framework in Frameworks */,
 				CEDB36FD17CDE07A004BE1F7 /* FacebookSDK.framework in Frameworks */,
+				CFF657DE17FFBE8D00AE4C9D /* libxml2.dylib in Frameworks */,
 				CEDDD08617DC1128008FF32E /* libGoogleAdMobAds.a in Frameworks */,
+				CFF657EC17FFBFA000AE4C9D /* libPayPalMobile.a in Frameworks */,
+				CED8FEAF1750A3A300867230 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +480,7 @@
 		CE90D27317534540009C5BD3 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				CEDDCDB517DC109D008FF32E /* GoogleAdMob */,
+				CFF657E717FFBF7400AE4C9D /* PaypalMobile */,
 				CE811B3C17CE4A0F00252A30 /* MBProgressHUD */,
 				CE90D27417534540009C5BD3 /* UIImage+iPhone5.h */,
 				CE90D27517534540009C5BD3 /* UIImage+iPhone5.m */,
@@ -534,18 +558,25 @@
 		CED8FE871750A2FF00867230 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEDDD08417DC1128008FF32E /* libGoogleAdMobAds.a */,
 				CEDDD08E17DC11A6008FF32E /* AdSupport.framework */,
-				CEDDD08C17DC118C008FF32E /* CoreGraphics.framework */,
 				CEDDD08A17DC1176008FF32E /* AudioToolbox.framework */,
-				CEDDD08817DC116C008FF32E /* StoreKit.framework */,
-				CEDDCDB317DBF828008FF32E /* MessageUI.framework */,
-				CEE7347517DB162A0071B564 /* Social.framework */,
-				CED8FEAE1750A3A300867230 /* libPods.a */,
-				CEDB36FC17CDE07A004BE1F7 /* FacebookSDK.framework */,
+				CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */,
 				CE00D9E017BE260200136CDA /* CoreData.framework */,
+				CEDDD08C17DC118C008FF32E /* CoreGraphics.framework */,
+				CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */,
+				CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */,
+				CEDB36FC17CDE07A004BE1F7 /* FacebookSDK.framework */,
+				CEDDD08417DC1128008FF32E /* libGoogleAdMobAds.a */,
+				CFF657EB17FFBFA000AE4C9D /* libPayPalMobile.a */,
+				CED8FEAE1750A3A300867230 /* libPods.a */,
+				CFF657DD17FFBE8D00AE4C9D /* libxml2.dylib */,
+				CEDDCDB317DBF828008FF32E /* MessageUI.framework */,
 				CE90D12517533AE6009C5BD3 /* MobileCoreServices.framework */,
+				CFF657DF17FFBEBF00AE4C9D /* OpenGLES.framework */,
 				CEBDEB20175102AF00593B2F /* QuartzCore.framework */,
+				CFF657E117FFBEDE00AE4C9D /* Security.framework */,
+				CEE7347517DB162A0071B564 /* Social.framework */,
+				CEDDD08817DC116C008FF32E /* StoreKit.framework */,
 				CECEBAEA1751C67300E93B8D /* SystemConfiguration.framework */,
 				CED8FE881750A2FF00867230 /* UIKit.framework */,
 			);
@@ -555,15 +586,16 @@
 		CED8FE8E1750A2FF00867230 /* KanjiMe */ = {
 			isa = PBXGroup;
 			children = (
-				CE90D12A175342CE009C5BD3 /* Resources */,
-				CE73142B17D5DFBF002EF4F6 /* Fonts */,
-				CED2E4AB1753A38000028823 /* Delegates */,
-				CE90D27317534540009C5BD3 /* Libraries */,
-				CE90D0F117533301009C5BD3 /* Views */,
+				CEDDCDB517DC109D008FF32E /* GoogleAdMob */,
 				CE90D0EF175332C6009C5BD3 /* Controller */,
-				CED8FEB91750A9A300867230 /* Model */,
+				CED2E4AB1753A38000028823 /* Delegates */,
+				CE73142B17D5DFBF002EF4F6 /* Fonts */,
 				CFD2EAC717FC4CE900C4446B /* Images.xcassets */,
+				CE90D27317534540009C5BD3 /* Libraries */,
+				CED8FEB91750A9A300867230 /* Model */,
+				CE90D12A175342CE009C5BD3 /* Resources */,
 				CED8FE8F1750A2FF00867230 /* Supporting Files */,
+				CE90D0F117533301009C5BD3 /* Views */,
 			);
 			path = KanjiMe;
 			sourceTree = "<group>";
@@ -620,6 +652,7 @@
 				CEDDD08517DC1128008FF32E /* README.txt */,
 			);
 			name = GoogleAdMob;
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		CF01931B17FDA6A200474CCB /* AppMenu */ = {
@@ -675,6 +708,16 @@
 				CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */,
 			);
 			path = AppSocial;
+			sourceTree = "<group>";
+		};
+		CFF657E717FFBF7400AE4C9D /* PaypalMobile */ = {
+			isa = PBXGroup;
+			children = (
+				CFF657E817FFBF8900AE4C9D /* PayPalMobile.h */,
+				CFF657E917FFBF8900AE4C9D /* PayPalPayment.h */,
+				CFF657EA17FFBF8900AE4C9D /* PayPalPaymentViewController.h */,
+			);
+			name = PaypalMobile;
 			sourceTree = "<group>";
 		};
 		CFFEBAFC17FC550C00E771B8 /* AppIcon */ = {
@@ -1011,9 +1054,34 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/KanjiMe/GoogleAdMob/Add-ons/GoogleAnalyticsServicesiOS_3.0/GoogleAnalytics/Library\"",
-					"\"$(SRCROOT)/KanjiMe/GoogleAdMob/Add-ons/GoogleAnalyticsServicesiOS_3.0\"",
-					"\"$(SRCROOT)/KanjiMe/GoogleAdMob\"",
+					/Users/juanctt/Developer/KanjimeIOS/KanjiMe/KanjiMe/Libraries/PayPalMobile,
+					/Users/juanctt/Developer/KanjimeIOS/KanjiMe/KanjiMe/GoogleAdMob,
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-liconv",
+					"-lxml2",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					ImageIO,
+					"-framework",
+					MediaPlayer,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1038,9 +1106,34 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/KanjiMe/GoogleAdMob/Add-ons/GoogleAnalyticsServicesiOS_3.0/GoogleAnalytics/Library\"",
-					"\"$(SRCROOT)/KanjiMe/GoogleAdMob/Add-ons/GoogleAnalyticsServicesiOS_3.0\"",
-					"\"$(SRCROOT)/KanjiMe/GoogleAdMob\"",
+					/Users/juanctt/Developer/KanjimeIOS/KanjiMe/KanjiMe/Libraries/PayPalMobile,
+					/Users/juanctt/Developer/KanjimeIOS/KanjiMe/KanjiMe/GoogleAdMob,
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-liconv",
+					"-lxml2",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					ImageIO,
+					"-framework",
+					MediaPlayer,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
