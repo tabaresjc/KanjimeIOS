@@ -10,7 +10,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
-#import "RestApiConstant.h"
 #import "RestApiHelpers.h"
 
 @implementation Collection

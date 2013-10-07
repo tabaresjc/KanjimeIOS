@@ -10,7 +10,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFJSONRequestOperation.h>
 
-#import "RestApiConstant.h"
 
 static NSUInteger const ClientDefaultMaxConcurrentOperationCount = 4;
 

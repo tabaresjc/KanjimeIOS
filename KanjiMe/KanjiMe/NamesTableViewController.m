@@ -12,7 +12,6 @@
 #import <Social/Social.h>
 #import "MainAppDelegate.h"
 #import "RestApiFetcher.h"
-#import "RestApiConstant.h"
 #import "StylishCellViewCell.h"
 #import "Collection+Rest.h"
 #import "SearchCollectionTableViewController.h"

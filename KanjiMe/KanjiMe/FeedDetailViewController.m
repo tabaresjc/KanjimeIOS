@@ -10,7 +10,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Social/Social.h>
 #import "RestApiHelpers.h"
-#import "RestApiConstant.h"
 #import "Collection.h"
 #import "FeedCell4.h"
 #import "FeedHeaderCell.h"

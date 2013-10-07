@@ -16,6 +16,7 @@
 #endif
 
 #import "UIImage+iPhone5.h"
+#import "SupportKeys.h"
 
 #ifndef MAIN_BG_IMAGE 
 #define MAIN_BG_IMAGE @"ipad-BG-pattern.png"

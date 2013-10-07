@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GADBannerView.h"
 
-#define ADMOB_ID @"ca-app-pub-9096893656708907/5942382873"
+
 @interface AdMobLoader : NSObject
 + (GADBannerView *)getNewBannerView:(UIViewController *)mainView;
 + (GADRequest *)getNewRequest:(BOOL)testMode;
