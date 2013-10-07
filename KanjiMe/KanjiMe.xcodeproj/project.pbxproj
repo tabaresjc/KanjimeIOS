@@ -257,7 +257,6 @@
 		CEE112901771F01E00286908 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		CEE13AD917BCDE5400E65DF1 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Name.h; path = Models/Name.h; sourceTree = "<group>"; };
 		CEE13ADA17BCDE5400E65DF1 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Name.m; path = Models/Name.m; sourceTree = "<group>"; };
-		CEE13ADD17BCDE5400E65DF1 /* RestApiConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiConstant.h; path = Models/RestApiConstant.h; sourceTree = "<group>"; };
 		CEE13ADE17BCDE5400E65DF1 /* RestApiFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiFetcher.h; path = Models/RestApiFetcher.h; sourceTree = "<group>"; };
 		CEE13ADF17BCDE5400E65DF1 /* RestApiFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApiFetcher.m; path = Models/RestApiFetcher.m; sourceTree = "<group>"; };
 		CEE7347517DB162A0071B564 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -303,6 +302,7 @@
 		CF0C9D7F17FD39020026E99C /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		CF0C9D8017FD39020026E99C /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CFE3B97C1802E04600860727 /* SupportKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportKeys.h; sourceTree = "<group>"; };
 		CFEC553318001D2600E8A434 /* welcome_tattoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_tattoo.png; sourceTree = "<group>"; };
 		CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_tattoo@2x.png"; sourceTree = "<group>"; };
 		CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -606,6 +606,7 @@
 				CED9BEB117B7D52200E9FF59 /* RestApiFetcher */,
 				CED38DDD17E33DDC0057EB3F /* AdMobLoader.h */,
 				CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */,
+				CFE3B97C1802E04600860727 /* SupportKeys.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -615,7 +616,6 @@
 			children = (
 				CEE13AD917BCDE5400E65DF1 /* Name.h */,
 				CEE13ADA17BCDE5400E65DF1 /* Name.m */,
-				CEE13ADD17BCDE5400E65DF1 /* RestApiConstant.h */,
 				CEE13ADE17BCDE5400E65DF1 /* RestApiFetcher.h */,
 				CEE13ADF17BCDE5400E65DF1 /* RestApiFetcher.m */,
 				CE3FABC817BCF11A00F2BE59 /* RestApiHelpers.h */,
