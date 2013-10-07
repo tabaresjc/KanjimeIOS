@@ -63,6 +63,29 @@ static NSUInteger const ClientDefaultMaxConcurrentOperationCount = 4;
      ];
 }
 
+- (void)createOrder:(NSDictionary *)requestData
+            success:(void (^)(id jsonData))success
+            failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *requestParameters = nil;
+    NSURLRequest *request = [self getUrlRequestForApiWithData:@"orders.json"
+                                               withHttpMethod:POST
+                                           withDataDictionary:requestData
+                                                   parameters:requestParameters];
+    
+    [self callMethodWithUrlRequest:request
+                           success:^(AFHTTPRequestOperation *operation, id jsonObject) {
+                               if(success){
+                                   success(jsonObject);
+                               }
+                           }
+                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                               if(failure){
+                                   failure(error);
+                               }
+                           }];
+}
+
 #pragma mark - Managing HTTP Header Values
 - (NSMutableURLRequest *)getUrlRequestForApi:(NSString *)method
                             withHttpMethod:(HttpMethods)httpMethod
@@ -85,6 +108,41 @@ static NSUInteger const ClientDefaultMaxConcurrentOperationCount = 4;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlRequest]];
     [request setHTTPMethod:[self getHttpMethod:httpMethod]];
     [request setValue:authorizationString forHTTPHeaderField:@"Authorization"];
+    
+    return request;
+}
+
+- (NSMutableURLRequest *)getUrlRequestForApiWithData:(NSString *)method
+                                      withHttpMethod:(HttpMethods)httpMethod
+                                  withDataDictionary:(NSDictionary *)httpData
+                                          parameters:(NSDictionary *)parameters {
+    NSString *p = nil;
+    NSError *error;
+    NSString *urlRequest = [NSString stringWithFormat:@"%@%@",[self.urlEndpoint description],method];
+    
+    if (parameters) {
+        for (id key in parameters) {
+            if(!p){
+                p = [NSString stringWithFormat:@"?%@=%@",key,[parameters objectForKey:key]];
+            }else{
+                p = [NSString stringWithFormat:@"%@&%@=%@",p,key,[parameters objectForKey:key]];
+            }
+        }
+        urlRequest = [NSString stringWithFormat:@"%@%@",urlRequest,p];
+    }
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:httpData
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    NSString *authorizationString = [NSString stringWithFormat:@"KMW_AUTH username=%@&account_sid=%@",API_ACCOUNT_USERNAME,API_ACCOUNT_SID];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlRequest]];
+    [request setHTTPMethod:[self getHttpMethod:httpMethod]];
+    [request setValue:authorizationString forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: jsonData];
     
     return request;
 }
@@ -119,6 +177,14 @@ static NSUInteger const ClientDefaultMaxConcurrentOperationCount = 4;
            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     NSURLRequest *request = [self getUrlRequestForApi:method withHttpMethod:httpMethod parameters:parameters];
+    AFJSONRequestOperation *operation = [self HttpRequestOperationForJson:request success:success failure:failure];
+    [self.operationQueue addOperation:operation];
+}
+
+- (void)callMethodWithUrlRequest:(NSURLRequest *)request
+                         success:(void (^)(AFHTTPRequestOperation *operation, id jsonObject))success
+                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
     AFJSONRequestOperation *operation = [self HttpRequestOperationForJson:request success:success failure:failure];
     [self.operationQueue addOperation:operation];
 }

@@ -29,4 +29,7 @@ typedef enum httpMethodsType
          success:(void (^)(id jsonData))success
          failure:(void (^)(NSError *error))failure;
 
+- (void)createOrder:(NSDictionary *)requestData
+            success:(void (^)(id jsonData))success
+            failure:(void (^)(NSError *error))failure;
 @end

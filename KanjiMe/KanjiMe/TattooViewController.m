@@ -7,6 +7,7 @@
 //
 
 #import "TattooViewController.h"
+#import "RestApiFetcher.h"
 
 @interface TattooViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputName;
@@ -38,9 +39,9 @@
     self.inputEmail.delegate = self;
     self.inputComments.delegate = self;
     
-    //self.inputName.text = @"Juan";
-    //self.inputLastName.text = @"Tabares";
-    //self.inputEmail.text = @"juan.ctt2002@live.com"
+    self.inputName.text = @"Juan Tabares";
+    self.inputTattooText.text = @"Juan Tabares";
+    self.inputEmail.text = @"juan.ctt2002@live.com";
     [self.priceLabel.layer setCornerRadius:5.0];
 }
 
@@ -129,13 +130,58 @@
 
 - (void)verifyCompletedPayment:(PayPalPayment *)completedPayment {
     // Send the entire confirmation dictionary
-//    NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation
-//                                                           options:0
-//                                                             error:nil];
-    
     // Send confirmation to your server; your server should verify the proof of payment
     // and give the user their goods or services. If the server is not reachable, save
     // the confirmation and try again later.
+    
+    NSString *name = self.inputName.text;
+    NSString *email = self.inputEmail.text;
+    NSString *comments = [NSString stringWithFormat:@"Tattoo: %@ Comments: %@",self.inputTattooText.text,self.inputComments.text];
+    NSString *payment_kind  = nil;
+    NSString *payment_key  = nil;
+    NSString *payment_status  = nil;
+    NSString *payment_description  = nil;
+    NSString *payment_amount = nil;
+    NSString *payment_currency = nil;
+    NSString *payment_env = nil;
+    
+    if([completedPayment.confirmation valueForKeyPath:@"proof_of_payment.adaptive_payment"]){
+        payment_kind = @"PAYPAL";
+        payment_key = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.adaptive_payment.pay_key"];
+        payment_status = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.adaptive_payment.payment_exec_status"];
+    } else {/*if([completedPayment.confirmation valueForKeyPath:@"proof_of_payment.rest_api"]){*/
+        payment_kind = @"CREDIT_CARD";
+        payment_key = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.rest_api.payment_id"];
+        payment_status = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.rest_api.state"];
+    }
+    payment_description = [completedPayment.confirmation valueForKeyPath:@"payment.short_description"];
+    payment_amount = [completedPayment.confirmation valueForKeyPath:@"payment.amount"];
+    payment_currency = [completedPayment.confirmation valueForKeyPath:@"payment.currency_code"];
+    payment_env = [completedPayment.confirmation valueForKeyPath:@"client.environment"];
+    
+    NSDictionary *httpDataOrder = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        name, @"name",
+                                        email, @"email",
+                                        comments, @"comments",
+                                        payment_kind, @"payment_kind",
+                                        payment_key, @"payment_key",
+                                        payment_status, @"payment_status",
+                                        payment_description, @"payment_description",
+                                        payment_amount, @"payment_amount",
+                                        payment_currency, @"payment_currency",
+                                        payment_env, @"payment_env",
+                                        nil];
+    RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
+    NSDictionary *httpDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        httpDataOrder, @"Order",
+                                        nil];
+    [apiFetcher createOrder:httpDataDictionary
+                    success:^(id jsonData) {
+                        
+                    }
+                    failure:^(NSError *error) {
+                        
+                    }];
 }
 
 - (BOOL)validateInputs
