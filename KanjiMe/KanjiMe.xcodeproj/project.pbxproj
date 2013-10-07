@@ -46,7 +46,6 @@
 		CED21C501761D1C300D07491 /* ipad-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */; };
 		CED21C531761D20800D07491 /* ipad-BG-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C511761D20800D07491 /* ipad-BG-pattern.png */; };
 		CED21C541761D20800D07491 /* ipad-BG-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */; };
-		CED38DDF17E33DDC0057EB3F /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */; };
 		CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */; };
 		CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787317CF258500C8C1B1 /* FeedCell1.m */; };
 		CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = CED7787517CF258500C8C1B1 /* FeedCell2.m */; };
@@ -202,8 +201,6 @@
 		CED21C4C1761D1C300D07491 /* ipad-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-arrow@2x.png"; sourceTree = "<group>"; };
 		CED21C511761D20800D07491 /* ipad-BG-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern.png"; sourceTree = "<group>"; };
 		CED21C521761D20800D07491 /* ipad-BG-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern@2x.png"; sourceTree = "<group>"; };
-		CED38DDD17E33DDC0057EB3F /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobLoader.h; sourceTree = "<group>"; };
-		CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobLoader.m; sourceTree = "<group>"; };
 		CED41E6317DB67720029B5D6 /* FeedHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedHeaderCell.h; sourceTree = "<group>"; };
 		CED41E6417DB67720029B5D6 /* FeedHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedHeaderCell.m; sourceTree = "<group>"; };
 		CED7787217CF258500C8C1B1 /* FeedCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell1.h; sourceTree = "<group>"; };
@@ -302,7 +299,6 @@
 		CF0C9D7F17FD39020026E99C /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		CF0C9D8017FD39020026E99C /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CFE3B97C1802E04600860727 /* SupportKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportKeys.h; sourceTree = "<group>"; };
 		CFEC553318001D2600E8A434 /* welcome_tattoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_tattoo.png; sourceTree = "<group>"; };
 		CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_tattoo@2x.png"; sourceTree = "<group>"; };
 		CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -604,9 +600,6 @@
 			children = (
 				CE00D9C117BE19D900136CDA /* CoreDataModel */,
 				CED9BEB117B7D52200E9FF59 /* RestApiFetcher */,
-				CED38DDD17E33DDC0057EB3F /* AdMobLoader.h */,
-				CED38DDE17E33DDC0057EB3F /* AdMobLoader.m */,
-				CFE3B97C1802E04600860727 /* SupportKeys.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -995,7 +988,6 @@
 				CED7788917CF258500C8C1B1 /* FeedController3.m in Sources */,
 				CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */,
 				CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */,
-				CED38DDF17E33DDC0057EB3F /* AdMobLoader.m in Sources */,
 				CEA769B317E6E08500DD2A80 /* CreditsViewController.m in Sources */,
 				CEA769E417E7015600DD2A80 /* WebDetailViewController.m in Sources */,
 			);
