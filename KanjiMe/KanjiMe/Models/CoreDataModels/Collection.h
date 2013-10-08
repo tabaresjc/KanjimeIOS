@@ -21,8 +21,4 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * collectionId;
 
-- (void)shareToFacebook;
-- (void)shareToTwitter:(UIViewController *)mainView;
-- (NSString *)getCommonDescriptor;
-
 @end

@@ -8,6 +8,8 @@
 
 #import "TattooViewController.h"
 #import "RestApiFetcher.h"
+#import "Order+Rest.h"
+#import "MainAppDelegate.h"
 
 @interface TattooViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputName;
@@ -15,12 +17,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputTattooText;
 @property (weak, nonatomic) IBOutlet UITextField *inputComments;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-
+@property (strong, nonatomic) Order *order;
+@property (nonatomic) OrderSteps orderStatus;
 @end
 
 @implementation TattooViewController
 @synthesize inputComments, inputEmail, inputName, inputTattooText;
 @synthesize priceLabel;
+@synthesize order;
+@synthesize orderStatus;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,6 +64,16 @@
     return true;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"Confirmation"]) {
+        if([segue.destinationViewController respondsToSelector:@selector(setMessageToView:withOrderStatus:)]){
+            [segue.destinationViewController performSelector:@selector(setMessageToView:withOrderStatus:)
+                                                  withObject:self.order
+                                                  withObject:[NSNumber numberWithInt:(int)self.orderStatus]];
+        }
+    }
+}
 
 - (IBAction)setPayment:(id)sender {
     
@@ -110,22 +125,23 @@
                                                                          delegate:self];
     
     // Present the PayPalPaymentViewController.
+    self.orderStatus = ORDERSTART;    
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
 
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment
 {
+    self.orderStatus = ORDER_API_COMLETED;
     // Payment was processed successfully; send to server for verification and fulfillment.
     [self verifyCompletedPayment:completedPayment];
-    
-    // Dismiss the PayPalPaymentViewController.
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)payPalPaymentDidCancel
 {
     // The payment was canceled; dismiss the PayPalPaymentViewController.
+    self.orderStatus = ORDER_API_CANCELED;
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"Confirmation" sender:self];
 }
 
 - (void)verifyCompletedPayment:(PayPalPayment *)completedPayment {
@@ -133,54 +149,35 @@
     // Send confirmation to your server; your server should verify the proof of payment
     // and give the user their goods or services. If the server is not reachable, save
     // the confirmation and try again later.
+    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    NSString *name = self.inputName.text;
-    NSString *email = self.inputEmail.text;
-    NSString *comments = [NSString stringWithFormat:@"Tattoo: %@ Comments: %@",self.inputTattooText.text,self.inputComments.text];
-    NSString *payment_kind  = nil;
-    NSString *payment_key  = nil;
-    NSString *payment_status  = nil;
-    NSString *payment_description  = nil;
-    NSString *payment_amount = nil;
-    NSString *payment_currency = nil;
-    NSString *payment_env = nil;
+    self.order = [Order buildOrderFromParameters:self.inputName.text
+                                         withEmail:self.inputEmail.text
+                                        withTattoo:self.inputTattooText.text
+                                      withComments:self.inputComments.text
+                                   withPaymentInfo:completedPayment.confirmation
+                            inManagedObjectContext:appDelegate.managedObjectContext];
     
-    if([completedPayment.confirmation valueForKeyPath:@"proof_of_payment.adaptive_payment"]){
-        payment_kind = @"PAYPAL";
-        payment_key = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.adaptive_payment.pay_key"];
-        payment_status = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.adaptive_payment.payment_exec_status"];
-    } else {/*if([completedPayment.confirmation valueForKeyPath:@"proof_of_payment.rest_api"]){*/
-        payment_kind = @"CREDIT_CARD";
-        payment_key = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.rest_api.payment_id"];
-        payment_status = [completedPayment.confirmation valueForKeyPath:@"proof_of_payment.rest_api.state"];
-    }
-    payment_description = [completedPayment.confirmation valueForKeyPath:@"payment.short_description"];
-    payment_amount = [completedPayment.confirmation valueForKeyPath:@"payment.amount"];
-    payment_currency = [completedPayment.confirmation valueForKeyPath:@"payment.currency_code"];
-    payment_env = [completedPayment.confirmation valueForKeyPath:@"client.environment"];
     
-    NSDictionary *httpDataOrder = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        name, @"name",
-                                        email, @"email",
-                                        comments, @"comments",
-                                        payment_kind, @"payment_kind",
-                                        payment_key, @"payment_key",
-                                        payment_status, @"payment_status",
-                                        payment_description, @"payment_description",
-                                        payment_amount, @"payment_amount",
-                                        payment_currency, @"payment_currency",
-                                        payment_env, @"payment_env",
-                                        nil];
+    
+    NSDictionary *httpDataOrder = [self.order getHttpDataForCreation];
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     NSDictionary *httpDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                         httpDataOrder, @"Order",
                                         nil];
+    
     [apiFetcher createOrder:httpDataDictionary
                     success:^(id jsonData) {
-                        
+                        order.is_sent = true;
+                        self.orderStatus = ORDER_CONFIRMATION;
+                        // Dismiss the PayPalPaymentViewController.
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        [self performSegueWithIdentifier:@"Confirmation" sender:self];
                     }
                     failure:^(NSError *error) {
-                        
+                        order.is_sent = false;
+                        self.orderStatus = ORDER_API_COMLETED;
+                        [self performSegueWithIdentifier:@"Confirmation" sender:self];
                     }];
 }
 
@@ -221,5 +218,7 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:checkString];
 }
+
+
 
 @end

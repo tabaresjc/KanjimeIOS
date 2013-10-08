@@ -135,6 +135,9 @@
 		CFFA936F17FD633300E7820D /* menubar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936D17FD633300E7820D /* menubar-7.png */; };
 		CFFA937017FD633300E7820D /* menubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936E17FD633300E7820D /* menubar-7@2x.png */; };
 		CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA937217FD63B400E7820D /* UtilHelper.m */; };
+		CFFAA3B418039CDA00DBEECE /* Order+Rest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B318039CDA00DBEECE /* Order+Rest.m */; };
+		CFFAA3B71803A7B100DBEECE /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B61803A7B100DBEECE /* Order.m */; };
+		CFFAA3BA1803DDBC00DBEECE /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B91803DDBC00DBEECE /* ConfirmationViewController.m */; };
 		CFFEBB0917FC550C00E771B8 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFEBAFD17FC550C00E771B8 /* Icon-76.png */; };
 		CFFEBB0A17FC550C00E771B8 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFEBAFE17FC550C00E771B8 /* Icon-76@2x.png */; };
 		CFFEBB0B17FC550C00E771B8 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFEBAFF17FC550C00E771B8 /* Icon-Small-50.png */; };
@@ -325,6 +328,12 @@
 		CFFA936E17FD633300E7820D /* menubar-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-7@2x.png"; sourceTree = "<group>"; };
 		CFFA937117FD63B400E7820D /* UtilHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilHelper.h; sourceTree = "<group>"; };
 		CFFA937217FD63B400E7820D /* UtilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilHelper.m; sourceTree = "<group>"; };
+		CFFAA3B218039CDA00DBEECE /* Order+Rest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Order+Rest.h"; path = "Models/CoreDataModels/Order+Rest.h"; sourceTree = "<group>"; };
+		CFFAA3B318039CDA00DBEECE /* Order+Rest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Order+Rest.m"; path = "Models/CoreDataModels/Order+Rest.m"; sourceTree = "<group>"; };
+		CFFAA3B51803A7B100DBEECE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
+		CFFAA3B61803A7B100DBEECE /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
+		CFFAA3B81803DDBC00DBEECE /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
+		CFFAA3B91803DDBC00DBEECE /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		CFFEBAFD17FC550C00E771B8 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		CFFEBAFE17FC550C00E771B8 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
 		CFFEBAFF17FC550C00E771B8 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -377,11 +386,15 @@
 		CE00D9C117BE19D900136CDA /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
-				CE0FDE3517BE595500BF6125 /* Collection.h */,
-				CE0FDE3617BE595500BF6125 /* Collection.m */,
 				CE0FDE2F17BE51F500BF6125 /* Collection+Rest.h */,
 				CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */,
+				CE0FDE3517BE595500BF6125 /* Collection.h */,
+				CE0FDE3617BE595500BF6125 /* Collection.m */,
+				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
+				CFFAA3B218039CDA00DBEECE /* Order+Rest.h */,
+				CFFAA3B318039CDA00DBEECE /* Order+Rest.m */,
+				CFFAA3B51803A7B100DBEECE /* Order.h */,
+				CFFAA3B61803A7B100DBEECE /* Order.m */,
 			);
 			name = CoreDataModel;
 			sourceTree = "<group>";
@@ -428,6 +441,8 @@
 				CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */,
 				CFF762501800191E00F9042D /* WelcomeTattooViewController.h */,
 				CFF762511800191E00F9042D /* WelcomeTattooViewController.m */,
+				CFFAA3B81803DDBC00DBEECE /* ConfirmationViewController.h */,
+				CFFAA3B91803DDBC00DBEECE /* ConfirmationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -987,6 +1002,7 @@
 				CEFFF23217BF16FC0080603A /* SearchCollectionTableViewController.m in Sources */,
 				CE811B3F17CE4A0F00252A30 /* MBProgressHUD.m in Sources */,
 				CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */,
+				CFFAA3B71803A7B100DBEECE /* Order.m in Sources */,
 				CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */,
 				CED7788517CF258500C8C1B1 /* FeedCell3.m in Sources */,
 				CED7788617CF258500C8C1B1 /* FeedCell4.m in Sources */,
@@ -996,8 +1012,10 @@
 				CED7788917CF258500C8C1B1 /* FeedController3.m in Sources */,
 				CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */,
 				CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */,
+				CFFAA3B418039CDA00DBEECE /* Order+Rest.m in Sources */,
 				CEA769B317E6E08500DD2A80 /* CreditsViewController.m in Sources */,
 				CEA769E417E7015600DD2A80 /* WebDetailViewController.m in Sources */,
+				CFFAA3BA1803DDBC00DBEECE /* ConfirmationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

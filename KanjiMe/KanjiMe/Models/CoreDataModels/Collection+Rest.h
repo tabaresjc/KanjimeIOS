@@ -20,5 +20,8 @@
 
 + (Collection *)syncCollectionWithCD:(NSDictionary *)collectionDictionary
         inManagedObjectContext:(NSManagedObjectContext *)context;
+- (void)shareToFacebook;
+- (void)shareToTwitter:(UIViewController *)mainView;
+- (NSString *)getCommonDescriptor;
 
 @end

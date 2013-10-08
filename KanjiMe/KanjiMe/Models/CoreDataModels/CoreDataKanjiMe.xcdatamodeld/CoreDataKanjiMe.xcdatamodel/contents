@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11E53" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Collection" representedClassName="Collection" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="collectionId" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,7 +10,23 @@
         <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES">
+        <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_sent" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="option" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="payment_amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="payment_currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payment_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payment_env" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payment_key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payment_kind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payment_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tattoo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Collection" positionX="-7533" positionY="-3393" width="128" height="165"/>
+        <element name="Collection" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Order" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
