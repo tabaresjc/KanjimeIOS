@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) Order *order;
 @property (nonatomic) OrderSteps orderStatus;
+@property (strong,nonatomic) CoreDataHandler *coreDataRep;
 @end
 
 @implementation TattooViewController
@@ -34,6 +35,15 @@
         // Custom initialization
     }
     return self;
+}
+
+- (CoreDataHandler *)coreDataRep
+{
+    if(!_coreDataRep){
+        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        _coreDataRep = appDelegate.coreDataHandler;
+    }
+    return _coreDataRep;
 }
 
 - (void)viewDidLoad
@@ -109,7 +119,7 @@
     
     // Start out working with the test environment! When you are ready, remove this line to switch to live.
     [PayPalPaymentViewController setEnvironment:PayPalEnvironmentSandbox];
-    [PayPalPaymentViewController prepareForPaymentUsingClientId:@"Af0hqBDuovancbyuNJm2O3P3G39AHtulPtrbwXeeOoDTKBEWurI0xhNNOOi4"];
+    [PayPalPaymentViewController prepareForPaymentUsingClientId:PAYPAL_CLIENTID];
     
     // Create a PayPalPaymentViewController with the credentials and payerId, the PayPalPayment
     // from the previous step, and a PayPalPaymentDelegate to handle the results.
@@ -118,8 +128,8 @@
     PayPalPaymentViewController *paymentViewController;
     
     
-    paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:@"Af0hqBDuovancbyuNJm2O3P3G39AHtulPtrbwXeeOoDTKBEWurI0xhNNOOi4"
-                                                                    receiverEmail:@"juan_tabares001-facilitator@hotmail.com"
+    paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:PAYPAL_CLIENTID
+                                                                    receiverEmail:PAYPAL_EMAIL
                                                                           payerId:aPayerId
                                                                           payment:payment
                                                                          delegate:self];
@@ -127,6 +137,7 @@
     // Present the PayPalPaymentViewController.
     self.orderStatus = ORDERSTART;    
     [self presentViewController:paymentViewController animated:YES completion:nil];
+    
 }
 
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment
@@ -139,9 +150,8 @@
 - (void)payPalPaymentDidCancel
 {
     // The payment was canceled; dismiss the PayPalPaymentViewController.
-    self.orderStatus = ORDER_API_CANCELED;
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self performSegueWithIdentifier:@"Confirmation" sender:self];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)verifyCompletedPayment:(PayPalPayment *)completedPayment {
@@ -149,24 +159,20 @@
     // Send confirmation to your server; your server should verify the proof of payment
     // and give the user their goods or services. If the server is not reachable, save
     // the confirmation and try again later.
-    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    self.order = [Order buildOrderFromParameters:self.inputName.text
-                                         withEmail:self.inputEmail.text
-                                        withTattoo:self.inputTattooText.text
-                                      withComments:self.inputComments.text
-                                   withPaymentInfo:completedPayment.confirmation
-                            inManagedObjectContext:appDelegate.managedObjectContext];
-    
-    
+    self.order = [self.coreDataRep getOrderFromParameters:self.inputName.text
+                                                withEmail:self.inputEmail.text
+                                               withTattoo:self.inputTattooText.text
+                                             withComments:self.inputComments.text
+                                          withPaymentInfo:completedPayment.confirmation];
     
     NSDictionary *httpDataOrder = [self.order getHttpDataForCreation];
+    NSLog(@"%@",httpDataOrder);
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
-    NSDictionary *httpDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        httpDataOrder, @"Order",
-                                        nil];
+//    NSDictionary *httpDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                        httpDataOrder, @"Order",
+//                                        nil];
     
-    [apiFetcher createOrder:httpDataDictionary
+    [apiFetcher createOrder:httpDataOrder
                     success:^(id jsonData) {
                         order.is_sent = true;
                         self.orderStatus = ORDER_CONFIRMATION;
@@ -176,7 +182,7 @@
                     }
                     failure:^(NSError *error) {
                         order.is_sent = false;
-                        self.orderStatus = ORDER_API_COMLETED;
+                        self.orderStatus = ORDER_ERROR;
                         [self performSegueWithIdentifier:@"Confirmation" sender:self];
                     }];
 }

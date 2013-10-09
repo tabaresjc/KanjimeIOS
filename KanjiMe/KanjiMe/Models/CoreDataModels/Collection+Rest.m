@@ -12,38 +12,16 @@
 #import <MessageUI/MessageUI.h>
 #import "RestApiHelpers.h"
 
+#define NAME_TITLE @"Collection.title"
+#define NAME_SUBTITLE @"Collection.subtitle"
+#define NAME_DESCRIPTION @"Collection.description"
+#define NAME_BODY @"Collection.body"
+#define NAME_CREATED @"Collection.created"
+#define NAME_MODIFIED @"Collection.modified"
+#define NAME_ID @"Collection.id"
+
 @implementation Collection (Rest)
-+ (Collection *)syncCollectionWithCD:(NSDictionary *)collectionDictionary
-              inManagedObjectContext:(NSManagedObjectContext *)context{
-    Collection *collection = nil;
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
-                                                              ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"collectionId = %@",
-                         [collectionDictionary valueForKeyPath:NAME_ID]];
-    NSError *error = nil;
-    NSArray *matches = [context executeFetchRequest:request
-                                              error:&error];
-    
-    if (!matches || ([matches count] > 1)) {
-        // handle error
-    } else if (![matches count]) {
-        collection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection"
-                                              inManagedObjectContext:context];
-        collection.collectionId = [collectionDictionary valueForKeyPath:NAME_ID];
-        collection.title = [collectionDictionary valueForKeyPath:NAME_TITLE];
-        collection.subtitle = [collectionDictionary valueForKeyPath:NAME_SUBTITLE];
-        collection.extraTitle = [collectionDictionary valueForKeyPath:NAME_DESCRIPTION];
-        collection.body = [collectionDictionary valueForKeyPath:NAME_BODY];
-        collection.created = [collectionDictionary valueForKeyPath:NAME_CREATED];
-        collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
-        
-    } else {
-        collection = [matches lastObject];
-    }    
-    return collection;
-}
+
 
 + (NSDate *)getDateTimeFromString:(NSString *)rawDateString
 {

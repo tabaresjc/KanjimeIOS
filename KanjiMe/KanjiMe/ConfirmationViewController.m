@@ -40,7 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     switch (self.orderStatus) {
-        case ORDER_API_COMLETED:
+        case ORDER_ERROR:
         {
             [self.buttonCancel setTitle:@"Retry?" forState:UIControlStateNormal];
             self.messageLabel.text = @"Pending confirmation from server";
@@ -54,11 +54,7 @@
             "Please press Ok to continue";
             break;
         }
-        case ORDER_API_CANCELED:
         default:
-            [self.buttonCancel setTitle:@"Retry?" forState:UIControlStateNormal];
-            self.messageLabel.text = @"Order canceled due to problems with Paypal service\n\n"
-            "Would you like to retry?";
             break;
     }
 }

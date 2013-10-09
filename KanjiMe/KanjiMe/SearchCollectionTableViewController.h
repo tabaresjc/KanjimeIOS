@@ -9,5 +9,5 @@
 #import "CoreDataTableViewController.h"
 
 @interface SearchCollectionTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @end

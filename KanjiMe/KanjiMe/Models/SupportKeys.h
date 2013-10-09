@@ -14,5 +14,6 @@
 #define API_ENDPOINT_URL @"http://kanjime.learnjapanese123.com/"
 #define WEB_ENDPOINT_URL @"http://kanjime.learnjapanese123.com/"
 #define ADMOB_ID @"ca-app-pub-9096893656708907/5942382873"
-
+#define PAYPAL_CLIENTID @"Af0hqBDuovancbyuNJm2O3P3G39AHtulPtrbwXeeOoDTKBEWurI0xhNNOOi4"
+#define PAYPAL_EMAIL @"juan_tabares001-facilitator@hotmail.com"
 #endif

@@ -98,4 +98,14 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (CoreDataHandler *)coreDataHandler
+{
+    // Instantiate a single instance of the Database Handler
+    if(!_coreDataHandler) {
+        _coreDataHandler = [[CoreDataHandler alloc] init];
+    }
+    return _coreDataHandler;
+}
+
 @end

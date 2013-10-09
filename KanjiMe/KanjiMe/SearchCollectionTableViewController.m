@@ -11,13 +11,22 @@
 #import "NamesTableViewController.h"
 #import "Collection.h"
 
-static NSString *cellIdentifier = @"SearchResult";
 @interface SearchCollectionTableViewController ()
+@property (strong,nonatomic) CoreDataHandler *coreDataRep;
 @property (strong, nonatomic) NSFetchedResultsController *filteredNames;
 @end
 
 @implementation SearchCollectionTableViewController
 @synthesize filteredNames;
+
+- (CoreDataHandler *)coreDataRep
+{
+    if(!_coreDataRep){
+        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        _coreDataRep = appDelegate.coreDataHandler;
+    }
+    return _coreDataRep;
+}
 
 - (void)viewDidLoad
 {
@@ -40,55 +49,7 @@ static NSString *cellIdentifier = @"SearchResult";
 
 - (IBAction)refresh
 {
-    if (!self.managedObjectContext) {
-        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        self.managedObjectContext = appDelegate.managedObjectContext;
-    }
-}
-
-- (void)useDocument
-{
-    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-                                                         inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:@"MainDocument"];
-    
-    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
-        [document saveToURL:url
-           forSaveOperation:UIDocumentSaveForCreating
-          completionHandler:^(BOOL success) {
-              self.managedObjectContext = document.managedObjectContext;
-              [self refresh];
-          }];
-    } else if (document.documentState == UIDocumentStateClosed) {
-        [document openWithCompletionHandler:^(BOOL success) {
-            self.managedObjectContext = document.managedObjectContext;
-            [self refresh];
-        }];
-    } else {
-        self.managedObjectContext = document.managedObjectContext;
-    }
-}
-
-- (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-{
-    _managedObjectContext = managedObjectContext;
-    if (managedObjectContext) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
-                                                                  ascending:YES
-                                                                   selector:@selector(localizedCaseInsensitiveCompare:)]];
-        
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"favorite = TRUE"];
-        [request setPredicate:predicate];
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                            managedObjectContext:managedObjectContext
-                                                                              sectionNameKeyPath:nil
-                                                                                       cacheName:nil];
-    } else {
-        self.fetchedResultsController = nil;
-    }
+    self.fetchedResultsController = [self.coreDataRep getCollectionListByFavorite];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
@@ -172,7 +133,7 @@ static NSString *cellIdentifier = @"SearchResult";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView == self.searchDisplayController.searchResultsTableView){
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SearchResult"];
         [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
         Collection *collection = [self.filteredNames objectAtIndexPath:indexPath];
         
@@ -182,7 +143,7 @@ static NSString *cellIdentifier = @"SearchResult";
         return cell;
         
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchResult"];
         Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         cell.textLabel.text = collection.title;
@@ -200,7 +161,6 @@ static NSString *cellIdentifier = @"SearchResult";
     }
 }
 
-
 - (IBAction)editButton:(UIBarButtonItem *)sender {
     if( self.tableView.editing ){
         [self.tableView setEditing:NO animated:YES];
@@ -212,34 +172,5 @@ static NSString *cellIdentifier = @"SearchResult";
 }
 
 
-
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@",searchText];
-    [request setPredicate:predicate];
-    
-    self.filteredNames = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.managedObjectContext
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
-    NSError *error;
-    [self.filteredNames performFetch:&error];
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                      objectAtIndex:[self.searchDisplayController.searchBar
-                                                     selectedScopeButtonIndex]]];
-    
-    return YES;
-}
 
 @end

@@ -14,17 +14,10 @@ typedef enum orderSteps
 {
     ORDERSTART,
     ORDER_API_COMLETED,
-    ORDER_API_CANCELED,
-    ORDER_CONFIRMATION
+    ORDER_CONFIRMATION,
+    ORDER_ERROR
 } OrderSteps;
 
-
-+ (Order *)buildOrderFromParameters:(NSString *)name
-                          withEmail:(NSString *)email
-                         withTattoo:(NSString *)tattoo
-                       withComments:(NSString *)comments
-                    withPaymentInfo:(NSDictionary *)paypalPaymentInfo
-             inManagedObjectContext:(NSManagedObjectContext *)context;
-
 - (NSDictionary *)getHttpDataForCreation;
+
 @end

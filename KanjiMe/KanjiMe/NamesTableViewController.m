@@ -22,6 +22,7 @@ static NSString *cellIdentifier = @"NameRow";
 static NSString *searchCellIdentifier = @"SearchNameRow";
 
 @interface NamesTableViewController ()
+@property (strong,nonatomic) CoreDataHandler *coreDataRep;
 @property (strong, nonatomic) NSFetchedResultsController *filteredNames;
 @property BOOL setView;
 @end
@@ -38,18 +39,27 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     return self;
 }
 
+
+- (CoreDataHandler *)coreDataRep
+{
+    if(!_coreDataRep){
+        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        _coreDataRep = appDelegate.coreDataHandler;
+    }
+    return _coreDataRep;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.tabBarController.delegate = self;
-    [self setStyle];
     
-    [super viewDidLoad];
-    if (!self.managedObjectContext) {
-        [self useDocument];
+    if (!self.coreDataRep.isOpen) {
+        [self setupDocument];
     } else {
         [self refresh];
-    }    
+    }
+    [self setStyle];
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
     bannerView_ = [AdMobLoader getNewBannerView:self];
@@ -101,8 +111,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 - (void)refresh
 {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];    
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.tableView reloadData];    
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     [apiFetcher getNames:10000
@@ -111,7 +120,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
                           
                           NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
                           for (NSDictionary *collection in collections) {
-                              [Collection syncCollectionWithCD:collection inManagedObjectContext:self.managedObjectContext];
+                              [self.coreDataRep getCollectionFromDictionary:collection];
                           }
                           dispatch_async(dispatch_get_main_queue(), ^{                              
                               [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -127,51 +136,16 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
      ];
 }
 
-- (void)useDocument
+- (void)setupDocument
 {
-    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-                                                         inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:@"MainDocument"];
-    
-    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
-        [document saveToURL:url
-           forSaveOperation:UIDocumentSaveForCreating
-          completionHandler:^(BOOL success) {
-              self.managedObjectContext = document.managedObjectContext;
-              [self refresh];
-          }];
-    } else if (document.documentState == UIDocumentStateClosed) {
-        [document openWithCompletionHandler:^(BOOL success) {
-            self.managedObjectContext = document.managedObjectContext;
-            [self refresh];
-        }];
-    } else {
-        self.managedObjectContext = document.managedObjectContext;
-    }
+    [self.coreDataRep useDocumentWithName:MAIN_DOCUMENT_NAME completionHandler:^(BOOL success) {
+        self.fetchedResultsController = [self.coreDataRep getListOfCollection];
+        [self refresh];
+    }];
+
 }
 
-- (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-{
-    _managedObjectContext = managedObjectContext;
-    if (managedObjectContext) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
-                                                                  ascending:YES
-                                                                   selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = nil;
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                            managedObjectContext:managedObjectContext
-                                                                              sectionNameKeyPath:nil
-                                                                                       cacheName:nil];
-        
-    } else {
-        self.fetchedResultsController = nil;
-    }
-    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.managedObjectContext = _managedObjectContext;
-}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender
@@ -280,25 +254,12 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 }
 
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@",searchText];
-    [request setPredicate:predicate];
-    
-    self.filteredNames = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                             managedObjectContext:self.managedObjectContext
-                                                               sectionNameKeyPath:nil
-                                                                        cacheName:nil];
     NSError *error;
+    self.filteredNames = [self.coreDataRep getCollectionListByName:searchText];
     [self.filteredNames performFetch:&error];
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterContentForSearchText:searchString
                                scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
