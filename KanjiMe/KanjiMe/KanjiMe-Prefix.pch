@@ -36,6 +36,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define NSStringIsEmpty(stringValue) ([[stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length] == 0)
 
 #define MAIN_BACK_COLOR UIColorFromRGB(0xffffff)
-#define CELLS_BACK_COLOR UIColorFromRGB(0xf5f5f5)
+#define CELLS_BACK_COLOR UIColorFromRGB(0xf1f1f1)
 #endif
 

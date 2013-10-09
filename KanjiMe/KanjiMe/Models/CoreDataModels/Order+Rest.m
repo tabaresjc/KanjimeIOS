@@ -13,31 +13,18 @@
 - (NSDictionary *)getHttpDataForCreation
 {
     NSString *textComments = [NSString stringWithFormat:@"Tattoo:%@|Comments:%@|Option:%@",self.tattoo,self.comments,self.option];
-    NSMutableDictionary *httpDataOrder = [[NSMutableDictionary alloc] init];
-    [httpDataOrder setValue:self.name forKeyPath:@"Order.name"];
-    [httpDataOrder setValue:self.email forKeyPath:@"Order.email"];
-    [httpDataOrder setValue:textComments forKeyPath:@"Order.comments"];
-    [httpDataOrder setValue:self.payment_kind forKeyPath:@"Order.payment_kind"];
-    [httpDataOrder setValue:self.payment_key forKeyPath:@"Order.payment_key"];
-    [httpDataOrder setValue:self.payment_status forKeyPath:@"Order.payment_status"];
-    [httpDataOrder setValue:self.payment_description forKeyPath:@"Order.payment_description"];
-    [httpDataOrder setValue:self.payment_amount forKeyPath:@"Order.payment_amount"];
-    [httpDataOrder setValue:self.payment_currency forKeyPath:@"Order.payment_currency"];
-    [httpDataOrder setValue:self.payment_env forKeyPath:@"Order.name"];
-//    NSDictionary *httpDataOrder = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                   self.name, @"name",
-//                                   self.email, @"email",
-//                                   self.comments, textComments,
-//                                   self.payment_kind, @"payment_kind",
-//                                   self.payment_key, @"payment_key",
-//                                   self.payment_status, @"payment_status",
-//                                   self.payment_description, @"payment_description",
-//                                   self.payment_amount, @"payment_amount",
-//                                   self.payment_currency, @"payment_currency",
-//                                   self.payment_env, @"payment_env",
-//                                   nil];
-    
-    
+    NSMutableDictionary *dataOrder = [[NSMutableDictionary alloc] init];
+    [dataOrder setValue:self.name forKey:@"name"];
+    [dataOrder setValue:self.email forKey:@"email"];
+    [dataOrder setValue:textComments forKey:@"comments"];
+    [dataOrder setValue:self.payment_kind forKey:@"payment_kind"];
+    [dataOrder setValue:self.payment_key forKey:@"payment_key"];
+    [dataOrder setValue:self.payment_status forKey:@"payment_status"];
+    [dataOrder setValue:self.payment_description forKey:@"payment_description"];
+    [dataOrder setValue:self.payment_amount forKey:@"payment_amount"];
+    [dataOrder setValue:self.payment_currency forKey:@"payment_currency"];
+    [dataOrder setValue:self.payment_env forKey:@"name"];
+    NSDictionary *httpDataOrder = [NSDictionary dictionaryWithObjectsAndKeys:dataOrder,@"Order", nil];
     return httpDataOrder;
 }
 

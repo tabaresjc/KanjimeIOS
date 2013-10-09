@@ -12,6 +12,6 @@
 
 @interface AdMobLoader : NSObject
 + (GADBannerView *)getNewBannerView:(UIViewController *)mainView;
-+ (GADRequest *)getNewRequest:(BOOL)testMode;
++ (GADRequest *)getNewRequest;
 
 @end

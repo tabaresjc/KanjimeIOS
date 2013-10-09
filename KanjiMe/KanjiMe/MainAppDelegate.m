@@ -22,10 +22,11 @@
     }
     
     // Tab Bar Appeareance
-    UIImage* tabBarBackground = [UIImage tallImageNamed:@"tabbar.png"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
-    
+    if([UtilHelper isVersion6AndBelow]) {
+        UIImage* tabBarBackground = [UIImage tallImageNamed:@"tabbar.png"];
+        [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+        [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    }
     // Navigation Bar Appereance
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
     if([UtilHelper isVersion6AndBelow]) {

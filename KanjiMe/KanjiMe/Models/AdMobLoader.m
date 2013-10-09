@@ -9,7 +9,7 @@
 #import "AdMobLoader.h"
 #import "GADBannerView.h"
 
-
+#define DEBUG 1
 @implementation AdMobLoader
 
 + (GADBannerView *)getNewBannerView:(UIViewController *)mainView
@@ -27,11 +27,11 @@
     return bannerView_;
 }
 
-+ (GADRequest *)getNewRequest:(BOOL)testMode
++ (GADRequest *)getNewRequest
 {
     GADRequest *request = [GADRequest request];
     
-    if(testMode) {
+    if(DEBUG) {
         request.testDevices = [NSArray arrayWithObjects:@"2be07610ffc77e998855454a203a7b3a", nil];
     }
     

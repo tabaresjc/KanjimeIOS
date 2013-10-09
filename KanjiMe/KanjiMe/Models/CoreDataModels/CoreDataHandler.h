@@ -18,6 +18,7 @@
 - (id)getCollectionListByName:(NSString *)searchText;
 - (id)getCollectionListByFavorite;
 - (id)getCollectionFromDictionary:(NSDictionary *)collectionDictionary;
+- (id)getListOfOrder;
 - (id)getOrderFromParameters:(NSString *)name
                         withEmail:(NSString *)email
                        withTattoo:(NSString *)tattoo

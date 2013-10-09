@@ -117,6 +117,7 @@
 		CF06C66617FEA852001EF31E /* youtube_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */; };
 		CF0C9D8117FD39020026E99C /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0C9D7F17FD39020026E99C /* Icon-57.png */; };
 		CF0C9D8217FD39020026E99C /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0C9D8017FD39020026E99C /* Icon-114.png */; };
+		CF89C73E18058D3D00FA84FD /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CF89C73D18058D3D00FA84FD /* Order.m */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
 		CFE3B9801802EB9800860727 /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE3B97E1802EB9800860727 /* AdMobLoader.m */; };
 		CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553318001D2600E8A434 /* welcome_tattoo.png */; };
@@ -136,9 +137,12 @@
 		CFFA937017FD633300E7820D /* menubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936E17FD633300E7820D /* menubar-7@2x.png */; };
 		CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA937217FD63B400E7820D /* UtilHelper.m */; };
 		CFFAA3B418039CDA00DBEECE /* Order+Rest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B318039CDA00DBEECE /* Order+Rest.m */; };
-		CFFAA3B71803A7B100DBEECE /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B61803A7B100DBEECE /* Order.m */; };
-		CFFAA3BA1803DDBC00DBEECE /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B91803DDBC00DBEECE /* ConfirmationViewController.m */; };
 		CFFDDDD3180519E700234AA8 /* CoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */; };
+		CFFDDDD9180544E200234AA8 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDDDD5180544E200234AA8 /* checkmark.png */; };
+		CFFDDDDA180544E200234AA8 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDDDD6180544E200234AA8 /* checkmark@2x.png */; };
+		CFFDDDDB180544E200234AA8 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDDDD7180544E200234AA8 /* warning.png */; };
+		CFFDDDDC180544E200234AA8 /* warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDDDD8180544E200234AA8 /* warning@2x.png */; };
+		CFFDDDDF1805457600234AA8 /* OrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDDDDE1805457600234AA8 /* OrdersTableViewController.m */; };
 		CFFEBB0917FC550C00E771B8 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFEBAFD17FC550C00E771B8 /* Icon-76.png */; };
 		CFFEBB0A17FC550C00E771B8 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFEBAFE17FC550C00E771B8 /* Icon-76@2x.png */; };
 		CFFEBB0B17FC550C00E771B8 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFEBAFF17FC550C00E771B8 /* Icon-Small-50.png */; };
@@ -303,6 +307,8 @@
 		CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youtube_color_48@2x.png"; sourceTree = "<group>"; };
 		CF0C9D7F17FD39020026E99C /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		CF0C9D8017FD39020026E99C /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
+		CF89C73C18058D3D00FA84FD /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
+		CF89C73D18058D3D00FA84FD /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CFE3B97D1802EB9800860727 /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdMobLoader.h; path = Models/AdMobLoader.h; sourceTree = "<group>"; };
 		CFE3B97E1802EB9800860727 /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdMobLoader.m; path = Models/AdMobLoader.m; sourceTree = "<group>"; };
@@ -331,12 +337,14 @@
 		CFFA937217FD63B400E7820D /* UtilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilHelper.m; sourceTree = "<group>"; };
 		CFFAA3B218039CDA00DBEECE /* Order+Rest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Order+Rest.h"; path = "Models/CoreDataModels/Order+Rest.h"; sourceTree = "<group>"; };
 		CFFAA3B318039CDA00DBEECE /* Order+Rest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Order+Rest.m"; path = "Models/CoreDataModels/Order+Rest.m"; sourceTree = "<group>"; };
-		CFFAA3B51803A7B100DBEECE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
-		CFFAA3B61803A7B100DBEECE /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
-		CFFAA3B81803DDBC00DBEECE /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
-		CFFAA3B91803DDBC00DBEECE /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHandler.h; path = Models/CoreDataModels/CoreDataHandler.h; sourceTree = "<group>"; };
 		CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHandler.m; path = Models/CoreDataModels/CoreDataHandler.m; sourceTree = "<group>"; };
+		CFFDDDD5180544E200234AA8 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		CFFDDDD6180544E200234AA8 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
+		CFFDDDD7180544E200234AA8 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
+		CFFDDDD8180544E200234AA8 /* warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning@2x.png"; sourceTree = "<group>"; };
+		CFFDDDDD1805457600234AA8 /* OrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersTableViewController.h; sourceTree = "<group>"; };
+		CFFDDDDE1805457600234AA8 /* OrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersTableViewController.m; sourceTree = "<group>"; };
 		CFFEBAFD17FC550C00E771B8 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		CFFEBAFE17FC550C00E771B8 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
 		CFFEBAFF17FC550C00E771B8 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -395,11 +403,11 @@
 				CE0FDE3617BE595500BF6125 /* Collection.m */,
 				CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */,
 				CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */,
+				CF89C73C18058D3D00FA84FD /* Order.h */,
+				CF89C73D18058D3D00FA84FD /* Order.m */,
 				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
 				CFFAA3B218039CDA00DBEECE /* Order+Rest.h */,
 				CFFAA3B318039CDA00DBEECE /* Order+Rest.m */,
-				CFFAA3B51803A7B100DBEECE /* Order.h */,
-				CFFAA3B61803A7B100DBEECE /* Order.m */,
 			);
 			name = CoreDataModel;
 			sourceTree = "<group>";
@@ -446,8 +454,8 @@
 				CFF80E4017FEFE1B00AAB76E /* TattooViewController.m */,
 				CFF762501800191E00F9042D /* WelcomeTattooViewController.h */,
 				CFF762511800191E00F9042D /* WelcomeTattooViewController.m */,
-				CFFAA3B81803DDBC00DBEECE /* ConfirmationViewController.h */,
-				CFFAA3B91803DDBC00DBEECE /* ConfirmationViewController.m */,
+				CFFDDDDD1805457600234AA8 /* OrdersTableViewController.h */,
+				CFFDDDDE1805457600234AA8 /* OrdersTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -463,6 +471,7 @@
 		CE90D12A175342CE009C5BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CFFDDDD4180544E200234AA8 /* AppIconMessage */,
 				CFF7624B180016B800F9042D /* Miscellaneous */,
 				CFF7624A1800169800F9042D /* MenuBar */,
 				CF06C63517FEA846001EF31E /* AppButtons */,
@@ -781,6 +790,17 @@
 			name = Miscellaneous;
 			sourceTree = "<group>";
 		};
+		CFFDDDD4180544E200234AA8 /* AppIconMessage */ = {
+			isa = PBXGroup;
+			children = (
+				CFFDDDD5180544E200234AA8 /* checkmark.png */,
+				CFFDDDD6180544E200234AA8 /* checkmark@2x.png */,
+				CFFDDDD7180544E200234AA8 /* warning.png */,
+				CFFDDDD8180544E200234AA8 /* warning@2x.png */,
+			);
+			path = AppIconMessage;
+			sourceTree = "<group>";
+		};
 		CFFEBAFC17FC550C00E771B8 /* AppIcon */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,9 +916,11 @@
 				CF06C64E17FEA846001EF31E /* ipad-button-grey-pressed.png in Resources */,
 				CE90D236175342D0009C5BD3 /* menubar.png in Resources */,
 				CE90D237175342D0009C5BD3 /* menubar@2x.png in Resources */,
+				CFFDDDDC180544E200234AA8 /* warning@2x.png in Resources */,
 				CE90D26B175342D0009C5BD3 /* tabbar-active.png in Resources */,
 				CE90D26C175342D0009C5BD3 /* tabbar-active@2x.png in Resources */,
 				CFFEBB1317FC550C00E771B8 /* iTunesArtwork.png in Resources */,
+				CFFDDDD9180544E200234AA8 /* checkmark.png in Resources */,
 				CE90D26D175342D0009C5BD3 /* tabbar.png in Resources */,
 				CF06C64717FEA846001EF31E /* ipad-button-blue-pressed@2x.png in Resources */,
 				CFFEBB1A17FC577000E771B8 /* Default.png in Resources */,
@@ -948,10 +970,12 @@
 				CEDEDB1117DC5D940049F78C /* menubar-clear@2x.png in Resources */,
 				CFFEBB1217FC550C00E771B8 /* Icon@2x.png in Resources */,
 				CF06C65017FEA846001EF31E /* ipad-button-grey.png in Resources */,
+				CFFDDDDA180544E200234AA8 /* checkmark@2x.png in Resources */,
 				CF01932F17FDA75B00474CCB /* cart@2x.png in Resources */,
 				CFFEBB1B17FC577000E771B8 /* Default@2x.png in Resources */,
 				CF0C9D8117FD39020026E99C /* Icon-57.png in Resources */,
 				CFFEBB1917FC577000E771B8 /* Default-568h@2x.png in Resources */,
+				CFFDDDDB180544E200234AA8 /* warning.png in Resources */,
 				CF06C65517FEA846001EF31E /* ipad-button-red@2x.png in Resources */,
 				CFFA936F17FD633300E7820D /* menubar-7.png in Resources */,
 				CF06C64B17FEA846001EF31E /* ipad-button-green-pressed@2x.png in Resources */,
@@ -998,6 +1022,7 @@
 				CEE13AE617BCDE5400E65DF1 /* RestApiFetcher.m in Sources */,
 				CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */,
 				CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */,
+				CF89C73E18058D3D00FA84FD /* Order.m in Sources */,
 				CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */,
 				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
 				CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */,
@@ -1007,7 +1032,6 @@
 				CEFFF23217BF16FC0080603A /* SearchCollectionTableViewController.m in Sources */,
 				CE811B3F17CE4A0F00252A30 /* MBProgressHUD.m in Sources */,
 				CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */,
-				CFFAA3B71803A7B100DBEECE /* Order.m in Sources */,
 				CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */,
 				CED7788517CF258500C8C1B1 /* FeedCell3.m in Sources */,
 				CED7788617CF258500C8C1B1 /* FeedCell4.m in Sources */,
@@ -1020,8 +1044,8 @@
 				CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */,
 				CFFAA3B418039CDA00DBEECE /* Order+Rest.m in Sources */,
 				CEA769B317E6E08500DD2A80 /* CreditsViewController.m in Sources */,
+				CFFDDDDF1805457600234AA8 /* OrdersTableViewController.m in Sources */,
 				CEA769E417E7015600DD2A80 /* WebDetailViewController.m in Sources */,
-				CFFAA3BA1803DDBC00DBEECE /* ConfirmationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

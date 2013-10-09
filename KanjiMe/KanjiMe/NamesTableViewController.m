@@ -68,7 +68,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     // the user wherever the ad goes and add it to the view hierarchy.
     
     // Initiate a generic request to load it with an ad.
-    [bannerView_ loadRequest:[AdMobLoader getNewRequest:NO]];
+    [bannerView_ loadRequest:[AdMobLoader getNewRequest]];
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
@@ -144,8 +144,6 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     }];
 
 }
-
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender

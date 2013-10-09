@@ -10,6 +10,6 @@
 
 @interface WebDetailViewController : UIViewController <UIWebViewDelegate>
 
-- (void)setUrlToWebView:(NSString *)urlString;
+- (void)setUrlToWebView:(NSString *)urlString withTitle:(NSString *)title;
 
 @end

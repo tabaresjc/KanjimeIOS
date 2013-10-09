@@ -165,6 +165,25 @@
     return collection;
 }
 
+- (id)getListOfOrder
+{
+    NSFetchedResultsController *dataList = nil;
+    
+    if(self.managedObjectContext){
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created_at"
+                                                                  ascending:YES
+                                                                   selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.predicate = nil;
+        dataList = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                       managedObjectContext:managedObjectContext
+                                                         sectionNameKeyPath:nil
+                                                                  cacheName:nil];
+    }
+    return dataList;
+}
+
+
 - (id)getOrderFromParameters:(NSString *)name
                           withEmail:(NSString *)email
                          withTattoo:(NSString *)tattoo
@@ -194,7 +213,7 @@
     order.payment_env = [paypalPaymentInfo valueForKeyPath:@"client.environment"];
     order.is_sent = false;
     order.option = 0;
-    
+    order.created_at = [NSDate date];
     return order;
 }
 

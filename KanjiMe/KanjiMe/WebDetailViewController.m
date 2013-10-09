@@ -12,11 +12,12 @@
 @property (strong, nonatomic) IBOutlet UIWebView *mainWebView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) NSURL *baseUrl;
+@property (strong, nonatomic) NSString *titleOfView;
 @end
 
 @implementation WebDetailViewController
 
-@synthesize baseUrl;
+@synthesize baseUrl, titleOfView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,7 @@
         [self.spinner startAnimating];
         NSURLRequest *request = [NSURLRequest requestWithURL:self.baseUrl];
         [self.mainWebView loadRequest:request];
+        [self setTitle:self.titleOfView];
     }    
 	// Do any additional setup after loading the view.
 }
@@ -52,9 +54,10 @@
     
 }
 
-- (void)setUrlToWebView:(NSString *)urlString
+- (void)setUrlToWebView:(NSString *)urlString withTitle:(NSString *)title
 {
     self.baseUrl = [NSURL URLWithString:urlString];
+    self.titleOfView = title;
 }
 
 @end

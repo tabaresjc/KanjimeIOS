@@ -84,19 +84,25 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"SendUrl"]) {
-        if([segue.destinationViewController respondsToSelector:@selector(setUrlToWebView:)]){
+        if([segue.destinationViewController respondsToSelector:@selector(setUrlToWebView:withTitle:)]){
             UIButton *button = (UIButton *)sender;
             NSString *urlString = @"http://www.learnjapanese123.com/";
+            NSString *titleString = @"LearnJapanese123";
             
             if(button.tag == 1) {
                 urlString = @"https://www.facebook.com/Japanese.Language.Culture";
+                titleString = @"Facebook Fan Page";
             } else if(button.tag == 2) {
                 urlString = @"https://twitter.com/japanese123";
+                titleString = @"Twitter Feed";
             } else if(button.tag == 3) {
                 urlString = @"http://www.youtube.com/user/10minsJapanese";
+                titleString = @"Youtube Channel";
             }
             
-            [segue.destinationViewController performSelector:@selector(setUrlToWebView:) withObject:urlString];
+            [segue.destinationViewController performSelector:@selector(setUrlToWebView:withTitle:)
+                                                  withObject:urlString
+                                                  withObject:titleString];
         }
     }
 }

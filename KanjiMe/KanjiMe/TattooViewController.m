@@ -164,27 +164,50 @@
                                                withTattoo:self.inputTattooText.text
                                              withComments:self.inputComments.text
                                           withPaymentInfo:completedPayment.confirmation];
-    
+    [self saveOrderInServer];
+}
+
+- (void)saveOrderInServer
+{
     NSDictionary *httpDataOrder = [self.order getHttpDataForCreation];
-    NSLog(@"%@",httpDataOrder);
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
-//    NSDictionary *httpDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                        httpDataOrder, @"Order",
-//                                        nil];
     
     [apiFetcher createOrder:httpDataOrder
                     success:^(id jsonData) {
                         order.is_sent = true;
-                        self.orderStatus = ORDER_CONFIRMATION;
                         // Dismiss the PayPalPaymentViewController.
+                        
+                        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Confirmation"
+                                                                          message:@"The transaction was completed. You will receive a confirmation message in your email account within minutes"
+                                                                         delegate:nil
+                                                                cancelButtonTitle:@"OK"
+                                                                otherButtonTitles:nil];
+                        [message show];
                         [self dismissViewControllerAnimated:YES completion:nil];
-                        [self performSegueWithIdentifier:@"Confirmation" sender:self];
+                        [self.navigationController popToRootViewControllerAnimated:YES];
                     }
                     failure:^(NSError *error) {
-                        order.is_sent = false;
-                        self.orderStatus = ORDER_ERROR;
-                        [self performSegueWithIdentifier:@"Confirmation" sender:self];
+                        order.is_sent = false;                        
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're Sorry"
+                                                                            message:@"There was a problem communicating with the KanjiMe servers. Please try again."
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Cancel"
+                                                                  otherButtonTitles:@"Retry",nil];
+                        [alertView show];
                     }];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Cancel"]) {
+        // Dismiss the PayPalPaymentViewController.
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } else if([title isEqualToString:@"Retry"]) {
+        [self saveOrderInServer];
+    }
+        
 }
 
 - (BOOL)validateInputs
