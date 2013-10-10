@@ -10,5 +10,5 @@
 #import "PayPalMobile.h"
 
 @interface TattooViewController : UIViewController <UITextFieldDelegate, PayPalPaymentDelegate, UIAlertViewDelegate>
-
+- (void)setSelection:(id)selection;
 @end

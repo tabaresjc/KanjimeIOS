@@ -8,6 +8,7 @@
 
 #import "FeedHeaderCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UtilHelper.h"
 
 @implementation FeedHeaderCell
 @synthesize titleLabel, subTitleLabel, likeButton;
@@ -29,7 +30,12 @@
 }
 
 -(void)awakeFromNib{
-    [self.headerContainer setBackgroundColor:CELLS_BACK_COLOR];
+    if ([UtilHelper isVersion6AndBelow]) {
+        self.headerContainer.backgroundColor = [UIColor whiteColor];
+    } else {
+        self.headerContainer.tintColor = [UIColor whiteColor];
+    }
+    
     self.headerContainer.layer.cornerRadius = 3.0f;
     self.headerContainer.clipsToBounds = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;

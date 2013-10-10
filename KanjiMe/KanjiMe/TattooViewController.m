@@ -17,9 +17,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputTattooText;
 @property (weak, nonatomic) IBOutlet UITextField *inputComments;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *viewSelectedImage;
+
 @property (strong, nonatomic) Order *order;
 @property (nonatomic) OrderSteps orderStatus;
 @property (strong,nonatomic) CoreDataHandler *coreDataRep;
+@property (strong, nonatomic) NSIndexPath *selectedImage;
 @end
 
 @implementation TattooViewController
@@ -27,6 +30,7 @@
 @synthesize priceLabel;
 @synthesize order;
 @synthesize orderStatus;
+@synthesize viewSelectedImage,  selectedImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +50,14 @@
     return _coreDataRep;
 }
 
+- (void)setSelection:(id)selection
+{
+    self.selectedImage = nil;
+    if([selection isKindOfClass:[NSIndexPath class]]) {
+        self.selectedImage = (NSIndexPath *)selection;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,7 +69,17 @@
     self.inputName.text = @"Juan Tabares";
     self.inputTattooText.text = @"Juan Tabares";
     self.inputEmail.text = @"juan.ctt2002@live.com";
+    self.inputComments.text = @"";
+
     [self.priceLabel.layer setCornerRadius:5.0];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if(self.selectedImage){
+        self.viewSelectedImage.image = [UIImage tallImageNamed:[NSString stringWithFormat:@"image%d.png", self.selectedImage.row + 1]];
+    }
+    
 }
 
 
@@ -159,11 +181,13 @@
     // Send confirmation to your server; your server should verify the proof of payment
     // and give the user their goods or services. If the server is not reachable, save
     // the confirmation and try again later.
-    self.order = [self.coreDataRep getOrderFromParameters:self.inputName.text
+    self.order = (Order *)[self.coreDataRep getOrderFromParameters:self.inputName.text
                                                 withEmail:self.inputEmail.text
                                                withTattoo:self.inputTattooText.text
                                              withComments:self.inputComments.text
+                                        withSelectedImage:self.selectedImage.row+1
                                           withPaymentInfo:completedPayment.confirmation];
+    [self.coreDataRep saveDocument];
     [self saveOrderInServer];
 }
 
@@ -174,7 +198,7 @@
     
     [apiFetcher createOrder:httpDataOrder
                     success:^(id jsonData) {
-                        order.is_sent = true;
+                        order.is_sent = [NSNumber numberWithBool:YES];
                         // Dismiss the PayPalPaymentViewController.
                         
                         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Confirmation"
@@ -187,7 +211,7 @@
                         [self.navigationController popToRootViewControllerAnimated:YES];
                     }
                     failure:^(NSError *error) {
-                        order.is_sent = false;                        
+                        order.is_sent = [NSNumber numberWithBool:NO];
                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're Sorry"
                                                                             message:@"There was a problem communicating with the KanjiMe servers. Please try again."
                                                                            delegate:self

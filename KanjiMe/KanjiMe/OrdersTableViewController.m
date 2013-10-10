@@ -9,6 +9,7 @@
 #import "OrdersTableViewController.h"
 #import "MainAppDelegate.h"
 #import "Order+Rest.h"
+#import "UtilHelper.h"
 
 @interface OrdersTableViewController ()
 @property (strong,nonatomic) CoreDataHandler *coreDataRep;
@@ -55,7 +56,6 @@
 - (IBAction)refresh
 {
     self.fetchedResultsController = [self.coreDataRep getListOfOrder];
-    NSLog(@"Count: %lu",(unsigned long)[[self.fetchedResultsController sections] count]);
 }
 
 #pragma mark - UITableViewDataSource
@@ -66,9 +66,18 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"EEEE, MMMM d, yyyy h:mm a"];
     
-    Order *order = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Order *order = (Order *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@%1.2f",order.payment_description,order.payment_currency, [order.payment_amount doubleValue]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:order.created_at]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:order.created]];
+    
+    if(order.is_sent) {
+        cell.imageView.image = [UIImage tallImageNamed:@"checkmark.png"];
+        [cell setBackgroundColor:UIColorFromRGBWithAlpha(0xCCFFFF,0.1)];
+    } else {
+        cell.imageView.image = [UIImage tallImageNamed:@"warning.png"];
+        [cell setBackgroundColor:UIColorFromRGBWithAlpha(0xFFCCCC,0.2)];
+    }
+    
     return cell;
 }
 

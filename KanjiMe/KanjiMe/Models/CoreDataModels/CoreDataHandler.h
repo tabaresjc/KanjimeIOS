@@ -14,16 +14,18 @@
 @property (nonatomic) BOOL isOpen;
 
 - (void)useDocumentWithName:(NSString *)name completionHandler:(void (^)(BOOL success))completionHandler;
+- (BOOL)saveDocument;
 - (id)getListOfCollection;
 - (id)getCollectionListByName:(NSString *)searchText;
 - (id)getCollectionListByFavorite;
 - (id)getCollectionFromDictionary:(NSDictionary *)collectionDictionary;
 - (id)getListOfOrder;
 - (id)getOrderFromParameters:(NSString *)name
-                        withEmail:(NSString *)email
-                       withTattoo:(NSString *)tattoo
-                     withComments:(NSString *)comments
-                  withPaymentInfo:(NSDictionary *)paypalPaymentInfo;
+                   withEmail:(NSString *)email
+                  withTattoo:(NSString *)tattoo
+                withComments:(NSString *)comments
+           withSelectedImage:(int)selection
+             withPaymentInfo:(NSDictionary *)paypalPaymentInfo;
 
 
 

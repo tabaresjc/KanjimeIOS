@@ -74,6 +74,15 @@
     }
 }
 
+- (BOOL)saveDocument
+{
+    NSError *error = nil;
+    if(![self.managedObjectContext save:&error]){
+        return NO;
+    }
+    return YES;
+}
+
 - (id)getListOfCollection
 {
     NSFetchedResultsController *dataList = nil;
@@ -171,8 +180,8 @@
     
     if(self.managedObjectContext){
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created_at"
-                                                                  ascending:YES
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created"
+                                                                  ascending:NO
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = nil;
         dataList = [[NSFetchedResultsController alloc] initWithFetchRequest:request
@@ -185,10 +194,11 @@
 
 
 - (id)getOrderFromParameters:(NSString *)name
-                          withEmail:(NSString *)email
-                         withTattoo:(NSString *)tattoo
-                       withComments:(NSString *)comments
-                    withPaymentInfo:(NSDictionary *)paypalPaymentInfo
+                   withEmail:(NSString *)email
+                  withTattoo:(NSString *)tattoo
+                withComments:(NSString *)comments
+           withSelectedImage:(int)selection
+             withPaymentInfo:(NSDictionary *)paypalPaymentInfo
 {
     Order *order = [NSEntityDescription insertNewObjectForEntityForName:@"Order"
                                                  inManagedObjectContext:self.managedObjectContext];
@@ -211,9 +221,12 @@
     order.payment_amount = [NSDecimalNumber decimalNumberWithString:[paypalPaymentInfo valueForKeyPath:@"payment.amount"]];
     order.payment_currency = [paypalPaymentInfo valueForKeyPath:@"payment.currency_code"];
     order.payment_env = [paypalPaymentInfo valueForKeyPath:@"client.environment"];
-    order.is_sent = false;
-    order.option = 0;
-    order.created_at = [NSDate date];
+    order.is_sent = [NSNumber numberWithBool:NO];
+    order.option = [NSNumber numberWithInt:selection];
+    order.created = [NSDate date];
+    
+    
+    
     return order;
 }
 

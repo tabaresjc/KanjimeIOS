@@ -41,12 +41,15 @@
     }
     [navigationBarAppearance setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                       UIColorFromRGB(0xf5f5f5), NSForegroundColorAttributeName,
-                                                      [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+                                                      [UIFont fontWithName:@"MyriadPro-BoldCond" size:23.0], NSFontAttributeName, nil]];
 
     // Menu Bar Buttons
     if([UtilHelper isVersion6AndBelow]) {
         [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x333333)];
     }
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          UIColorFromRGB(0xf5f5f5), NSForegroundColorAttributeName,
+                                                          [UIFont fontWithName:@"MyriadPro-Cond" size:21.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
     
     //UIImage *barButton = [[UIImage tallImageNamed:@"menubar-clear.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
     //[[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];

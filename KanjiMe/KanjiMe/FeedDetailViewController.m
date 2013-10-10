@@ -15,6 +15,7 @@
 #import "FeedHeaderCell.h"
 #import "MBProgressHUD.h"
 #import "MainAppDelegate.h"
+#import "UtilHelper.h"
 
 @interface FeedDetailViewController ()
 
@@ -77,7 +78,11 @@
     [super viewDidLoad];
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
-    self.feedTableView.backgroundColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
+    if ([UtilHelper isVersion6AndBelow]) {
+        self.feedTableView.backgroundColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
+    } else {
+        self.feedTableView.tintColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
+    }
     self.feedTableView.separatorColor = [UIColor clearColor];
     
     // Create a view of the standard size at the top of the screen.
