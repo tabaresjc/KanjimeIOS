@@ -181,8 +181,7 @@
     if(self.managedObjectContext){
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created"
-                                                                  ascending:NO
-                                                                   selector:@selector(localizedCaseInsensitiveCompare:)]];
+                                                                  ascending:NO]];
         request.predicate = nil;
         dataList = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                        managedObjectContext:managedObjectContext
@@ -221,8 +220,8 @@
     order.payment_amount = [NSDecimalNumber decimalNumberWithString:[paypalPaymentInfo valueForKeyPath:@"payment.amount"]];
     order.payment_currency = [paypalPaymentInfo valueForKeyPath:@"payment.currency_code"];
     order.payment_env = [paypalPaymentInfo valueForKeyPath:@"client.environment"];
-    order.is_sent = [NSNumber numberWithBool:NO];
-    order.option = [NSNumber numberWithInt:selection];
+    order.is_sent = NO;//[NSNumber numberWithBool:NO];
+    order.option = [NSNumber numberWithInt:selection];//[NSNumber numberWithInt:selection];
     order.created = [NSDate date];
     
     

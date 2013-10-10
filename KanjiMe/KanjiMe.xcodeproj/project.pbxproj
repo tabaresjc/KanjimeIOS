@@ -90,7 +90,6 @@
 		CF01932B17FDA6A200474CCB /* starmenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF01932317FDA6A200474CCB /* starmenu@2x.png */; };
 		CF01932E17FDA75B00474CCB /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = CF01932C17FDA75B00474CCB /* cart.png */; };
 		CF01932F17FDA75B00474CCB /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF01932D17FDA75B00474CCB /* cart@2x.png */; };
-		CF0468701806C759005ACDB0 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CF04686F1806C759005ACDB0 /* Order.m */; };
 		CF0468731806CB5E005ACDB0 /* SelectDesignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0468721806CB5E005ACDB0 /* SelectDesignViewController.m */; };
 		CF04687F1806CF88005ACDB0 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0468751806CF88005ACDB0 /* image1.png */; };
 		CF0468801806CF88005ACDB0 /* image1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0468761806CF88005ACDB0 /* image1@2x.png */; };
@@ -127,6 +126,7 @@
 		CF06C66417FEA852001EF31E /* twitter_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65C17FEA851001EF31E /* twitter_color_48@2x.png */; };
 		CF06C66517FEA852001EF31E /* youtube_color_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65D17FEA852001EF31E /* youtube_color_48.png */; };
 		CF06C66617FEA852001EF31E /* youtube_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */; };
+		CF07829E18070512002FFE62 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07829D18070512002FFE62 /* Order.m */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
 		CFE3B9801802EB9800860727 /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE3B97E1802EB9800860727 /* AdMobLoader.m */; };
 		CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553318001D2600E8A434 /* welcome_tattoo.png */; };
@@ -293,8 +293,6 @@
 		CF01932317FDA6A200474CCB /* starmenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starmenu@2x.png"; sourceTree = "<group>"; };
 		CF01932C17FDA75B00474CCB /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
 		CF01932D17FDA75B00474CCB /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
-		CF04686E1806C759005ACDB0 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
-		CF04686F1806C759005ACDB0 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
 		CF0468711806CB5E005ACDB0 /* SelectDesignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDesignViewController.h; sourceTree = "<group>"; };
 		CF0468721806CB5E005ACDB0 /* SelectDesignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDesignViewController.m; sourceTree = "<group>"; };
 		CF0468751806CF88005ACDB0 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
@@ -333,6 +331,8 @@
 		CF06C65C17FEA851001EF31E /* twitter_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_color_48@2x.png"; sourceTree = "<group>"; };
 		CF06C65D17FEA852001EF31E /* youtube_color_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube_color_48.png; sourceTree = "<group>"; };
 		CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youtube_color_48@2x.png"; sourceTree = "<group>"; };
+		CF07829C18070512002FFE62 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
+		CF07829D18070512002FFE62 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CFE3B97D1802EB9800860727 /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdMobLoader.h; path = Models/AdMobLoader.h; sourceTree = "<group>"; };
 		CFE3B97E1802EB9800860727 /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdMobLoader.m; path = Models/AdMobLoader.m; sourceTree = "<group>"; };
@@ -434,8 +434,8 @@
 				CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */,
 				CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */,
 				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
-				CF04686E1806C759005ACDB0 /* Order.h */,
-				CF04686F1806C759005ACDB0 /* Order.m */,
+				CF07829C18070512002FFE62 /* Order.h */,
+				CF07829D18070512002FFE62 /* Order.m */,
 				CFFAA3B218039CDA00DBEECE /* Order+Rest.h */,
 				CFFAA3B318039CDA00DBEECE /* Order+Rest.m */,
 			);
@@ -1097,8 +1097,8 @@
 				CEE13AE617BCDE5400E65DF1 /* RestApiFetcher.m in Sources */,
 				CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */,
 				CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */,
-				CF0468701806C759005ACDB0 /* Order.m in Sources */,
 				CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */,
+				CF07829E18070512002FFE62 /* Order.m in Sources */,
 				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
 				CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */,
 				CFF80E4117FEFE1B00AAB76E /* TattooViewController.m in Sources */,

@@ -47,6 +47,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -68,7 +69,8 @@
     
     Order *order = (Order *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@%1.2f",order.payment_description,order.payment_currency, [order.payment_amount doubleValue]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:order.created]];
+    
+    cell.detailTextLabel.text = [dateFormat stringFromDate:order.created];
     
     if(order.is_sent) {
         cell.imageView.image = [UIImage tallImageNamed:@"checkmark.png"];

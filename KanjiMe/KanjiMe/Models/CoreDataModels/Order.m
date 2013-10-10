@@ -2,7 +2,7 @@
 //  Order.m
 //  KanjiMe
 //
-//  Created by Juan Tabares on 10/10/13.
+//  Created by Juan Tabares on 10/11/13.
 //  Copyright (c) 2013 Alteran System. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 @implementation Order
 
 @dynamic comments;
+@dynamic created;
 @dynamic email;
 @dynamic is_sent;
 @dynamic name;
@@ -24,6 +25,5 @@
 @dynamic payment_kind;
 @dynamic payment_status;
 @dynamic tattoo;
-@dynamic created;
 
 @end

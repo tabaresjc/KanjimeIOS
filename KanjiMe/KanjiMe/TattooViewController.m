@@ -198,26 +198,33 @@
     
     [apiFetcher createOrder:httpDataOrder
                     success:^(id jsonData) {
-                        order.is_sent = [NSNumber numberWithBool:YES];
-                        // Dismiss the PayPalPaymentViewController.
+                        order.is_sent = YES; //[NSNumber numberWithBool:YES];
+                        [self.coreDataRep saveDocument];
                         
-                        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Confirmation"
-                                                                          message:@"The transaction was completed. You will receive a confirmation message in your email account within minutes"
-                                                                         delegate:nil
-                                                                cancelButtonTitle:@"OK"
-                                                                otherButtonTitles:nil];
-                        [message show];
-                        [self dismissViewControllerAnimated:YES completion:nil];
-                        [self.navigationController popToRootViewControllerAnimated:YES];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            // Dismiss the PayPalPaymentViewController.
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Confirmation"
+                                                                              message:@"The transaction was completed. You will receive a confirmation message in your email account within minutes"
+                                                                             delegate:nil
+                                                                    cancelButtonTitle:@"OK"
+                                                                    otherButtonTitles:nil];
+                            [message show];
+                        });
                     }
                     failure:^(NSError *error) {
-                        order.is_sent = [NSNumber numberWithBool:NO];
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're Sorry"
-                                                                            message:@"There was a problem communicating with the KanjiMe servers. Please try again."
-                                                                           delegate:self
-                                                                  cancelButtonTitle:@"Cancel"
-                                                                  otherButtonTitles:@"Retry",nil];
-                        [alertView show];
+                        order.is_sent = NO;//[NSNumber numberWithBool:NO];
+                        [self.coreDataRep saveDocument];
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're Sorry"
+                                                                                message:@"There was a problem communicating with the KanjiMe servers. Please try again."
+                                                                               delegate:self
+                                                                      cancelButtonTitle:@"Cancel"
+                                                                      otherButtonTitles:@"Retry",nil];
+                            [alertView show];
+                        });
                     }];
 }
 
