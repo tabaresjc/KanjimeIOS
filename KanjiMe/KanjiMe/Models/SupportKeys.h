@@ -9,7 +9,7 @@
 #ifndef KanjiMe_SupportKeys_h
 #define KanjiMe_SupportKeys_h
 
-#define API_ACCOUNT_SID @"7c96fdbc4415e5b65c61e23401b8b827d523311b"
+#define API_ACCOUNT_SID @"c280968c20fa00ab15d4cf17fdad642812694789"
 #define API_ACCOUNT_USERNAME @"admin"
 #define API_ENDPOINT_URL @"http://kanjime.learnjapanese123.com/"
 #define WEB_ENDPOINT_URL @"http://kanjime.learnjapanese123.com/"

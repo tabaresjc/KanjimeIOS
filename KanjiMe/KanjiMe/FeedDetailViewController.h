@@ -17,5 +17,5 @@
 }
 
 @property (nonatomic, weak) IBOutlet UITableView* feedTableView;
-- (void)setDetail:(id)newDetailItem withCell:(id)cell;
+- (void)setDetail:(id)newDetailItem;
 @end

@@ -28,6 +28,7 @@
 @synthesize managedObjectContext;
 @synthesize url;
 @synthesize isOpen;
+@synthesize currentCollection;
 
 -(id)init
 {
@@ -76,10 +77,10 @@
 
 - (BOOL)saveDocument
 {
-    NSError *error = nil;
-    if(![self.managedObjectContext save:&error]){
-        return NO;
-    }
+//    NSError *error = nil;
+//    if(![self.managedObjectContext save:&error]){
+//        return NO;
+//    }
     return YES;
 }
 
@@ -168,6 +169,25 @@
         collection.created = [collectionDictionary valueForKeyPath:NAME_CREATED];
         collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
         
+    } else {
+        collection = [matches lastObject];
+    }
+    return collection;
+}
+
+- (id)getCollectionFromId:(NSNumber *)idOfRecord {
+    Collection *collection = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                              ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"collectionId = %@", idOfRecord];
+    NSError *error = nil;
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:request
+                                                                error:&error];
+    
+    if (!matches || ([matches count] > 1)) {
+        collection = nil;
     } else {
         collection = [matches lastObject];
     }

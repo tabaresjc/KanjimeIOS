@@ -19,6 +19,7 @@
 
 @interface FeedDetailViewController ()
 
+@property (strong,nonatomic) CoreDataHandler *coreDataRep;
 @property (strong, nonatomic) NSArray *listOfNames;
 @property (strong, nonatomic) Collection *collection;
 @property (strong, nonatomic) UIFont *fontForTitle;
@@ -52,7 +53,17 @@
     }
     return _fontForRemark;
 }
-- (void)setDetail:(id)newDetailItem withCell:(id)cell
+
+- (CoreDataHandler *)coreDataRep
+{
+    if(!_coreDataRep){
+        MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        _coreDataRep = appDelegate.coreDataHandler;
+    }
+    return _coreDataRep;
+}
+
+- (void)setDetail:(id)newDetailItem
 {
     self.collection = (Collection *)newDetailItem;
     NSError *e = [[NSError alloc] init];
@@ -60,9 +71,7 @@
     
     self.listOfNames = [data valueForKeyPath:@"kanjiList"];
     self.title = self.collection.title;
-    //NSLog(@"%@",self.listOfNames);
 }
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,14 +121,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.collection = self.collection;
+    self.coreDataRep.currentCollection = self.collection;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.collection = nil;
+    self.coreDataRep.currentCollection = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -241,8 +248,15 @@
 }
 
 - (IBAction)callLike:(UIButton *)sender {
-    self.collection.favorite = !self.collection.favorite;
-    sender.selected = self.collection.favorite;
+    
+    dispatch_queue_t saveDocumentQueue = dispatch_queue_create("SaveDocument",nil);
+    dispatch_async(saveDocumentQueue, ^{
+        self.collection.favorite = !self.collection.favorite;
+        //[self.coreDataRep saveDocument];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            sender.selected = self.collection.favorite;
+        });
+    });
 }
 
 

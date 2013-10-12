@@ -14,8 +14,5 @@
 @interface MainAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) CoreDataHandler *coreDataHandler;
-@property (strong, nonatomic) Collection *collection;
-
-
 
 @end

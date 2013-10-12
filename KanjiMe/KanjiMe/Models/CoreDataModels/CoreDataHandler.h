@@ -12,6 +12,7 @@
 
 @interface CoreDataHandler : NSObject
 @property (nonatomic) BOOL isOpen;
+@property (strong, nonatomic) id currentCollection;
 
 - (void)useDocumentWithName:(NSString *)name completionHandler:(void (^)(BOOL success))completionHandler;
 - (BOOL)saveDocument;
@@ -19,6 +20,7 @@
 - (id)getCollectionListByName:(NSString *)searchText;
 - (id)getCollectionListByFavorite;
 - (id)getCollectionFromDictionary:(NSDictionary *)collectionDictionary;
+- (id)getCollectionFromId:(NSNumber *)idOfRecord;
 - (id)getListOfOrder;
 - (id)getOrderFromParameters:(NSString *)name
                    withEmail:(NSString *)email

@@ -66,13 +66,9 @@
     return 5;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section==0){
-        return @"Please select one design for your tattoo";
-    } else {
-        return nil;
-    }
+    return 35.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,10 +77,31 @@
     
     cell.TattooPlaceHolder.image = [UIImage tallImageNamed:[NSString stringWithFormat:@"image%d.png", indexPath.row+1]];
     cell.selectionNumberLabel.text = [NSString stringWithFormat:@"%d", indexPath.row+1];
-    
+    if((indexPath.row%2)==0){
+        cell.contentView.backgroundColor = UIColorFromRGBWithAlpha(0xf0f0f0, 1);
+    } else {
+        cell.contentView.backgroundColor = UIColorFromRGBWithAlpha(0xffffff, 1);
+    }
     return cell;
 }
 
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIImageView *headerTitleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 35)];
+    
+    
+    UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, 30)];
+    sectionTitleLabel.textColor = [UIColor blackColor];
+    sectionTitleLabel.backgroundColor = [UIColor clearColor];
+    headerTitleView.backgroundColor = [UIColor lightGrayColor];
+    sectionTitleLabel.text = @"Please select one design for your tattoo";
+    sectionTitleLabel.font = [UIFont fontWithName:@"MyriadPro-Cond" size:17];
+    [sectionTitleLabel setAdjustsFontSizeToFitWidth:YES];
+    [headerTitleView addSubview:sectionTitleLabel];
+    
+    return headerTitleView;
+}
 
 
 @end

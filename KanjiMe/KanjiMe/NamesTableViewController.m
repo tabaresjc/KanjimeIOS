@@ -149,7 +149,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
                  sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        if([segue.destinationViewController respondsToSelector:@selector(setDetail:withCell:)]){
+        if([segue.destinationViewController respondsToSelector:@selector(setDetail:)]){
             Collection *object = nil;
             if([self.searchDisplayController isActive]){
                 NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
@@ -161,8 +161,9 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
                     object = [self.fetchedResultsController objectAtIndexPath:indexPath];
                 }
             }
+            
             if(object){
-                [segue.destinationViewController performSelector:@selector(setDetail:withCell:) withObject:object withObject:Nil];
+                [segue.destinationViewController performSelector:@selector(setDetail:) withObject:object];
             }
         }
     }
@@ -237,6 +238,10 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
         cell.textLabel.text = collection.title;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
         
+        if((indexPath.row%2)==0){
+            cell.contentView.backgroundColor = UIColorFromRGBWithAlpha(0xf0f0f0, 1);
+        }
+        
         return cell;
         
     } else {
@@ -276,12 +281,15 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    MainAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    Collection *currentCollection = nil;
+    if(self.coreDataRep.currentCollection && [self.coreDataRep.currentCollection isKindOfClass:[Collection class]]){
+        currentCollection = (Collection *)currentCollection;
+    }
     switch (buttonIndex) {
         case 0:
         {
-            if(appDelegate.collection){
-                [appDelegate.collection shareToFacebook];
+            if(currentCollection){
+                [currentCollection shareToFacebook];
             } else {
                 [self shareToFacebook];
             }
@@ -289,8 +297,8 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
             break;
         case 1:
         {
-            if(appDelegate.collection){
-                [appDelegate.collection shareToTwitter:self];
+            if(currentCollection){
+                [currentCollection shareToTwitter:self];
             } else {
                 [self shareToTwitter];
             }
@@ -298,8 +306,8 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
             break;
         case 2:
         {
-            if(appDelegate.collection){
-                [self shareByEmail:[appDelegate.collection getCommonDescriptor]];
+            if(currentCollection){
+                [self shareByEmail:[currentCollection getCommonDescriptor]];
             } else {
                 [self shareByEmail:[self getCommonDescriptor]];
             }
@@ -368,6 +376,9 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     // To address
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    
+    [mc setNavigationBarHidden:YES];
+    
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];

@@ -100,16 +100,12 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section==1){
-        return @"Content Provided By";
-    } else if (section==2){
-        return @"Links";
-    } else if (section==3){
-        return @"Developed By";
+    if(section==1 || section==2 || section==3){
+       return 35.0f;
     } else {
-        return nil;
+        return 0;
     }
 }
 
@@ -158,6 +154,33 @@
     return cell;
 }
 
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString *titleText = @"";
+    
+    if(section==1){
+        titleText = @"Content Provided By";
+    } else if (section==2){
+        titleText = @"Links";
+    } else if (section==3){
+        titleText = @"Developed By";
+    } else {
+        return nil;
+    }
+    
+    UIImageView *headerTitleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 35)];
+    
+    
+    UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, 30)];
+    sectionTitleLabel.textColor = [UIColor blackColor];
+    sectionTitleLabel.backgroundColor = [UIColor clearColor];
+    headerTitleView.backgroundColor = [UIColor lightGrayColor];
+    sectionTitleLabel.text = titleText;
+    sectionTitleLabel.font = [UIFont fontWithName:@"MyriadPro-Cond" size:17];
+    [sectionTitleLabel setAdjustsFontSizeToFitWidth:YES];
+    [headerTitleView addSubview:sectionTitleLabel];
+    
+    return headerTitleView;
+}
 
 @end
