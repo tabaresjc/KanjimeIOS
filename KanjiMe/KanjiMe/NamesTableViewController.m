@@ -52,6 +52,11 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSMutableArray *tabControllers = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+    [tabControllers removeObjectAtIndex:1];
+    self.tabBarController.viewControllers = tabControllers;
+    
     self.tabBarController.delegate = self;
     
     if (!self.coreDataRep.isOpen) {
