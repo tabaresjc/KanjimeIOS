@@ -187,7 +187,7 @@
                                              withComments:self.inputComments.text
                                         withSelectedImage:self.selectedImage.row+1
                                           withPaymentInfo:completedPayment.confirmation];
-    [self.coreDataRep saveDocument];
+    
     [self saveOrderInServer];
 }
 
@@ -199,7 +199,7 @@
     [apiFetcher createOrder:httpDataOrder
                     success:^(id jsonData) {
                         order.is_sent = YES; //[NSNumber numberWithBool:YES];
-                        [self.coreDataRep saveDocument];
+                        
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
                             // Dismiss the PayPalPaymentViewController.
@@ -215,7 +215,7 @@
                     }
                     failure:^(NSError *error) {
                         order.is_sent = NO;//[NSNumber numberWithBool:NO];
-                        [self.coreDataRep saveDocument];
+                        
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're Sorry"

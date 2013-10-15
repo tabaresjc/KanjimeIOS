@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */; };
-		CE00D9E117BE260200136CDA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00D9E017BE260200136CDA /* CoreData.framework */; };
 		CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE2A17BE3F5200BF6125 /* CoreDataTableViewController.m */; };
 		CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE2D17BE4C1500BF6125 /* NamesTableViewController.m */; };
 		CE0FDE3117BE51F500BF6125 /* Collection+Rest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */; };
-		CE0FDE3717BE595500BF6125 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0FDE3617BE595500BF6125 /* Collection.m */; };
 		CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FABC917BCF11A00F2BE59 /* RestApiHelpers.m */; };
 		CE73142E17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE73142C17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf */; };
 		CE73142F17D5DFEA002EF4F6 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE73142D17D5DFEA002EF4F6 /* MyriadPro-Regular.otf */; };
@@ -102,6 +100,7 @@
 		CF0468871806CF88005ACDB0 /* image5.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04687D1806CF88005ACDB0 /* image5.png */; };
 		CF0468881806CF88005ACDB0 /* image5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04687E1806CF88005ACDB0 /* image5@2x.png */; };
 		CF04688C1806D0DF005ACDB0 /* TattooSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF04688B1806D0DF005ACDB0 /* TattooSelectionCell.m */; };
+		CF056CCA180D436500785751 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00D9E017BE260200136CDA /* CoreData.framework */; };
 		CF06C64617FEA846001EF31E /* ipad-button-blue-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C63617FEA846001EF31E /* ipad-button-blue-pressed.png */; };
 		CF06C64717FEA846001EF31E /* ipad-button-blue-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C63717FEA846001EF31E /* ipad-button-blue-pressed@2x.png */; };
 		CF06C64817FEA846001EF31E /* ipad-button-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C63817FEA846001EF31E /* ipad-button-blue.png */; };
@@ -127,6 +126,7 @@
 		CF06C66517FEA852001EF31E /* youtube_color_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65D17FEA852001EF31E /* youtube_color_48.png */; };
 		CF06C66617FEA852001EF31E /* youtube_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */; };
 		CF07829E18070512002FFE62 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07829D18070512002FFE62 /* Order.m */; };
+		CF113904180C250700850AC1 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CF113903180C250700850AC1 /* Collection.m */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
 		CFE3B9801802EB9800860727 /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE3B97E1802EB9800860727 /* AdMobLoader.m */; };
 		CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553318001D2600E8A434 /* welcome_tattoo.png */; };
@@ -183,8 +183,6 @@
 		CE0FDE2D17BE4C1500BF6125 /* NamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewController.m; sourceTree = "<group>"; };
 		CE0FDE2F17BE51F500BF6125 /* Collection+Rest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Collection+Rest.h"; path = "Models/CoreDataModels/Collection+Rest.h"; sourceTree = "<group>"; };
 		CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Collection+Rest.m"; path = "Models/CoreDataModels/Collection+Rest.m"; sourceTree = "<group>"; };
-		CE0FDE3517BE595500BF6125 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
-		CE0FDE3617BE595500BF6125 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
 		CE3FABC817BCF11A00F2BE59 /* RestApiHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApiHelpers.h; path = Models/RestApiHelpers.h; sourceTree = "<group>"; };
 		CE3FABC917BCF11A00F2BE59 /* RestApiHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApiHelpers.m; path = Models/RestApiHelpers.m; sourceTree = "<group>"; };
 		CE73142C17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
@@ -333,6 +331,8 @@
 		CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youtube_color_48@2x.png"; sourceTree = "<group>"; };
 		CF07829C18070512002FFE62 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
 		CF07829D18070512002FFE62 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
+		CF113902180C250700850AC1 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
+		CF113903180C250700850AC1 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CFE3B97D1802EB9800860727 /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdMobLoader.h; path = Models/AdMobLoader.h; sourceTree = "<group>"; };
 		CFE3B97E1802EB9800860727 /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdMobLoader.m; path = Models/AdMobLoader.m; sourceTree = "<group>"; };
@@ -397,6 +397,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF056CCA180D436500785751 /* CoreData.framework in Frameworks */,
 				CFF657E217FFBEDE00AE4C9D /* Security.framework in Frameworks */,
 				CFF657E017FFBEBF00AE4C9D /* OpenGLES.framework in Frameworks */,
 				CFF657DC17FFBE7600AE4C9D /* CoreVideo.framework in Frameworks */,
@@ -409,7 +410,6 @@
 				CEDDD08917DC116C008FF32E /* StoreKit.framework in Frameworks */,
 				CEDDCDB417DBF828008FF32E /* MessageUI.framework in Frameworks */,
 				CEE7347617DB162A0071B564 /* Social.framework in Frameworks */,
-				CE00D9E117BE260200136CDA /* CoreData.framework in Frameworks */,
 				CE90D12617533AE6009C5BD3 /* MobileCoreServices.framework in Frameworks */,
 				CEBDEB21175102AF00593B2F /* QuartzCore.framework in Frameworks */,
 				CED8FE891750A2FF00867230 /* UIKit.framework in Frameworks */,
@@ -429,11 +429,11 @@
 			children = (
 				CE0FDE2F17BE51F500BF6125 /* Collection+Rest.h */,
 				CE0FDE3017BE51F500BF6125 /* Collection+Rest.m */,
-				CE0FDE3517BE595500BF6125 /* Collection.h */,
-				CE0FDE3617BE595500BF6125 /* Collection.m */,
 				CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */,
 				CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */,
 				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
+				CF113902180C250700850AC1 /* Collection.h */,
+				CF113903180C250700850AC1 /* Collection.m */,
 				CF07829C18070512002FFE62 /* Order.h */,
 				CF07829D18070512002FFE62 /* Order.m */,
 				CFFAA3B218039CDA00DBEECE /* Order+Rest.h */,
@@ -923,7 +923,7 @@
 			attributes = {
 				CLASSPREFIX = Main;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Alteran System";
+				ORGANIZATIONNAME = LearnJapanese123;
 				TargetAttributes = {
 					CED8FE841750A2FF00867230 = {
 						DevelopmentTeam = JY44N7T7UA;
@@ -1098,12 +1098,12 @@
 				CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */,
 				CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */,
 				CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */,
+				CF113904180C250700850AC1 /* Collection.m in Sources */,
 				CF07829E18070512002FFE62 /* Order.m in Sources */,
 				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
 				CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */,
 				CFF80E4117FEFE1B00AAB76E /* TattooViewController.m in Sources */,
 				CE0FDE3117BE51F500BF6125 /* Collection+Rest.m in Sources */,
-				CE0FDE3717BE595500BF6125 /* Collection.m in Sources */,
 				CEFFF23217BF16FC0080603A /* SearchCollectionTableViewController.m in Sources */,
 				CE811B3F17CE4A0F00252A30 /* MBProgressHUD.m in Sources */,
 				CED7788317CF258500C8C1B1 /* FeedCell1.m in Sources */,
@@ -1213,8 +1213,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: KAZUE KANEKO (JY44N7T7UA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KAZUE KANEKO (JY44N7T7UA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kazue Kaneko (546ULDLCUS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kazue Kaneko (546ULDLCUS)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
@@ -1256,7 +1256,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0FBEAF3C-BD1E-4F61-8C43-365F97C891A2";
+				PROVISIONING_PROFILE = "56D7CF6A-3470-4831-9EBA-0B3877EFC585";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1312,7 +1312,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EFA76601-8212-4042-AE31-2076BE79BCD9";
+				PROVISIONING_PROFILE = "9C1E278F-A04F-466C-B0F4-74A58D475979";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;

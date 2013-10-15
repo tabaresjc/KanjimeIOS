@@ -63,6 +63,8 @@
     return _coreDataRep;
 }
 
+
+
 - (void)setDetail:(id)newDetailItem
 {
     self.collection = (Collection *)newDetailItem;
@@ -157,7 +159,7 @@
         
         cell.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Kanji: %@",self.collection.subtitle] attributes:subTitleAtributes];
         cell.subTitleLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Katakana: %@",self.collection.extraTitle] attributes:subTitleAtributes];
-        cell.likeButton.selected = self.collection.favorite;
+        cell.likeButton.selected = [self.collection.favorite boolValue];
         
         return cell;
     } else {
@@ -251,10 +253,11 @@
     
     dispatch_queue_t saveDocumentQueue = dispatch_queue_create("SaveDocument",nil);
     dispatch_async(saveDocumentQueue, ^{
-        self.collection.favorite = !self.collection.favorite;
-        //[self.coreDataRep saveDocument];
+        
+        [self.collection setFavorite:[NSNumber numberWithBool:![self.collection.favorite boolValue]]];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            sender.selected = self.collection.favorite;
+            sender.selected = [self.collection.favorite boolValue];
         });
     });
 }

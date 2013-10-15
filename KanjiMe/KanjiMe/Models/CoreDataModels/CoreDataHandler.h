@@ -7,20 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 #define MAIN_DOCUMENT_NAME @"MainDocument"
 
 @interface CoreDataHandler : NSObject
+
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 @property (nonatomic) BOOL isOpen;
 @property (strong, nonatomic) id currentCollection;
 
-- (void)useDocumentWithName:(NSString *)name completionHandler:(void (^)(BOOL success))completionHandler;
-- (BOOL)saveDocument;
+
+- (void)startDocument:(void (^)(BOOL success))completionHandler;
+- (void)saveDocument;
 - (id)getListOfCollection;
 - (id)getCollectionListByName:(NSString *)searchText;
 - (id)getCollectionListByFavorite;
 - (id)getCollectionFromDictionary:(NSDictionary *)collectionDictionary;
 - (id)getCollectionFromId:(NSNumber *)idOfRecord;
+- (id)getLastCollection;
 - (id)getListOfOrder;
 - (id)getOrderFromParameters:(NSString *)name
                    withEmail:(NSString *)email

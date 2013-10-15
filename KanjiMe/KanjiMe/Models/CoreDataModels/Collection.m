@@ -2,8 +2,8 @@
 //  Collection.m
 //  KanjiMe
 //
-//  Created by Lion User on 8/16/13.
-//  Copyright (c) 2013 Alteran System. All rights reserved.
+//  Created by Juan Tabares on 10/14/13.
+//  Copyright (c) 2013 LearnJapanese123. All rights reserved.
 //
 
 #import "Collection.h"
@@ -12,12 +12,12 @@
 @implementation Collection
 
 @dynamic body;
+@dynamic collectionId;
 @dynamic created;
 @dynamic extraTitle;
 @dynamic favorite;
 @dynamic modified;
 @dynamic subtitle;
 @dynamic title;
-@dynamic collectionId;
 
 @end

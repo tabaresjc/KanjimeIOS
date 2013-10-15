@@ -39,7 +39,6 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     return self;
 }
 
-
 - (CoreDataHandler *)coreDataRep
 {
     if(!_coreDataRep){
@@ -52,18 +51,14 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (!self.coreDataRep.isOpen) {
+        [self setupDocument];
+    }
     
     NSMutableArray *tabControllers = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
     [tabControllers removeObjectAtIndex:1];
-    self.tabBarController.viewControllers = tabControllers;
-    
+    self.tabBarController.viewControllers = tabControllers;    
     self.tabBarController.delegate = self;
-    
-    if (!self.coreDataRep.isOpen) {
-        [self setupDocument];
-    } else {
-        [self refresh];
-    }
     [self setStyle];
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
@@ -74,6 +69,16 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     
     // Initiate a generic request to load it with an ad.
     [bannerView_ loadRequest:[AdMobLoader getNewRequest]];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.coreDataRep.isOpen) {
+        if(self.coreDataRep.managedObjectContext.hasChanges){
+            [self.coreDataRep saveDocument];
+            [self.tableView reloadData];
+        }
+    }
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
@@ -117,25 +122,36 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 - (void)refresh
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [self.tableView reloadData];    
+    self.fetchedResultsController = [self.coreDataRep getListOfCollection];
+    
+    NSUInteger startingPoint = 1;
+    Collection *lastCollection = [self.coreDataRep getLastCollection];
+    
+    if(lastCollection){
+        startingPoint = [lastCollection.collectionId integerValue];
+        startingPoint ++;
+    }
+    
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     [apiFetcher getNames:10000
-                startingPoint:1
+                startingPoint:startingPoint
                       success:^(id jsonData) {
-                          
                           NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
                           for (NSDictionary *collection in collections) {
                               [self.coreDataRep getCollectionFromDictionary:collection];
                           }
-                          dispatch_async(dispatch_get_main_queue(), ^{                              
+                          [self.coreDataRep saveDocument];
+                          dispatch_async(dispatch_get_main_queue(), ^{
                               [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                               [self.refreshControl endRefreshing];
+                              [self.tableView reloadData];
                           });
                       }
                       failure:^(NSError *error) {
                           dispatch_async(dispatch_get_main_queue(), ^{
                               [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                               [self.refreshControl endRefreshing];
+                              [self.tableView reloadData];                              
                           });
                       }
      ];
@@ -143,12 +159,12 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 - (void)setupDocument
 {
-    [self.coreDataRep useDocumentWithName:MAIN_DOCUMENT_NAME completionHandler:^(BOOL success) {
-        self.fetchedResultsController = [self.coreDataRep getListOfCollection];
+    [self.coreDataRep startDocument:^(BOOL success) {
         [self refresh];
     }];
-
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender
@@ -255,7 +271,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
         cell.titleLabel.text = collection.title;
         cell.subTitleLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
-        cell.like = collection.favorite;
+        cell.like = [collection.favorite boolValue];
         
         return cell;
     }

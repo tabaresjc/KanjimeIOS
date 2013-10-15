@@ -7,7 +7,6 @@
 //
 
 #import "CoreDataHandler.h"
-#import <CoreData/CoreData.h>
 #import "Collection+Rest.h"
 #import "Order+Rest.h"
 
@@ -20,15 +19,16 @@
 #define NAME_ID @"Collection.id"
 
 @interface CoreDataHandler()
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSURL *url;
+
 @end
 
 @implementation CoreDataHandler
-@synthesize managedObjectContext;
-@synthesize url;
+
 @synthesize isOpen;
 @synthesize currentCollection;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 -(id)init
 {
@@ -40,48 +40,104 @@
     return self;
 }
 
-- (void)useDocumentWithName:(NSString *)name completionHandler:(void (^)(BOOL success))completionHandler
-{
-    url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-                                                  inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:@"MainDocument"];
-    
-    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
-        [document saveToURL:url
-           forSaveOperation:UIDocumentSaveForCreating
-          completionHandler:^(BOOL success) {
-              self.managedObjectContext = document.managedObjectContext;
-              self.isOpen = success;
-              if(completionHandler){
-                  completionHandler(success);
-              }
-          }];
-    } else if (document.documentState == UIDocumentStateClosed) {
-        [document openWithCompletionHandler:^(BOOL success) {
-            self.managedObjectContext = document.managedObjectContext;
-            self.isOpen = success;
-            if(completionHandler){
-                completionHandler(success);
-            }
-        }];
-    } else {
-        self.managedObjectContext = document.managedObjectContext;
-        self.isOpen = YES;
-        if(completionHandler){
-            completionHandler(YES);
+- (NSManagedObjectContext *) managedObjectContext {
+    if (!_managedObjectContext) {
+        if (self.persistentStoreCoordinator != nil) {
+            _managedObjectContext = [[NSManagedObjectContext alloc] init];
+            [_managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
         }
     }
+    return _managedObjectContext;
 }
 
-- (BOOL)saveDocument
+- (NSManagedObjectModel *)managedObjectModel {
+    if (!_managedObjectModel) {
+        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    }
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    
+    if(!_persistentStoreCoordinator){
+        NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMe.sqlite"]];
+        NSError *error = nil;
+        
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+        
+        if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                      configuration:nil
+                                                                URL:storeUrl
+                                                            options:nil
+                                                              error:&error]) {
+        }
+    }
+    return _persistentStoreCoordinator;
+}
+
+- (NSString *)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+
+- (void)startDocument:(void (^)(BOOL success))completionHandler
 {
-//    NSError *error = nil;
-//    if(![self.managedObjectContext save:&error]){
-//        return NO;
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMe.sqlite"]];
+    NSError *error = nil;
+    
+    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    
+    if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                  configuration:nil
+                                                            URL:storeUrl
+                                                        options:nil
+                                                          error:&error]) {
+    }
+    self.isOpen = YES;
+    if(completionHandler){
+        completionHandler(YES);
+    }
+//    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+//                                                  inDomains:NSUserDomainMask] lastObject];
+//    url = [url URLByAppendingPathComponent:@"MainDocument"];
+//    
+//    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
+//    
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
+//        [document saveToURL:url
+//           forSaveOperation:UIDocumentSaveForCreating
+//          completionHandler:^(BOOL success) {
+//              self.managedObjectContext = document.managedObjectContext;
+//              self.isOpen = success;
+//              if(completionHandler){
+//                  completionHandler(success);
+//              }
+//          }];
+//    } else if (document.documentState == UIDocumentStateClosed) {
+//        [document openWithCompletionHandler:^(BOOL success) {
+//            self.managedObjectContext = document.managedObjectContext;
+//            self.isOpen = success;
+//            if(completionHandler){
+//                completionHandler(success);
+//            }
+//        }];
+//    } else {
+//        self.managedObjectContext = document.managedObjectContext;
+//        self.isOpen = YES;
+//        if(completionHandler){
+//            completionHandler(YES);
+//        }
 //    }
-    return YES;
+}
+
+- (void)saveDocument
+{
+    if (self.managedObjectContext!=nil && self.managedObjectContext.hasChanges) {
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }       
+    }
 }
 
 - (id)getListOfCollection
@@ -95,7 +151,7 @@
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = nil;
         dataList = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                       managedObjectContext:managedObjectContext
+                                                                       managedObjectContext:self.managedObjectContext
                                                                          sectionNameKeyPath:nil
                                                                                   cacheName:nil];
     }
@@ -136,7 +192,7 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"favorite = TRUE"];
         [request setPredicate:predicate];
         dataList = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                   managedObjectContext:managedObjectContext
+                                                   managedObjectContext:self.managedObjectContext
                                                      sectionNameKeyPath:nil
                                                               cacheName:nil];
     }
@@ -161,13 +217,14 @@
     } else if (![matches count]) {
         collection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection"
                                                    inManagedObjectContext:self.managedObjectContext];
-        collection.collectionId = [collectionDictionary valueForKeyPath:NAME_ID];
+        collection.collectionId = [NSNumber numberWithInteger:[[collectionDictionary valueForKeyPath:NAME_ID] integerValue]];
         collection.title = [collectionDictionary valueForKeyPath:NAME_TITLE];
         collection.subtitle = [collectionDictionary valueForKeyPath:NAME_SUBTITLE];
         collection.extraTitle = [collectionDictionary valueForKeyPath:NAME_DESCRIPTION];
         collection.body = [collectionDictionary valueForKeyPath:NAME_BODY];
         collection.created = [collectionDictionary valueForKeyPath:NAME_CREATED];
         collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
+        collection.favorite = [NSNumber numberWithBool:NO];
         
     } else {
         collection = [matches lastObject];
@@ -194,6 +251,26 @@
     return collection;
 }
 
+- (id)getLastCollection
+{
+    Collection *collection = nil;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"collectionId"
+                                                              ascending:NO]];
+    
+    [request setPredicate:nil];
+    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:request
+                                                                error:&error];
+    if (!matches || ([matches count] != 1)) {
+        collection = nil;
+    } else {
+        collection = [matches lastObject];
+    }
+    return collection;
+}
+
 - (id)getListOfOrder
 {
     NSFetchedResultsController *dataList = nil;
@@ -204,7 +281,7 @@
                                                                   ascending:NO]];
         request.predicate = nil;
         dataList = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                       managedObjectContext:managedObjectContext
+                                                       managedObjectContext:self.managedObjectContext
                                                          sectionNameKeyPath:nil
                                                                   cacheName:nil];
     }

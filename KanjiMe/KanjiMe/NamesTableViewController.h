@@ -17,6 +17,6 @@
     GADBannerView *bannerView_;
 }
 
-
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
