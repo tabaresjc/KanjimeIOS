@@ -60,6 +60,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     self.tabBarController.viewControllers = tabControllers;    
     self.tabBarController.delegate = self;
     [self setStyle];
+#if !TARGET_IPHONE_SIMULATOR
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
     bannerView_ = [AdMobLoader getNewBannerView:self];
@@ -69,6 +70,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     
     // Initiate a generic request to load it with an ad.
     [bannerView_ loadRequest:[AdMobLoader getNewRequest]];
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated{

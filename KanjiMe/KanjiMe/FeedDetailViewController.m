@@ -95,7 +95,7 @@
         self.feedTableView.tintColor = [UIColor colorWithRed:242.0/255 green:235.0/255 blue:241.0/255 alpha:1.0];
     }
     self.feedTableView.separatorColor = [UIColor clearColor];
-    
+#if !TARGET_IPHONE_SIMULATOR
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
     bannerView_ = [AdMobLoader getNewBannerView:self];
@@ -105,7 +105,7 @@
     
     // Initiate a generic request to load it with an ad.
     [bannerView_ loadRequest:[AdMobLoader getNewRequest]];
-    
+#endif
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
