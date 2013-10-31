@@ -19,7 +19,10 @@
 
 @property (nonatomic) BOOL isOpen;
 @property (strong, nonatomic) id currentCollection;
+@property (strong, nonatomic) NSString *deviceToken;
 
+@property (nonatomic) BOOL receivedNotification;
+@property (strong, nonatomic) NSDictionary *remoteNotificationUserInfo;
 
 - (void)startDocument:(void (^)(BOOL success))completionHandler;
 - (void)saveDocument;

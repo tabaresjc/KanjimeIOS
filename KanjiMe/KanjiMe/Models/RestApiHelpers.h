@@ -20,4 +20,5 @@
 + (NSDictionary *)getDataFromJson:(NSString *)jsonString;
 + (NSString *)formatFields: (NSString *)content;
 + (void)setAlertMessage:(NSString *)message withTitle:(NSString *)title;
++ (NSString *)getStringFromNSdata:(NSData *)data;
 @end

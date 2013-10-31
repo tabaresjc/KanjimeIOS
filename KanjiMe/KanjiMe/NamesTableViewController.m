@@ -81,6 +81,10 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
             [self.tableView reloadData];
         }
     }
+    
+    //if(self.coreDataRep.receivedNotification){
+    //    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
+    //}
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view {

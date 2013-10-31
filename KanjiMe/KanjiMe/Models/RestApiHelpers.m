@@ -154,4 +154,15 @@
     [alertView show];
 }
 
++ (NSString *)getStringFromNSdata:(NSData *)data
+{
+    NSUInteger dataLength = [data length];
+    NSMutableString *dataString = [NSMutableString stringWithCapacity:dataLength*2];
+    const unsigned char *dataBytes = [data bytes];
+    for (NSInteger idx = 0; idx < dataLength; ++idx) {
+        [dataString appendFormat:@"%02x", dataBytes[idx]];
+    }
+    return dataString;
+}
+
 @end

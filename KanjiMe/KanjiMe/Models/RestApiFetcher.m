@@ -86,6 +86,38 @@ static NSUInteger const ClientDefaultMaxConcurrentOperationCount = 4;
                            }];
 }
 
+- (void)setDeviceToken:(NSString *)token
+             isEnabled:(BOOL)enabled
+               success:(void (^)(id jsonData))success
+            failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *requestParameters = nil;
+    
+    
+    NSMutableDictionary *dataOrder = [[NSMutableDictionary alloc] init];
+    [dataOrder setValue:token forKey:@"token"];
+    [dataOrder setValue:[NSNumber numberWithBool:enabled] forKey:@"enabled"];
+    NSDictionary *requestData = [NSDictionary dictionaryWithObjectsAndKeys:dataOrder,@"Device", nil];
+    
+    
+    NSURLRequest *request = [self getUrlRequestForApiWithData:@"devices.json"
+                                               withHttpMethod:POST
+                                           withDataDictionary:requestData
+                                                   parameters:requestParameters];
+    
+    [self callMethodWithUrlRequest:request
+                           success:^(AFHTTPRequestOperation *operation, id jsonObject) {
+                               if(success){
+                                   success(jsonObject);
+                               }
+                           }
+                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                               if(failure){
+                                   failure(error);
+                               }
+                           }];
+}
+
 #pragma mark - Managing HTTP Header Values
 - (NSMutableURLRequest *)getUrlRequestForApi:(NSString *)method
                             withHttpMethod:(HttpMethods)httpMethod

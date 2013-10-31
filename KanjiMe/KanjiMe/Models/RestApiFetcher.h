@@ -32,4 +32,9 @@ typedef enum httpMethodsType
 - (void)createOrder:(NSDictionary *)requestData
             success:(void (^)(id jsonData))success
             failure:(void (^)(NSError *error))failure;
+- (void)setDeviceToken:(NSString *)token
+             isEnabled:(BOOL)enabled
+               success:(void (^)(id jsonData))success
+               failure:(void (^)(NSError *error))failure;
+
 @end

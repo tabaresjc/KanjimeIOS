@@ -29,6 +29,9 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize deviceToken;
+@synthesize receivedNotification;
+@synthesize remoteNotificationUserInfo;
 
 -(id)init
 {

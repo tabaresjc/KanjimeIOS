@@ -8,6 +8,8 @@
 
 #import "MainAppDelegate.h"
 #import "UtilHelper.h"
+#import "RestApiFetcher.h"
+#import "NamesTableViewController.h"
 
 @implementation MainAppDelegate
 
@@ -66,32 +68,6 @@
 //    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
 }
 
-- (void)addMessageFromRemoteNotification:(NSDictionary*)userInfo updateUI:(BOOL)updateUI
-{
-    /*
-    UINavigationController *navigationController = (UINavigationController*)_window.rootViewController;
-    ChatViewController *chatViewController =
-    (ChatViewController*)[navigationController.viewControllers  objectAtIndex:0];
-    
-    DataModel *dataModel = chatViewController.dataModel;
-    
-	Message *message = [[Message alloc] init];
-	message.date = [NSDate date];
-    
-	NSString *alertValue = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
-    
-	NSMutableArray *parts = [NSMutableArray arrayWithArray:[alertValue componentsSeparatedByString:@": "]];
-	message.senderName = [parts objectAtIndex:0];
-	[parts removeObjectAtIndex:0];
-	message.text = [parts componentsJoinedByString:@": "];
-    
-	int index = [dataModel addMessage:message];
-    
-	if (updateUI)
-		[chatViewController didSaveMessage:message atIndex:index];
-     */
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self customizeiPhoneTheme];    
@@ -106,7 +82,11 @@
 		if (dictionary != nil)
 		{
 			NSLog(@"Launched from push notification: %@", dictionary);
-			[self addMessageFromRemoteNotification:dictionary updateUI:NO];
+            self.coreDataHandler.receivedNotification = YES;
+            self.coreDataHandler.remoteNotificationUserInfo = dictionary;
+            
+            UITabBarController *tabBarController =  (UITabBarController *)self.window.rootViewController;
+            [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
 		}
 	}
     return YES;
@@ -144,7 +124,19 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    NSLog(@"Did register for remote notifications: %@", deviceToken);
+    NSString *deviceTokenString = [RestApiHelpers getStringFromNSdata:deviceToken];
+    RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
+    NSLog(@"Did register for remote notifications: %@", deviceTokenString);
+    
+    
+    [apiFetcher setDeviceToken:deviceTokenString
+                     isEnabled:true
+                       success:^(id jsonData) {
+                           NSLog(@"Did register token at server");
+                       }
+                       failure:^(NSError *error) {
+                           NSLog(@"Fail to register token at server: %@", error);
+                       }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -155,12 +147,15 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"Received notification: %@", userInfo);
-	[self addMessageFromRemoteNotification:userInfo updateUI:YES];
+    self.coreDataHandler.receivedNotification = YES;
+    self.coreDataHandler.remoteNotificationUserInfo = userInfo;
+	
+    UITabBarController *tabBarController =  (UITabBarController *)self.window.rootViewController;
+    [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
 }
 
 - (CoreDataHandler *)coreDataHandler
 {
-    
     // Instantiate a single instance of the Database Handler
     if(!_coreDataHandler) {
         _coreDataHandler = [[CoreDataHandler alloc] init];
