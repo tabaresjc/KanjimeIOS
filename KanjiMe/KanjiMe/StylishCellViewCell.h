@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *disclosureImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (nonatomic) BOOL like;
-
+@property (nonatomic) BOOL newItem;
 @end

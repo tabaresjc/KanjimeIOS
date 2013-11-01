@@ -43,7 +43,12 @@
     else
     {
         [self.bgImageView setImage:nil];
-        [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];        
+        if(self.newItem) {
+            [self.bgImageView setBackgroundColor:CELLS_NEW_COLOR];
+        } else {
+            [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];
+        }
+        
         [disclosureImageView setImage:[UIImage tallImageNamed:@"ipad-arrow.png"]];
         [titleLabel setTextColor:[UIColor darkTextColor]];
         [titleLabel setShadowColor:[UIColor whiteColor]];
@@ -66,6 +71,16 @@
         self.isNotFirtRun = true;
     }
     [super setSelected:selected animated:animated];
+}
+
+- (void)setNewItem:(BOOL)newItem
+{
+    _newItem = newItem;
+    if(newItem){
+        [self.bgImageView setBackgroundColor:CELLS_NEW_COLOR];
+    } else {
+        [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];
+    }
 }
 
 

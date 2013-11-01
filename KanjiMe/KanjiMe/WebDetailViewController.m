@@ -54,10 +54,43 @@
     
 }
 
+- (BOOL)hidesBottomBarWhenPushed
+{
+    return YES;
+}
+
 - (void)setUrlToWebView:(NSString *)urlString withTitle:(NSString *)title
 {
     self.baseUrl = [NSURL URLWithString:urlString];
     self.titleOfView = title;
 }
 
+- (IBAction)launchUrl:(id)sender {
+    
+    
+    NSURL *inputURL = self.baseUrl;
+    NSString *scheme = inputURL.scheme;
+    
+    // Replace the URL Scheme with the Chrome equivalent.
+    NSString *chromeScheme = nil;
+    if ([scheme isEqualToString:@"http"]) {
+        chromeScheme = @"safari";
+    } else if ([scheme isEqualToString:@"https"]) {
+        chromeScheme = @"safaris";
+    }
+    
+    // Proceed only if a valid Google Chrome URI Scheme is available.
+    if (chromeScheme) {
+        NSString *absoluteString = [inputURL absoluteString];
+        NSRange rangeForScheme = [absoluteString rangeOfString:@":"];
+        NSString *urlNoScheme =
+        [absoluteString substringFromIndex:rangeForScheme.location];
+        NSString *chromeURLString =
+        [chromeScheme stringByAppendingString:urlNoScheme];
+        NSURL *chromeURL = [NSURL URLWithString:chromeURLString];
+        
+        // Open the URL with Chrome.
+        [[UIApplication sharedApplication] openURL:chromeURL];
+    }
+}
 @end

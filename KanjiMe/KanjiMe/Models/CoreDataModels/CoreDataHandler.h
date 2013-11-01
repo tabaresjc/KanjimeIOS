@@ -23,6 +23,7 @@
 
 @property (nonatomic) BOOL receivedNotification;
 @property (strong, nonatomic) NSDictionary *remoteNotificationUserInfo;
+@property (nonatomic) NSInteger startingPoint;
 
 - (void)startDocument:(void (^)(BOOL success))completionHandler;
 - (void)saveDocument;
@@ -39,7 +40,7 @@
                 withComments:(NSString *)comments
            withSelectedImage:(int)selection
              withPaymentInfo:(NSDictionary *)paypalPaymentInfo;
-
-
+- (id)getNewNotification:(NSNumber *)startPoint withDate:(NSDate *)dateOfNotification;
+- (id)getLastNotification;
 
 @end

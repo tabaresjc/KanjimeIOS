@@ -10,6 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import "AdMobLoader.h"
 #import "GADBannerViewDelegate.h"
+#import "Notification.h"
 
 @interface NamesTableViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UITabBarControllerDelegate, GADBannerViewDelegate>
 {
@@ -18,5 +19,6 @@
 }
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) Notification *lastNotification;
 
 @end

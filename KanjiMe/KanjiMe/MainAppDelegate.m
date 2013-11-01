@@ -10,6 +10,8 @@
 #import "UtilHelper.h"
 #import "RestApiFetcher.h"
 #import "NamesTableViewController.h"
+#import "Notification.h"
+#import "NamesTableViewController.h"
 
 @implementation MainAppDelegate
 
@@ -73,6 +75,7 @@
     [self customizeiPhoneTheme];    
     // Override point for customization after application launch.
 
+    
 #if !TARGET_IPHONE_SIMULATOR
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #endif
@@ -82,11 +85,7 @@
 		if (dictionary != nil)
 		{
 			NSLog(@"Launched from push notification: %@", dictionary);
-            self.coreDataHandler.receivedNotification = YES;
-            self.coreDataHandler.remoteNotificationUserInfo = dictionary;
-            
-            UITabBarController *tabBarController =  (UITabBarController *)self.window.rootViewController;
-            [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
+            [self fetchNewNames:dictionary];
 		}
 	}
     return YES;
@@ -147,11 +146,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"Received notification: %@", userInfo);
-    self.coreDataHandler.receivedNotification = YES;
-    self.coreDataHandler.remoteNotificationUserInfo = userInfo;
-	
-    UITabBarController *tabBarController =  (UITabBarController *)self.window.rootViewController;
-    [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
+    [self fetchNewNames:userInfo];
 }
 
 - (CoreDataHandler *)coreDataHandler
@@ -166,6 +161,57 @@
 - (void)saveContext
 {
     [self.coreDataHandler saveDocument];    
+}
+
+- (void)fetchNewNames:(NSDictionary *)userInfo
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    self.coreDataHandler.receivedNotification = YES;
+    self.coreDataHandler.remoteNotificationUserInfo = userInfo;
+    
+    NSUInteger startingPoint = 1;
+    Collection *lastCollection = [self.coreDataHandler getLastCollection];
+    
+    if(lastCollection){
+        startingPoint = [lastCollection.collectionId integerValue];
+        startingPoint ++;
+    }
+    
+    RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
+    [apiFetcher getNames:10000
+           startingPoint:startingPoint
+                 success:^(id jsonData) {
+                     NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
+                     
+                     if([collections count] > 0) {
+                         Notification *lastNotification = [self.coreDataHandler getNewNotification:[NSNumber numberWithInteger:startingPoint]
+                                                                                        withDate:nil];
+                         for (NSDictionary *collection in collections) {
+                             [self.coreDataHandler getCollectionFromDictionary:collection];
+                         }
+                         
+                         [self.coreDataHandler saveDocument];
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                             UITabBarController *tabBarController =  (UITabBarController *)self.window.rootViewController;
+                             UINavigationController *navController0 = [[tabBarController viewControllers] objectAtIndex:0];
+                             
+                             if([[navController0 topViewController] isKindOfClass:[NamesTableViewController class]]){
+                                 NamesTableViewController *mainController = (NamesTableViewController *)[navController0 topViewController];
+                                 mainController.lastNotification = lastNotification;
+                             }
+                             
+                             [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
+                         });
+                     }
+                 }
+                 failure:^(NSError *error) {
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                         self.coreDataHandler.receivedNotification = NO;
+                     });
+                 }
+     ];
 }
 
 @end

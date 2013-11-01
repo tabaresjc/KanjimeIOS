@@ -108,6 +108,11 @@
 #endif
 }
 
+- (BOOL)hidesBottomBarWhenPushed
+{
+    return YES;
+}
+
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
     [UIView beginAnimations:@"BannerSlide" context:nil];
     UIEdgeInsets inset = UIEdgeInsetsMake(50, 0, 0, 0);
@@ -207,7 +212,12 @@
     [content addAttribute:NSFontAttributeName value:self.fontForText range:NSMakeRange(0, [newText length])];
     for (id object in rangeOfFormat) {
         NSRange r = [object rangeValue];
-        [content addAttribute:NSFontAttributeName value:self.fontForRemark range:r];
+        [content addAttribute:NSFontAttributeName
+                        value:self.fontForRemark
+                        range:r];
+        [content addAttribute:NSBackgroundColorAttributeName
+                  value:[UIColor yellowColor]
+                  range:r];
     }
     NSMutableAttributedString *mainTitle = [[NSMutableAttributedString alloc] initWithString:title];
     [mainTitle addAttribute:NSFontAttributeName value:self.fontForTitle range:NSMakeRange(0, [title length])];

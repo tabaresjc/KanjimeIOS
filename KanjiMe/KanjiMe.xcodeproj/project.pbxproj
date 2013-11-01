@@ -127,10 +127,13 @@
 		CF06C66617FEA852001EF31E /* youtube_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */; };
 		CF07829E18070512002FFE62 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07829D18070512002FFE62 /* Order.m */; };
 		CF113904180C250700850AC1 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CF113903180C250700850AC1 /* Collection.m */; };
+		CFAE9298182389A200FA1527 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE9297182389A200FA1527 /* Notification.m */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
 		CFE3B9801802EB9800860727 /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE3B97E1802EB9800860727 /* AdMobLoader.m */; };
 		CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553318001D2600E8A434 /* welcome_tattoo.png */; };
 		CFEC553618001D2600E8A434 /* welcome_tattoo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */; };
+		CFEDCC3E18235F0100E9E032 /* traveler_japanese_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEDCC3C18235F0100E9E032 /* traveler_japanese_48.png */; };
+		CFEDCC3F18235F0100E9E032 /* traveler_japanese_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEDCC3D18235F0100E9E032 /* traveler_japanese_48@2x.png */; };
 		CFF657D817FFBE5200AE4C9D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */; };
 		CFF657DA17FFBE6900AE4C9D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */; };
 		CFF657DC17FFBE7600AE4C9D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */; };
@@ -333,12 +336,16 @@
 		CF07829D18070512002FFE62 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
 		CF113902180C250700850AC1 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
 		CF113903180C250700850AC1 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
+		CFAE9296182389A200FA1527 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notification.h; path = Models/CoreDataModels/Notification.h; sourceTree = "<group>"; };
+		CFAE9297182389A200FA1527 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notification.m; path = Models/CoreDataModels/Notification.m; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CFE3B97D1802EB9800860727 /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdMobLoader.h; path = Models/AdMobLoader.h; sourceTree = "<group>"; };
 		CFE3B97E1802EB9800860727 /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdMobLoader.m; path = Models/AdMobLoader.m; sourceTree = "<group>"; };
 		CFE3B97F1802EB9800860727 /* SupportKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupportKeys.h; path = Models/SupportKeys.h; sourceTree = "<group>"; };
 		CFEC553318001D2600E8A434 /* welcome_tattoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_tattoo.png; sourceTree = "<group>"; };
 		CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_tattoo@2x.png"; sourceTree = "<group>"; };
+		CFEDCC3C18235F0100E9E032 /* traveler_japanese_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = traveler_japanese_48.png; sourceTree = "<group>"; };
+		CFEDCC3D18235F0100E9E032 /* traveler_japanese_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "traveler_japanese_48@2x.png"; sourceTree = "<group>"; };
 		CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CFF657D917FFBE6900AE4C9D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		CFF657DB17FFBE7600AE4C9D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -432,6 +439,8 @@
 				CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */,
 				CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */,
 				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
+				CFAE9296182389A200FA1527 /* Notification.h */,
+				CFAE9297182389A200FA1527 /* Notification.m */,
 				CF113902180C250700850AC1 /* Collection.h */,
 				CF113903180C250700850AC1 /* Collection.m */,
 				CF07829C18070512002FFE62 /* Order.h */,
@@ -773,6 +782,8 @@
 		CF06C65617FEA851001EF31E /* AppSocial */ = {
 			isa = PBXGroup;
 			children = (
+				CFEDCC3C18235F0100E9E032 /* traveler_japanese_48.png */,
+				CFEDCC3D18235F0100E9E032 /* traveler_japanese_48@2x.png */,
 				CFF7B87718066A63002F83A0 /* linkedin_color_48.png */,
 				CFF7B87818066A63002F83A0 /* linkedin_color_48@2x.png */,
 				CF06C65717FEA851001EF31E /* facebook_color_48.png */,
@@ -1035,6 +1046,8 @@
 				CE73142F17D5DFEA002EF4F6 /* MyriadPro-Regular.otf in Resources */,
 				CE73143217D5E080002EF4F6 /* MyriadPro-BoldCond.otf in Resources */,
 				CF01932917FDA6A200474CCB /* info@2x.png in Resources */,
+				CFEDCC3E18235F0100E9E032 /* traveler_japanese_48.png in Resources */,
+				CFEDCC3F18235F0100E9E032 /* traveler_japanese_48@2x.png in Resources */,
 				CE73143317D5E080002EF4F6 /* MyriadPro-Cond.otf in Resources */,
 				CF06C64617FEA846001EF31E /* ipad-button-blue-pressed.png in Resources */,
 				CEDDD08717DC1128008FF32E /* README.txt in Resources */,
@@ -1099,6 +1112,7 @@
 				CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */,
 				CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */,
 				CF113904180C250700850AC1 /* Collection.m in Sources */,
+				CFAE9298182389A200FA1527 /* Notification.m in Sources */,
 				CF07829E18070512002FFE62 /* Order.m in Sources */,
 				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
 				CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */,

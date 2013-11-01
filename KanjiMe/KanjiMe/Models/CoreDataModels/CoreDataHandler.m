@@ -9,6 +9,7 @@
 #import "CoreDataHandler.h"
 #import "Collection+Rest.h"
 #import "Order+Rest.h"
+#import "Notification.h"
 
 #define NAME_TITLE @"Collection.title"
 #define NAME_SUBTITLE @"Collection.subtitle"
@@ -32,6 +33,7 @@
 @synthesize deviceToken;
 @synthesize receivedNotification;
 @synthesize remoteNotificationUserInfo;
+@synthesize startingPoint;
 
 -(id)init
 {
@@ -40,6 +42,8 @@
         return nil;
     }
     self.isOpen = NO;
+    [self removeOldVersionSqlLite];
+    self.startingPoint = -1;
     return self;
 }
 
@@ -63,7 +67,7 @@
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     
     if(!_persistentStoreCoordinator){
-        NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMe.sqlite"]];
+        NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV2.sqlite"]];
         NSError *error = nil;
         
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
@@ -85,7 +89,7 @@
 
 - (void)startDocument:(void (^)(BOOL success))completionHandler
 {
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMe.sqlite"]];
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV2.sqlite"]];
     NSError *error = nil;
     
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
@@ -131,6 +135,22 @@
 //            completionHandler(YES);
 //        }
 //    }
+}
+
+
+- (void)removeOldVersionSqlLite
+{
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMe.sqlite"]];
+    [self removeFileAtUrl:storeUrl];
+}
+
+- (void)removeFileAtUrl:(NSURL *)fileName
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    if([fileManager removeItemAtURL:fileName error:&error]){
+        NSLog(@"File removed, %@",fileName);
+    }
 }
 
 - (void)saveDocument
@@ -324,10 +344,41 @@
     order.option = [NSNumber numberWithInt:selection];//[NSNumber numberWithInt:selection];
     order.created = [NSDate date];
     
-    
-    
     return order;
 }
 
+- (id)getNewNotification:(NSNumber *)startPoint withDate:(NSDate *)dateOfNotification
+{
+    Notification *notification = [NSEntityDescription insertNewObjectForEntityForName:@"Notification"
+                                                               inManagedObjectContext:self.managedObjectContext];
+
+    notification.startingPoint = startPoint;
+    if(!dateOfNotification) {
+        notification.created = [[NSDate date] dateByAddingTimeInterval:60*60*24*1];
+    } else {
+        notification.created = dateOfNotification;
+    }
+    return notification;
+}
+
+- (id)getLastNotification
+{
+    Notification *collection = nil;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Notification"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"startingPoint"
+                                                              ascending:NO]];
+    
+    [request setPredicate:nil];
+    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:request
+                                                                error:&error];
+    if (!matches || ([matches count] != 1)) {
+        collection = nil;
+    } else {
+        collection = [matches lastObject];
+    }
+    return collection;
+}
 
 @end

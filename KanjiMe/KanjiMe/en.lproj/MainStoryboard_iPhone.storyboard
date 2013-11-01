@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mmt-Zm-fOP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mmt-Zm-fOP">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -112,7 +112,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="fkD-QW-TO8"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="5AW-dr-ZM7" kind="push" identifier="SendUrl" id="4V1-uO-Dg9"/>
+                        <segue destination="5AW-dr-ZM7" kind="push" identifier="SendUrl" id="Obx-Ys-TDA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdO-3T-LFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,29 +128,30 @@
                         <viewControllerLayoutGuide type="bottom" id="QFv-KE-dTw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MIX-nD-YYW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24L-F7-KTN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="529"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-qM-RCS">
-                                <rect key="frame" x="150" y="173" width="20" height="20"/>
+                                <rect key="frame" x="150" y="255" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="24L-F7-KTN" firstAttribute="centerX" secondItem="pFT-qM-RCS" secondAttribute="centerX" id="65L-0b-ePQ"/>
-                            <constraint firstAttribute="bottom" secondItem="24L-F7-KTN" secondAttribute="bottom" id="RzG-lM-Vz0"/>
-                            <constraint firstAttribute="trailing" secondItem="24L-F7-KTN" secondAttribute="trailing" id="U4U-OG-vvj"/>
-                            <constraint firstItem="24L-F7-KTN" firstAttribute="top" secondItem="MIX-nD-YYW" secondAttribute="top" id="ml8-al-yef"/>
-                            <constraint firstItem="24L-F7-KTN" firstAttribute="leading" secondItem="MIX-nD-YYW" secondAttribute="leading" id="mms-Q1-AHV"/>
-                            <constraint firstItem="pFT-qM-RCS" firstAttribute="top" secondItem="dmN-X9-o4B" secondAttribute="bottom" constant="173" id="q0e-hi-lc0"/>
+                            <constraint firstAttribute="bottom" secondItem="24L-F7-KTN" secondAttribute="bottom" constant="-25" id="99O-b2-6yn"/>
+                            <constraint firstItem="24L-F7-KTN" firstAttribute="leading" secondItem="MIX-nD-YYW" secondAttribute="leading" id="ECP-Rw-Nnb"/>
+                            <constraint firstAttribute="trailing" secondItem="24L-F7-KTN" secondAttribute="trailing" id="UFM-0y-3Nd"/>
+                            <constraint firstItem="24L-F7-KTN" firstAttribute="top" secondItem="MIX-nD-YYW" secondAttribute="top" id="f24-c3-2uB"/>
+                            <constraint firstItem="QFv-KE-dTw" firstAttribute="top" secondItem="pFT-qM-RCS" secondAttribute="bottom" constant="229" id="kYh-n5-Elq"/>
+                            <constraint firstItem="pFT-qM-RCS" firstAttribute="centerX" secondItem="24L-F7-KTN" secondAttribute="centerX" id="ush-N2-bMk"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="Ncq-v5-hRE"/>
+                    <navigationItem key="navigationItem" id="Efs-Ym-eoS"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mainWebView" destination="24L-F7-KTN" id="hIT-yb-etu"/>
                         <outlet property="spinner" destination="pFT-qM-RCS" id="FWM-YD-a5g"/>
@@ -158,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u41-fb-yRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="-617"/>
+            <point key="canvasLocation" x="1688" y="-617"/>
         </scene>
         <!--Navigation Controller - Home-->
         <scene sceneID="11">
@@ -180,7 +181,7 @@
         <!--Names Table View Controller - Master-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="LastPostsStoryBoard" title="Master" id="12" customClass="NamesTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NamesTableViewController" title="Master" id="12" customClass="NamesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1213,6 +1214,6 @@ Please check the samples
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Nh4-Pm-rNo"/>
+        <segue reference="wZB-kX-5Zn"/>
     </inferredMetricsTieBreakers>
 </document>

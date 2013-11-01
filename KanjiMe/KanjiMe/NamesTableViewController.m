@@ -18,18 +18,21 @@
 #import "MBProgressHUD.h"
 #import "UtilHelper.h"
 
+
 static NSString *cellIdentifier = @"NameRow";
 static NSString *searchCellIdentifier = @"SearchNameRow";
 
 @interface NamesTableViewController ()
 @property (strong,nonatomic) CoreDataHandler *coreDataRep;
 @property (strong, nonatomic) NSFetchedResultsController *filteredNames;
-@property BOOL setView;
+@property (nonatomic) BOOL setView;
+
+
 @end
 
 @implementation NamesTableViewController
 @synthesize filteredNames, setView;
-
+@synthesize lastNotification = _lastNotification;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,6 +51,20 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     return _coreDataRep;
 }
 
+- (Notification *)lastNotification
+{
+    if(!_lastNotification){
+        _lastNotification = [self.coreDataRep getLastNotification];
+    }
+    return _lastNotification;
+}
+
+- (void)setLastNotification:(Notification *)lastNotification
+{
+    _lastNotification = lastNotification;
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,8 +73,13 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     }
     
     NSMutableArray *tabControllers = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
-    [tabControllers removeObjectAtIndex:1];
-    self.tabBarController.viewControllers = tabControllers;    
+    if([tabControllers count] > 0 ) {
+        [tabControllers removeObjectAtIndex:1];
+        self.tabBarController.viewControllers = tabControllers;
+    }
+    
+    
+    
     self.tabBarController.delegate = self;
     [self setStyle];
 #if !TARGET_IPHONE_SIMULATOR
@@ -146,12 +168,22 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
                           for (NSDictionary *collection in collections) {
                               [self.coreDataRep getCollectionFromDictionary:collection];
                           }
+                          
+                          if([collections count]>0) {
+                              if(startingPoint == 1){
+                                  [self.coreDataRep getNewNotification:[NSNumber numberWithInteger:startingPoint] withDate:[NSDate date]];
+                              } else {
+                                  [self.coreDataRep getNewNotification:[NSNumber numberWithInteger:startingPoint] withDate:nil];
+                              }
+                          }
+                          
                           [self.coreDataRep saveDocument];
                           dispatch_async(dispatch_get_main_queue(), ^{
                               [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                               [self.refreshControl endRefreshing];
                               [self.tableView reloadData];
                           });
+                          
                       }
                       failure:^(NSError *error) {
                           dispatch_async(dispatch_get_main_queue(), ^{
@@ -278,7 +310,14 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
         cell.titleLabel.text = collection.title;
         cell.subTitleLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
         cell.like = [collection.favorite boolValue];
-        
+        cell.newItem = NO;
+        if(self.lastNotification) {
+            if([collection.collectionId integerValue] >= [self.lastNotification.startingPoint integerValue]) {
+                if([[NSDate date] compare:self.lastNotification.created]!=NSOrderedDescending){
+                    cell.newItem = YES;
+                }
+            }
+        }
         return cell;
     }
 }

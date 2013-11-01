@@ -50,6 +50,9 @@
             NSString *titleString = @"LearnJapanese123";
             
             if(indexPath.section==2){
+                urlString = @"https://itunes.apple.com/us/app/travelers-japanese/id447519027?mt=8";
+                titleString = @"Traveler's Japanese";
+            } else if(indexPath.section==3){
                 if(indexPath.row == 0) {
                     urlString = @"https://www.facebook.com/Japanese.Language.Culture";
                     titleString = @"Facebook Fan Page";
@@ -60,7 +63,7 @@
                     urlString = @"http://www.youtube.com/user/10minsJapanese";
                     titleString = @"Youtube Channel";
                 }
-            } else if(indexPath.section==3){
+            } else if(indexPath.section==4){
                 urlString = @"http://www.linkedin.com/in/juanctt";
                 titleString = @"Linkedin";
             }
@@ -76,15 +79,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
     // Return the number of sections.
-    return 5;
+    return 6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if(section==2){
+    if(section==3){
         return 4;
     } else {
         return 1;
@@ -102,8 +104,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section==1 || section==2 || section==3){
-       return 35.0f;
+    if(section>=0 && section<=4){
+       return 30.0f;
     } else {
         return 0;
     }
@@ -111,7 +113,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section==2 || indexPath.section==3) {
+    if(indexPath.section==2) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/travelers-japanese/id447519027"]];
+    } else if(indexPath.section==3 || indexPath.section==4) {
+        [self performSegueWithIdentifier: @"SendUrl" sender:indexPath];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==2) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/travelers-japanese/id447519027?mt=8"]];
+    } else if(indexPath.section==3 || indexPath.section==4) {
         [self performSegueWithIdentifier: @"SendUrl" sender:indexPath];
     }
 }
@@ -127,16 +142,12 @@
         cell.detailTextLabel.text = @"www.learnjapanese123.com";
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setAccessoryType:UITableViewCellAccessoryNone];
-    } else if(indexPath.section==3){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
-        cell.textLabel.text = @"Juan Tabares";
-        cell.detailTextLabel.text = @"juan.ctt@live.com";
-        cell.imageView.image = [UIImage tallImageNamed:@"linkedin_color_48.png"];
-    } else if(indexPath.section==4){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"FooterCell" forIndexPath:indexPath];
-    }else {
+    } else if(indexPath.section==2){
         cell = [tableView dequeueReusableCellWithIdentifier:@"LinkCell" forIndexPath:indexPath];
-        
+        cell.textLabel.text = @"Traveler's Japanese";
+        cell.imageView.image = [UIImage tallImageNamed:@"traveler_japanese_48.png"];
+    } else if(indexPath.section==3){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LinkCell" forIndexPath:indexPath];
         if(indexPath.row==0){
             cell.textLabel.text = @"Facebook Fan Page";
             cell.imageView.image = [UIImage tallImageNamed:@"facebook_color_48.png"];
@@ -150,6 +161,13 @@
             cell.textLabel.text = @"LearnJapanese123";
             cell.imageView.image = [UIImage tallImageNamed:@"learnjapaneselogo_48.png"];
         }
+    } else if(indexPath.section==4){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+        cell.textLabel.text = @"Juan Tabares";
+        cell.detailTextLabel.text = @"juan.ctt@live.com";
+        cell.imageView.image = [UIImage tallImageNamed:@"linkedin_color_48.png"];
+    } else if(indexPath.section==5){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"FooterCell" forIndexPath:indexPath];
     }
     return cell;
 }
@@ -158,29 +176,48 @@
 {
     NSString *titleText = @"";
     
-    if(section==1){
+    if(section==0){
+        titleText = @"KanjiMe iOS";
+    } else if(section==1){
         titleText = @"Content Provided By";
     } else if (section==2){
-        titleText = @"Links";
+        titleText = @"Apps";
     } else if (section==3){
+        titleText = @"Links";
+    } else if (section==4){
         titleText = @"Developed By";
     } else {
         return nil;
     }
     
-    UIImageView *headerTitleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 35)];
+    UIImageView *headerTitleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     
     
-    UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, 30)];
-    sectionTitleLabel.textColor = [UIColor blackColor];
+    UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, 25)];
+    sectionTitleLabel.textColor = [UIColor whiteColor];
     sectionTitleLabel.backgroundColor = [UIColor clearColor];
     headerTitleView.backgroundColor = [UIColor lightGrayColor];
     sectionTitleLabel.text = titleText;
-    sectionTitleLabel.font = [UIFont fontWithName:@"MyriadPro-Cond" size:17];
+    sectionTitleLabel.font = [UIFont fontWithName:@"MyriadPro-BoldCond" size:20];
     [sectionTitleLabel setAdjustsFontSizeToFitWidth:YES];
     [headerTitleView addSubview:sectionTitleLabel];
     
     return headerTitleView;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat sectionHeaderHeight = 40.0f;
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
+}
+
+- (IBAction)cancelDialog:(UIStoryboardSegue *)segue
+{
+    
 }
 
 @end
