@@ -40,7 +40,6 @@
                 withComments:(NSString *)comments
            withSelectedImage:(int)selection
              withPaymentInfo:(NSDictionary *)paypalPaymentInfo;
-- (id)getNewNotification:(NSNumber *)startPoint withDate:(NSDate *)dateOfNotification;
-- (id)getLastNotification;
+
 
 @end

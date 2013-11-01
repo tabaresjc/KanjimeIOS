@@ -13,11 +13,14 @@
 @interface  StylishCellViewCell()
 @property (nonatomic) BOOL isNotFirtRun;
 @property (strong, nonatomic) IBOutlet UIImageView *btnLike;
+@property (strong, nonatomic) IBOutlet UILabel *badgeLabel;
+
 
 @end
 
 @implementation StylishCellViewCell
-@synthesize titleLabel, subTitleLabel, bgImageView, disclosureImageView, isNotFirtRun, btnLike;
+@synthesize titleLabel, subTitleLabel, bgImageView, disclosureImageView, isNotFirtRun, btnLike, badgeLabel;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -43,11 +46,7 @@
     else
     {
         [self.bgImageView setImage:nil];
-        if(self.newItem) {
-            [self.bgImageView setBackgroundColor:CELLS_NEW_COLOR];
-        } else {
-            [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];
-        }
+        [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];
         
         [disclosureImageView setImage:[UIImage tallImageNamed:@"ipad-arrow.png"]];
         [titleLabel setTextColor:[UIColor darkTextColor]];
@@ -69,6 +68,8 @@
         
         self.like = NO;
         self.isNotFirtRun = true;
+        
+        [self.badgeLabel.layer setCornerRadius:5.0];
     }
     [super setSelected:selected animated:animated];
 }
@@ -76,11 +77,13 @@
 - (void)setNewItem:(BOOL)newItem
 {
     _newItem = newItem;
-    if(newItem){
-        [self.bgImageView setBackgroundColor:CELLS_NEW_COLOR];
-    } else {
-        [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];
-    }
+//    if(newItem){
+//        [self.bgImageView setBackgroundColor:CELLS_NEW_COLOR];
+//    } else {
+//        [self.bgImageView setBackgroundColor:CELLS_BACK_COLOR];
+//        
+//    }
+    [self.badgeLabel setHidden:!newItem];
 }
 
 

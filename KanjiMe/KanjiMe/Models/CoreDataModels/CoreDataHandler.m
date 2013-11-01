@@ -9,7 +9,7 @@
 #import "CoreDataHandler.h"
 #import "Collection+Rest.h"
 #import "Order+Rest.h"
-#import "Notification.h"
+
 
 #define NAME_TITLE @"Collection.title"
 #define NAME_SUBTITLE @"Collection.subtitle"
@@ -20,7 +20,7 @@
 #define NAME_ID @"Collection.id"
 
 @interface CoreDataHandler()
-
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation CoreDataHandler
@@ -34,6 +34,7 @@
 @synthesize receivedNotification;
 @synthesize remoteNotificationUserInfo;
 @synthesize startingPoint;
+@synthesize dateFormatter;
 
 -(id)init
 {
@@ -44,6 +45,10 @@
     self.isOpen = NO;
     [self removeOldVersionSqlLite];
     self.startingPoint = -1;
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [self.dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
     return self;
 }
 
@@ -104,37 +109,6 @@
     if(completionHandler){
         completionHandler(YES);
     }
-//    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-//                                                  inDomains:NSUserDomainMask] lastObject];
-//    url = [url URLByAppendingPathComponent:@"MainDocument"];
-//    
-//    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-//    
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
-//        [document saveToURL:url
-//           forSaveOperation:UIDocumentSaveForCreating
-//          completionHandler:^(BOOL success) {
-//              self.managedObjectContext = document.managedObjectContext;
-//              self.isOpen = success;
-//              if(completionHandler){
-//                  completionHandler(success);
-//              }
-//          }];
-//    } else if (document.documentState == UIDocumentStateClosed) {
-//        [document openWithCompletionHandler:^(BOOL success) {
-//            self.managedObjectContext = document.managedObjectContext;
-//            self.isOpen = success;
-//            if(completionHandler){
-//                completionHandler(success);
-//            }
-//        }];
-//    } else {
-//        self.managedObjectContext = document.managedObjectContext;
-//        self.isOpen = YES;
-//        if(completionHandler){
-//            completionHandler(YES);
-//        }
-//    }
 }
 
 
@@ -245,7 +219,7 @@
         collection.subtitle = [collectionDictionary valueForKeyPath:NAME_SUBTITLE];
         collection.extraTitle = [collectionDictionary valueForKeyPath:NAME_DESCRIPTION];
         collection.body = [collectionDictionary valueForKeyPath:NAME_BODY];
-        collection.created = [collectionDictionary valueForKeyPath:NAME_CREATED];
+        collection.created = [self.dateFormatter dateFromString:[NSString stringWithFormat:@"%@",[collectionDictionary valueForKeyPath:NAME_CREATED]]];
         collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
         collection.favorite = [NSNumber numberWithBool:NO];
         
@@ -347,38 +321,5 @@
     return order;
 }
 
-- (id)getNewNotification:(NSNumber *)startPoint withDate:(NSDate *)dateOfNotification
-{
-    Notification *notification = [NSEntityDescription insertNewObjectForEntityForName:@"Notification"
-                                                               inManagedObjectContext:self.managedObjectContext];
-
-    notification.startingPoint = startPoint;
-    if(!dateOfNotification) {
-        notification.created = [[NSDate date] dateByAddingTimeInterval:60*60*24*1];
-    } else {
-        notification.created = dateOfNotification;
-    }
-    return notification;
-}
-
-- (id)getLastNotification
-{
-    Notification *collection = nil;
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Notification"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"startingPoint"
-                                                              ascending:NO]];
-    
-    [request setPredicate:nil];
-    [request setFetchLimit:1];
-    NSError *error = nil;
-    NSArray *matches = [self.managedObjectContext executeFetchRequest:request
-                                                                error:&error];
-    if (!matches || ([matches count] != 1)) {
-        collection = nil;
-    } else {
-        collection = [matches lastObject];
-    }
-    return collection;
-}
 
 @end

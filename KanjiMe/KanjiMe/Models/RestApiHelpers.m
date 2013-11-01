@@ -112,6 +112,15 @@
     return [dateFormatter stringFromDate:date];
 }
 
++ (NSDate *)dateFromServer:(NSString *)sourceString withFormat:(NSDateFormatter *)dateFormat
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date = [dateFormatter dateFromString:sourceString];
+    return date;
+}
+
 + (NSString *)getFormattedHtml:(NSString *)rawHtmlString
 {
     return [NSString stringWithFormat:@"%@%@%@",

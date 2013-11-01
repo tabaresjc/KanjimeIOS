@@ -209,13 +209,13 @@
                                             <rect key="frame" x="291" y="17" width="9" height="13"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVR-Fj-8c7">
-                                            <rect key="frame" x="62" y="9" width="218" height="18"/>
+                                            <rect key="frame" x="62" y="9" width="190" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-qh-s7Y">
-                                            <rect key="frame" x="62" y="26" width="218" height="14"/>
+                                            <rect key="frame" x="62" y="26" width="190" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -223,10 +223,19 @@
                                         <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="star.png" highlightedImage="star_on.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkI-tL-UlT">
                                             <rect key="frame" x="8" y="4" width="45" height="39"/>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHf-c3-NfT">
+                                            <rect key="frame" x="260" y="11" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="badgeLabel" destination="ZHf-c3-NfT" id="LNa-eC-102"/>
                                     <outlet property="bgImageView" destination="V96-t7-GFq" id="JHz-XF-XA4"/>
                                     <outlet property="btnLike" destination="mkI-tL-UlT" id="Pjh-3g-bNO"/>
                                     <outlet property="disclosureImageView" destination="SJg-8i-Q0Y" id="gRY-zG-PPO"/>
@@ -1201,8 +1210,11 @@ Please check the samples
         <image name="info.png" width="32" height="32"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
         <image name="ipad-button-blue.png" width="157" height="49"/>
+        <image name="ipad-button-blue.png" width="157" height="49"/>
         <image name="ipad-button-green.png" width="159" height="51"/>
         <image name="star.png" width="24" height="24"/>
+        <image name="star.png" width="24" height="24"/>
+        <image name="star_on.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
         <image name="starmenu.png" width="24" height="24"/>
         <image name="tattoosample.png" width="320" height="480"/>

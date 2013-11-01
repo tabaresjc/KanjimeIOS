@@ -32,7 +32,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
 
 @implementation NamesTableViewController
 @synthesize filteredNames, setView;
-@synthesize lastNotification = _lastNotification;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -51,19 +51,6 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     return _coreDataRep;
 }
 
-- (Notification *)lastNotification
-{
-    if(!_lastNotification){
-        _lastNotification = [self.coreDataRep getLastNotification];
-    }
-    return _lastNotification;
-}
-
-- (void)setLastNotification:(Notification *)lastNotification
-{
-    _lastNotification = lastNotification;
-    [self.tableView reloadData];
-}
 
 - (void)viewDidLoad
 {
@@ -167,14 +154,6 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
                           NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
                           for (NSDictionary *collection in collections) {
                               [self.coreDataRep getCollectionFromDictionary:collection];
-                          }
-                          
-                          if([collections count]>0) {
-                              if(startingPoint == 1){
-                                  [self.coreDataRep getNewNotification:[NSNumber numberWithInteger:startingPoint] withDate:[NSDate date]];
-                              } else {
-                                  [self.coreDataRep getNewNotification:[NSNumber numberWithInteger:startingPoint] withDate:nil];
-                              }
                           }
                           
                           [self.coreDataRep saveDocument];
@@ -311,12 +290,8 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
         cell.subTitleLabel.text = [NSString stringWithFormat:@"Kanji: %@",collection.subtitle];
         cell.like = [collection.favorite boolValue];
         cell.newItem = NO;
-        if(self.lastNotification) {
-            if([collection.collectionId integerValue] >= [self.lastNotification.startingPoint integerValue]) {
-                if([[NSDate date] compare:self.lastNotification.created]!=NSOrderedDescending){
-                    cell.newItem = YES;
-                }
-            }
+        if([[NSDate date] compare:[collection.created dateByAddingTimeInterval:604800]]!=NSOrderedDescending){
+            cell.newItem = YES;
         }
         return cell;
     }

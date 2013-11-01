@@ -9,9 +9,7 @@
 #import "MainAppDelegate.h"
 #import "UtilHelper.h"
 #import "RestApiFetcher.h"
-#import "NamesTableViewController.h"
-#import "Notification.h"
-#import "NamesTableViewController.h"
+
 
 @implementation MainAppDelegate
 
@@ -184,8 +182,8 @@
                      NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
                      
                      if([collections count] > 0) {
-                         Notification *lastNotification = [self.coreDataHandler getNewNotification:[NSNumber numberWithInteger:startingPoint]
-                                                                                        withDate:nil];
+//                         Notification *lastNotification = [self.coreDataHandler getNewNotification:[NSNumber numberWithInteger:startingPoint]
+//                                                                                        withDate:nil];
                          for (NSDictionary *collection in collections) {
                              [self.coreDataHandler getCollectionFromDictionary:collection];
                          }
@@ -194,12 +192,12 @@
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                              UITabBarController *tabBarController =  (UITabBarController *)self.window.rootViewController;
-                             UINavigationController *navController0 = [[tabBarController viewControllers] objectAtIndex:0];
-                             
-                             if([[navController0 topViewController] isKindOfClass:[NamesTableViewController class]]){
-                                 NamesTableViewController *mainController = (NamesTableViewController *)[navController0 topViewController];
-                                 mainController.lastNotification = lastNotification;
-                             }
+//                             UINavigationController *navController0 = [[tabBarController viewControllers] objectAtIndex:0];
+//                             
+//                             if([[navController0 topViewController] isKindOfClass:[NamesTableViewController class]]){
+//                                 NamesTableViewController *mainController = (NamesTableViewController *)[navController0 topViewController];
+//                                 mainController.lastNotification = lastNotification;
+//                             }
                              
                              [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:@"!"];
                          });

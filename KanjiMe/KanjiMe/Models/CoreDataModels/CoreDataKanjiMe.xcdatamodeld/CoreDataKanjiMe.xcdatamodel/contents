@@ -3,16 +3,12 @@
     <entity name="Collection" representedClassName="Collection" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="collectionId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="created" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="extraTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Notification" representedClassName="Notification" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="startingPoint" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Order" representedClassName="Order" syncable="YES">
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,8 +27,7 @@
         <attribute name="tattoo" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Collection" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="Order" positionX="-153" positionY="0" width="128" height="255"/>
-        <element name="Notification" positionX="-72" positionY="108" width="128" height="73"/>
+        <element name="Collection" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Order" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

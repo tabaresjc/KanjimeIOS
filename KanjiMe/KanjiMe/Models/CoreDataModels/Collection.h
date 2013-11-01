@@ -2,7 +2,7 @@
 //  Collection.h
 //  KanjiMe
 //
-//  Created by Juan Tabares on 10/14/13.
+//  Created by Juan Tabares on 11/1/13.
 //  Copyright (c) 2013 LearnJapanese123. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 
 @property (nonatomic, retain) NSString * body;
 @property (nonatomic, retain) NSNumber * collectionId;
-@property (nonatomic, retain) NSString * created;
+@property (nonatomic, retain) NSDate * created;
 @property (nonatomic, retain) NSString * extraTitle;
 @property (nonatomic, retain) NSNumber * favorite;
 @property (nonatomic, retain) NSString * modified;
