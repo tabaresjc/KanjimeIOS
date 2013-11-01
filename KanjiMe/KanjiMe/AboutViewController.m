@@ -159,7 +159,7 @@
             cell.imageView.image = [UIImage tallImageNamed:@"youtube_color_48.png"];
         } else if(indexPath.row==3){
             cell.textLabel.text = @"LearnJapanese123";
-            cell.imageView.image = [UIImage tallImageNamed:@"learnjapaneselogo_48.png"];
+            cell.imageView.image = [UIImage tallImageNamed:@"learnjapanese_logo_48.png"];
         }
     } else if(indexPath.section==4){
         cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];

@@ -152,23 +152,24 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
                 startingPoint:startingPoint
                       success:^(id jsonData) {
                           NSArray *collections = [jsonData valueForKeyPath:@"apiresponse.data.collections"];
-                          for (NSDictionary *collection in collections) {
-                              [self.coreDataRep getCollectionFromDictionary:collection];
+                          if([collections count]>0) {
+                              for (NSDictionary *collection in collections) {
+                                  [self.coreDataRep getCollectionFromDictionary:collection];
+                              }
+                              [self.coreDataRep saveDocument];
                           }
-                          
-                          [self.coreDataRep saveDocument];
                           dispatch_async(dispatch_get_main_queue(), ^{
                               [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                              [self.refreshControl endRefreshing];
-                              [self.tableView reloadData];
+                              if(startingPoint>1 && [collections count]>0) {
+                                  UITabBarController *tabBarController =  self.tabBarController;
+                                  [[[[tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%lu", (unsigned long)[collections count]]];
+                              }
                           });
                           
                       }
                       failure:^(NSError *error) {
                           dispatch_async(dispatch_get_main_queue(), ^{
                               [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                              [self.refreshControl endRefreshing];
-                              [self.tableView reloadData];                              
                           });
                       }
      ];

@@ -119,8 +119,6 @@
 		CF06C65517FEA846001EF31E /* ipad-button-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C64517FEA846001EF31E /* ipad-button-red@2x.png */; };
 		CF06C65F17FEA852001EF31E /* facebook_color_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65717FEA851001EF31E /* facebook_color_48.png */; };
 		CF06C66017FEA852001EF31E /* facebook_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65817FEA851001EF31E /* facebook_color_48@2x.png */; };
-		CF06C66117FEA852001EF31E /* learnjapaneselogo_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65917FEA851001EF31E /* learnjapaneselogo_48.png */; };
-		CF06C66217FEA852001EF31E /* learnjapaneselogo_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65A17FEA851001EF31E /* learnjapaneselogo_48@2x.png */; };
 		CF06C66317FEA852001EF31E /* twitter_color_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65B17FEA851001EF31E /* twitter_color_48.png */; };
 		CF06C66417FEA852001EF31E /* twitter_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65C17FEA851001EF31E /* twitter_color_48@2x.png */; };
 		CF06C66517FEA852001EF31E /* youtube_color_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65D17FEA852001EF31E /* youtube_color_48.png */; };
@@ -165,6 +163,8 @@
 		CFFA937017FD633300E7820D /* menubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFA936E17FD633300E7820D /* menubar-7@2x.png */; };
 		CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA937217FD63B400E7820D /* UtilHelper.m */; };
 		CFFAA3B418039CDA00DBEECE /* Order+Rest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAA3B318039CDA00DBEECE /* Order+Rest.m */; };
+		CFFBC2B91823E13B00AB1131 /* learnjapanese_logo_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFBC2B71823E13B00AB1131 /* learnjapanese_logo_48.png */; };
+		CFFBC2BA1823E13B00AB1131 /* learnjapanese_logo_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFBC2B81823E13B00AB1131 /* learnjapanese_logo_48@2x.png */; };
 		CFFDDDD3180519E700234AA8 /* CoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */; };
 		CFFDDDD9180544E200234AA8 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDDDD5180544E200234AA8 /* checkmark.png */; };
 		CFFDDDDA180544E200234AA8 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDDDD6180544E200234AA8 /* checkmark@2x.png */; };
@@ -325,8 +325,6 @@
 		CF06C64517FEA846001EF31E /* ipad-button-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-red@2x.png"; sourceTree = "<group>"; };
 		CF06C65717FEA851001EF31E /* facebook_color_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_color_48.png; sourceTree = "<group>"; };
 		CF06C65817FEA851001EF31E /* facebook_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook_color_48@2x.png"; sourceTree = "<group>"; };
-		CF06C65917FEA851001EF31E /* learnjapaneselogo_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = learnjapaneselogo_48.png; sourceTree = "<group>"; };
-		CF06C65A17FEA851001EF31E /* learnjapaneselogo_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "learnjapaneselogo_48@2x.png"; sourceTree = "<group>"; };
 		CF06C65B17FEA851001EF31E /* twitter_color_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_color_48.png; sourceTree = "<group>"; };
 		CF06C65C17FEA851001EF31E /* twitter_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_color_48@2x.png"; sourceTree = "<group>"; };
 		CF06C65D17FEA852001EF31E /* youtube_color_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube_color_48.png; sourceTree = "<group>"; };
@@ -383,6 +381,8 @@
 		CFFA937217FD63B400E7820D /* UtilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilHelper.m; sourceTree = "<group>"; };
 		CFFAA3B218039CDA00DBEECE /* Order+Rest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Order+Rest.h"; path = "Models/CoreDataModels/Order+Rest.h"; sourceTree = "<group>"; };
 		CFFAA3B318039CDA00DBEECE /* Order+Rest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Order+Rest.m"; path = "Models/CoreDataModels/Order+Rest.m"; sourceTree = "<group>"; };
+		CFFBC2B71823E13B00AB1131 /* learnjapanese_logo_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = learnjapanese_logo_48.png; sourceTree = "<group>"; };
+		CFFBC2B81823E13B00AB1131 /* learnjapanese_logo_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "learnjapanese_logo_48@2x.png"; sourceTree = "<group>"; };
 		CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHandler.h; path = Models/CoreDataModels/CoreDataHandler.h; sourceTree = "<group>"; };
 		CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHandler.m; path = Models/CoreDataModels/CoreDataHandler.m; sourceTree = "<group>"; };
 		CFFDDDD5180544E200234AA8 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
@@ -777,14 +777,14 @@
 		CF06C65617FEA851001EF31E /* AppSocial */ = {
 			isa = PBXGroup;
 			children = (
+				CFFBC2B71823E13B00AB1131 /* learnjapanese_logo_48.png */,
+				CFFBC2B81823E13B00AB1131 /* learnjapanese_logo_48@2x.png */,
 				CFEDCC3C18235F0100E9E032 /* traveler_japanese_48.png */,
 				CFEDCC3D18235F0100E9E032 /* traveler_japanese_48@2x.png */,
 				CFF7B87718066A63002F83A0 /* linkedin_color_48.png */,
 				CFF7B87818066A63002F83A0 /* linkedin_color_48@2x.png */,
 				CF06C65717FEA851001EF31E /* facebook_color_48.png */,
 				CF06C65817FEA851001EF31E /* facebook_color_48@2x.png */,
-				CF06C65917FEA851001EF31E /* learnjapaneselogo_48.png */,
-				CF06C65A17FEA851001EF31E /* learnjapaneselogo_48@2x.png */,
 				CF06C65B17FEA851001EF31E /* twitter_color_48.png */,
 				CF06C65C17FEA851001EF31E /* twitter_color_48@2x.png */,
 				CF06C65D17FEA852001EF31E /* youtube_color_48.png */,
@@ -1027,10 +1027,10 @@
 				CEDC7D231764236200C29E93 /* menubar-landscape.png in Resources */,
 				CF06C66617FEA852001EF31E /* youtube_color_48@2x.png in Resources */,
 				CEDC7D241764236200C29E93 /* menubar-landscape@2x.png in Resources */,
+				CFFBC2BA1823E13B00AB1131 /* learnjapanese_logo_48@2x.png in Resources */,
 				CEE112911771F01E00286908 /* star.png in Resources */,
 				CEE112921771F01E00286908 /* star@2x.png in Resources */,
 				CEF0CED817CEF2EE00B24533 /* star_on.png in Resources */,
-				CF06C66217FEA852001EF31E /* learnjapaneselogo_48@2x.png in Resources */,
 				CEF0CED917CEF2EE00B24533 /* star_on@2x.png in Resources */,
 				CE73142E17D5DFEA002EF4F6 /* MyriadPro-BoldIt.otf in Resources */,
 				CF06C65417FEA846001EF31E /* ipad-button-red.png in Resources */,
@@ -1047,6 +1047,7 @@
 				CF06C64617FEA846001EF31E /* ipad-button-blue-pressed.png in Resources */,
 				CEDDD08717DC1128008FF32E /* README.txt in Resources */,
 				CFF7624E180016F600F9042D /* tattoosample.png in Resources */,
+				CFFBC2B91823E13B00AB1131 /* learnjapanese_logo_48.png in Resources */,
 				CEDEDB1017DC5D940049F78C /* menubar-clear.png in Resources */,
 				CEDEDB1117DC5D940049F78C /* menubar-clear@2x.png in Resources */,
 				CF06C65017FEA846001EF31E /* ipad-button-grey.png in Resources */,
@@ -1061,7 +1062,6 @@
 				CF06C65517FEA846001EF31E /* ipad-button-red@2x.png in Resources */,
 				CFFA936F17FD633300E7820D /* menubar-7.png in Resources */,
 				CF06C64B17FEA846001EF31E /* ipad-button-green-pressed@2x.png in Resources */,
-				CF06C66117FEA852001EF31E /* learnjapaneselogo_48.png in Resources */,
 				CF0468851806CF88005ACDB0 /* image4.png in Resources */,
 				CFFA937017FD633300E7820D /* menubar-7@2x.png in Resources */,
 				CF06C64F17FEA846001EF31E /* ipad-button-grey-pressed@2x.png in Resources */,

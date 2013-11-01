@@ -1210,11 +1210,8 @@ Please check the samples
         <image name="info.png" width="32" height="32"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
         <image name="ipad-button-blue.png" width="157" height="49"/>
-        <image name="ipad-button-blue.png" width="157" height="49"/>
         <image name="ipad-button-green.png" width="159" height="51"/>
         <image name="star.png" width="24" height="24"/>
-        <image name="star.png" width="24" height="24"/>
-        <image name="star_on.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
         <image name="starmenu.png" width="24" height="24"/>
         <image name="tattoosample.png" width="320" height="480"/>
