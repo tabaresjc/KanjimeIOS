@@ -37,7 +37,6 @@
 		51496450D3F64EFBB3EC25F3 /* iconvtc.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A24A60063704BFA970DDD22 /* iconvtc.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
 		52F7E7724D81410D9A0D0404 /* UIDeviceHardware.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BAA034D3BF34D3CA492F611 /* UIDeviceHardware.h */; };
 		57DCD76DD83D481F82435053 /* istack.c in Sources */ = {isa = PBXBuildFile; fileRef = 1CF45ECED4AC423BBC8ACCFB /* istack.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
-		59037288A46B4CD6B2D771EB /* Pods-WordPressTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9734917F5D3B436DA6879BE7 /* Pods-WordPressTest-dummy.m */; };
 		5C44C0D35F5D43DB8B8C085B /* NSURL+IDN.h in Headers */ = {isa = PBXBuildFile; fileRef = FA040EECA77A4787A93066D2 /* NSURL+IDN.h */; };
 		5E331149F4FB4A7AA99B9F99 /* iconvtc.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF712CFF0F5499F86479607 /* iconvtc.h */; };
 		61A0BB140F894DAEADFFAE8F /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = F6AA88CEE34A48959B80946D /* Reachability.h */; };
@@ -51,7 +50,6 @@
 		79CD1FDBA385451EB2D37BD5 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 223AF35A996E457CA05CF989 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 		7CF22F09BFC94E3B908FDF47 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA01750DFE41F993472346 /* AFHTTPRequestOperation.h */; };
 		7D6392D6636C4815BAD1E7FA /* clean.c in Sources */ = {isa = PBXBuildFile; fileRef = 5DC214A805EA4C7592BEFDC8 /* clean.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
-		7EE43BD738954A22AF55861B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27067F608D184B19B9F5F6FC /* Foundation.framework */; };
 		812ECA40C4B04E5C82BA8DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27067F608D184B19B9F5F6FC /* Foundation.framework */; };
 		816CB4F591CC4F589C9E302C /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 97B801AD19AD4548AA4DB448 /* AFURLConnectionOperation.h */; };
 		81B4B122FBE34C24A593996E /* pprint.c in Sources */ = {isa = PBXBuildFile; fileRef = 24B3EBE3C15F4FCE8E508D66 /* pprint.c */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
@@ -123,7 +121,6 @@
 		2E0B66E6CAC24E69ACB50ABC /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
 		2E57B2700DF7483D86860F7C /* access.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = access.h; path = CTidy/libtidy/src/access.h; sourceTree = SOURCE_ROOT; };
 		30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WordPressTest.xcconfig"; sourceTree = SOURCE_ROOT; };
-		342116FD19D641B183CC1C14 /* libPods-WordPressTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordPressTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A8C1D91834B8384DE19FF /* attrs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = attrs.h; path = CTidy/libtidy/src/attrs.h; sourceTree = SOURCE_ROOT; };
 		358E0FF3DFD2459EA8FB8717 /* lexer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = lexer.c; path = CTidy/libtidy/src/lexer.c; sourceTree = SOURCE_ROOT; };
 		3AF8E91ACAF24FD3B6F16E0A /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
@@ -216,14 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				812ECA40C4B04E5C82BA8DB8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DABE1A3E0EEB45E9817960C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7EE43BD738954A22AF55861B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +451,6 @@
 			isa = PBXGroup;
 			children = (
 				9992BD6F1AA346D5A3BCA945 /* libPods.a */,
-				342116FD19D641B183CC1C14 /* libPods-WordPressTest.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -519,13 +507,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E410E6D08B1D429C813310F4 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -544,23 +525,6 @@
 			name = Pods;
 			productName = Pods;
 			productReference = 9992BD6F1AA346D5A3BCA945 /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		A440BED1268A4089B863FAE3 /* Pods-WordPressTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 18E2B1405E68429A8293ED43 /* Build configuration list for PBXNativeTarget "Pods-WordPressTest" */;
-			buildPhases = (
-				73C87EB957F54E988C155DEC /* Sources */,
-				DABE1A3E0EEB45E9817960C0 /* Frameworks */,
-				E410E6D08B1D429C813310F4 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-WordPressTest";
-			productName = "Pods-WordPressTest";
-			productReference = 342116FD19D641B183CC1C14 /* libPods-WordPressTest.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -584,20 +548,11 @@
 			projectRoot = "";
 			targets = (
 				0C6160D797BA4AF69C2FA5B4 /* Pods */,
-				A440BED1268A4089B863FAE3 /* Pods-WordPressTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		73C87EB957F54E988C155DEC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59037288A46B4CD6B2D771EB /* Pods-WordPressTest-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F42DF0FB67574262AB3223C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -650,38 +605,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		4A028B16F35F446489FE4E9B /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-WordPressTest-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
-				PODS_ROOT = "${SRCROOT}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Distribution;
-		};
 		66E2177EA00342078CF24118 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59C53C1BF96646F788F365D3 /* Pods.xcconfig */;
@@ -695,7 +618,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
@@ -709,43 +632,12 @@
 				PODS_ROOT = "${SRCROOT}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Distribution;
-		};
-		83C1EDAE29464CD4B00CF5E6 /* Beta */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-WordPressTest-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
-				PODS_ROOT = "${SRCROOT}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Beta;
 		};
 		85ACF616113C4BACB899D9DA /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -767,55 +659,23 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
 				PODS_ROOT = "${SRCROOT}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
-		};
-		DC0C6F9DE38840A48CDC1F8E /* Beta */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59C53C1BF96646F788F365D3 /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
-				PODS_ROOT = "${SRCROOT}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Beta;
 		};
 		DD16E0CFC417486193D656AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos7.0;
 				VALID_ARCHS = "armv7 armv7s";
@@ -835,7 +695,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
@@ -849,9 +709,10 @@
 				PODS_ROOT = "${SRCROOT}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -859,89 +720,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos7.0;
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
-		FAA3625A22CF4C18BD3AEDB4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-WordPressTest-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "";
-				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
-				PODS_ROOT = "${SRCROOT}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		FC0F323DE9B74C849F57D1C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30BEB07259AD4F278AFAEB9E /* Pods-WordPressTest.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-WordPressTest-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
-				PODS_ROOT = "${SRCROOT}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18E2B1405E68429A8293ED43 /* Build configuration list for PBXNativeTarget "Pods-WordPressTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FC0F323DE9B74C849F57D1C1 /* Release */,
-				FAA3625A22CF4C18BD3AEDB4 /* Debug */,
-				83C1EDAE29464CD4B00CF5E6 /* Beta */,
-				4A028B16F35F446489FE4E9B /* Distribution */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		57E80FEA35A64EC29B6F07CB /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -949,18 +737,17 @@
 				F8A3B7C515CC41A3BB6109CC /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Distribution;
 		};
 		EC588BB4EF67478B8525BDB2 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED89AC38C1EE42A1B00B1ACF /* Release */,
 				85ACF616113C4BACB899D9DA /* Debug */,
-				DC0C6F9DE38840A48CDC1F8E /* Beta */,
 				66E2177EA00342078CF24118 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Distribution;
 		};
 /* End XCConfigurationList section */
 	};

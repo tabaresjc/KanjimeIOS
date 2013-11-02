@@ -1187,6 +1187,7 @@
 				PROVISIONING_PROFILE = "9C1E278F-A04F-466C-B0F4-74A58D475979";
 				SDKROOT = iphoneos;
 				SYMROOT = Users/juanctt/Developer/KanjiMeBin;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1211,11 +1212,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "9C1E278F-A04F-466C-B0F4-74A58D475979";
 				SDKROOT = iphoneos;
 				SYMROOT = Users/juanctt/Developer/KanjiMeBin;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1354,11 +1357,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "9C1E278F-A04F-466C-B0F4-74A58D475979";
 				SDKROOT = iphoneos;
 				SYMROOT = Users/juanctt/Developer/KanjiMeBin;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Distribution;
 		};
@@ -1384,6 +1389,7 @@
 					/Users/juanctt/Developer/KanjimeIOS/KanjiMe/KanjiMe/Libraries/PayPalMobile,
 					/Users/juanctt/Developer/KanjimeIOS/KanjiMe/KanjiMe/GoogleAdMob,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-liconv",
