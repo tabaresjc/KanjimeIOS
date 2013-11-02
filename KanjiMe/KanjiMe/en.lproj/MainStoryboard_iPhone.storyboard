@@ -128,30 +128,21 @@
                         <viewControllerLayoutGuide type="bottom" id="QFv-KE-dTw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MIX-nD-YYW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24L-F7-KTN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="529"/>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24L-F7-KTN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-qM-RCS">
-                                <rect key="frame" x="150" y="255" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-qM-RCS">
+                                <rect key="frame" x="150" y="218" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="24L-F7-KTN" secondAttribute="bottom" constant="-25" id="99O-b2-6yn"/>
-                            <constraint firstItem="24L-F7-KTN" firstAttribute="leading" secondItem="MIX-nD-YYW" secondAttribute="leading" id="ECP-Rw-Nnb"/>
-                            <constraint firstAttribute="trailing" secondItem="24L-F7-KTN" secondAttribute="trailing" id="UFM-0y-3Nd"/>
-                            <constraint firstItem="24L-F7-KTN" firstAttribute="top" secondItem="MIX-nD-YYW" secondAttribute="top" id="f24-c3-2uB"/>
-                            <constraint firstItem="QFv-KE-dTw" firstAttribute="top" secondItem="pFT-qM-RCS" secondAttribute="bottom" constant="229" id="kYh-n5-Elq"/>
-                            <constraint firstItem="pFT-qM-RCS" firstAttribute="centerX" secondItem="24L-F7-KTN" secondAttribute="centerX" id="ush-N2-bMk"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Efs-Ym-eoS"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mainWebView" destination="24L-F7-KTN" id="hIT-yb-etu"/>
                         <outlet property="spinner" destination="pFT-qM-RCS" id="FWM-YD-a5g"/>
@@ -209,13 +200,13 @@
                                             <rect key="frame" x="291" y="17" width="9" height="13"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVR-Fj-8c7">
-                                            <rect key="frame" x="62" y="9" width="190" height="18"/>
+                                            <rect key="frame" x="62" y="9" width="180" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-qh-s7Y">
-                                            <rect key="frame" x="62" y="26" width="190" height="14"/>
+                                            <rect key="frame" x="62" y="26" width="180" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -223,11 +214,11 @@
                                         <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="star.png" highlightedImage="star_on.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkI-tL-UlT">
                                             <rect key="frame" x="8" y="4" width="45" height="39"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHf-c3-NfT">
-                                            <rect key="frame" x="260" y="11" width="25" height="25"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHf-c3-NfT">
+                                            <rect key="frame" x="248" y="11" width="35" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>

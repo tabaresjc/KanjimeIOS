@@ -64,9 +64,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
         [tabControllers removeObjectAtIndex:1];
         self.tabBarController.viewControllers = tabControllers;
     }
-    
-    
-    
+        
     self.tabBarController.delegate = self;
     [self setStyle];
 #if !TARGET_IPHONE_SIMULATOR
