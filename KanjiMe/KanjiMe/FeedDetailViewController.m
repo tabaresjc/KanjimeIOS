@@ -87,6 +87,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
     if ([UtilHelper isVersion6AndBelow]) {

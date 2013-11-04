@@ -333,7 +333,7 @@
 		CF07829D18070512002FFE62 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
 		CF1109AA1823CC0F0052D627 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
 		CF1109AB1823CC0F0052D627 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
-		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		CFE3B97D1802EB9800860727 /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdMobLoader.h; path = Models/AdMobLoader.h; sourceTree = "<group>"; };
 		CFE3B97E1802EB9800860727 /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdMobLoader.m; path = Models/AdMobLoader.m; sourceTree = "<group>"; };
 		CFE3B97F1802EB9800860727 /* SupportKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupportKeys.h; path = Models/SupportKeys.h; sourceTree = "<group>"; };
@@ -500,6 +500,7 @@
 		CE90D12A175342CE009C5BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CFD2EAC717FC4CE900C4446B /* Images.xcassets */,
 				CF0468741806CF88005ACDB0 /* AppKanji */,
 				CFF7B855180657D2002F83A0 /* AppIcons */,
 				CFFDDDD4180544E200234AA8 /* AppIconMessage */,
@@ -636,7 +637,6 @@
 			children = (
 				CE90D0EF175332C6009C5BD3 /* Controller */,
 				CED2E4AB1753A38000028823 /* Delegates */,
-				CFD2EAC717FC4CE900C4446B /* Images.xcassets */,
 				CE90D27317534540009C5BD3 /* Libraries */,
 				CED8FEB91750A9A300867230 /* Model */,
 				CE90D12A175342CE009C5BD3 /* Resources */,

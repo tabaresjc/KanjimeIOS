@@ -80,7 +80,8 @@
     if (launchOptions != nil)
 	{
 		NSDictionary *dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (dictionary != nil)
+		
+        if (dictionary != nil)
 		{
 			NSLog(@"Launched from push notification: %@", dictionary);
             [self fetchNewNames:dictionary];
@@ -110,6 +111,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [self clearNotifications];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -161,9 +163,17 @@
     [self.coreDataHandler saveDocument];    
 }
 
+- (void)clearNotifications
+{
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+
 - (void)fetchNewNames:(NSDictionary *)userInfo
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [self clearNotifications];
+    
     self.coreDataHandler.receivedNotification = YES;
     self.coreDataHandler.remoteNotificationUserInfo = userInfo;
     
