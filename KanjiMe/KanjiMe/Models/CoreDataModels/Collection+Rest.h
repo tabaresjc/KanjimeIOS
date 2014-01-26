@@ -15,5 +15,5 @@
 - (void)shareToFacebook;
 - (void)shareToTwitter:(UIViewController *)mainView;
 - (NSString *)getCommonDescriptor;
-
+- (BOOL)has_url;
 @end

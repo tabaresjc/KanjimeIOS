@@ -2,8 +2,8 @@
 //  Collection.h
 //  KanjiMe
 //
-//  Created by Juan Tabares on 11/1/13.
-//  Copyright (c) 2013 LearnJapanese123. All rights reserved.
+//  Created by Juan Tabares on 1/26/14.
+//  Copyright (c) 2014 LearnJapanese123. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -20,5 +20,7 @@
 @property (nonatomic, retain) NSString * modified;
 @property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * hash_value;
+@property (nonatomic, retain) NSString * url_video;
 
 @end

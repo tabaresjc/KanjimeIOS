@@ -9,9 +9,11 @@
 #import "FeedDetailViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Social/Social.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "RestApiHelpers.h"
-#import "Collection.h"
+#import "Collection+Rest.h"
 #import "FeedCell4.h"
+#import "VideoPlayerCell.h"
 #import "FeedHeaderCell.h"
 #import "MBProgressHUD.h"
 #import "MainAppDelegate.h"
@@ -25,6 +27,7 @@
 @property (strong, nonatomic) UIFont *fontForTitle;
 @property (strong, nonatomic) UIFont *fontForText;
 @property (strong, nonatomic) UIFont *fontForRemark;
+@property (strong, nonatomic) UIWebView *videoView;
 
 @end
 
@@ -62,8 +65,6 @@
     }
     return _coreDataRep;
 }
-
-
 
 - (void)setDetail:(id)newDetailItem
 {
@@ -153,7 +154,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return section==0 ? 1 : [self.listOfNames count];
+    if(section==0)
+        return 1;
+    else {
+        int count = [self.listOfNames count];
+        if ([self.collection has_url]) {
+            count += 1;
+        }
+        return count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,38 +178,54 @@
         
         return cell;
     } else {
-        FeedCell4* cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell4"];
-        NSDictionary *dataObject = [self.listOfNames objectAtIndex:indexPath.row];
-        
-        NSDictionary *attributes = [(NSAttributedString *)cell.kanjiLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
-        
-        // Set new text with extracted attributes
-        cell.kanjiLabel.attributedText = [[NSAttributedString alloc] initWithString:[dataObject objectForKey:@"kanji"] attributes:attributes];
-        NSString *meaning = [self returnString:[dataObject valueForKey:@"meaning"]];
-        NSString *kunyomi = [self returnString:[dataObject valueForKey:@"kunyomi"]];
-        NSString *onyomi = [self returnString:[dataObject valueForKey:@"onyomi"]];
-        
-        NSMutableAttributedString *lineOne = [self getString:@"Meaning:\r" withText:meaning];
-        cell.lineOne.attributedText = lineOne;
-        NSMutableAttributedString *lineTwo_One = [self getString:@"Kun-Yomi:\r" withText:kunyomi];
-        NSMutableAttributedString *lineTwo_Two = [self getString:@"On-Yomi:\r" withText:onyomi];
-        
-        NSString *spacing = @"\r\r\r\r\r";
-        NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:spacing];
-        [lineTwo insertAttributedString:lineTwo_Two atIndex:0];
-        [lineTwo insertAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\r\r"] atIndex:0];
-        [lineTwo insertAttributedString:lineTwo_One atIndex:0];
-        
-        cell.lineTwo.attributedText = lineTwo;
-        cell.lineTwo.lineBreakMode = NSLineBreakByClipping;
-        
-        return cell;
+        if (indexPath.row == 0 && [self.collection has_url]) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoLinkCell"];
+            
+            return cell;
+        } else {
+            FeedCell4* cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell4"];
+            
+            int index = self.collection.has_url ? indexPath.row - 1 : indexPath.row;
+            
+            NSDictionary *dataObject = [self.listOfNames objectAtIndex:index];
+            
+            NSDictionary *attributes = [(NSAttributedString *)cell.kanjiLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
+            
+            // Set new text with extracted attributes
+            cell.kanjiLabel.attributedText = [[NSAttributedString alloc] initWithString:[dataObject objectForKey:@"kanji"] attributes:attributes];
+            NSString *meaning = [self returnString:[dataObject valueForKey:@"meaning"]];
+            NSString *kunyomi = [self returnString:[dataObject valueForKey:@"kunyomi"]];
+            NSString *onyomi = [self returnString:[dataObject valueForKey:@"onyomi"]];
+            
+            NSMutableAttributedString *lineOne = [self getString:@"Meaning:\r" withText:meaning];
+            cell.lineOne.attributedText = lineOne;
+            NSMutableAttributedString *lineTwo_One = [self getString:@"Kun-Yomi:\r" withText:kunyomi];
+            NSMutableAttributedString *lineTwo_Two = [self getString:@"On-Yomi:\r" withText:onyomi];
+            
+            NSString *spacing = @"\r\r\r\r\r";
+            NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:spacing];
+            [lineTwo insertAttributedString:lineTwo_Two atIndex:0];
+            [lineTwo insertAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\r\r"] atIndex:0];
+            [lineTwo insertAttributedString:lineTwo_One atIndex:0];
+            
+            cell.lineTwo.attributedText = lineTwo;
+            cell.lineTwo.lineBreakMode = NSLineBreakByClipping;
+            
+            return cell;
+        }
+
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section==0 ? 75.0f : 265.0f;
+    if (indexPath.section==0) {
+        return 75.0f;
+    } else if (indexPath.row == 0 && [self.collection has_url]) {
+        return 50.0f;
+    } else {
+        return 265.0f;
+    }
 }
 
 - (NSMutableAttributedString *)getString:(NSString *)title withText:(NSString *)text
@@ -273,6 +298,9 @@
     });
 }
 
+- (IBAction)playVideo:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.collection.url_video]];
+}
 
 
 @end

@@ -82,5 +82,9 @@
     }
 }
 
+- (BOOL)has_url
+{
+    return [self.url_video length] > 0;
+}
 
 @end

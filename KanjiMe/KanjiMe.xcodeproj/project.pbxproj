@@ -124,8 +124,11 @@
 		CF06C66517FEA852001EF31E /* youtube_color_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65D17FEA852001EF31E /* youtube_color_48.png */; };
 		CF06C66617FEA852001EF31E /* youtube_color_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */; };
 		CF07829E18070512002FFE62 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07829D18070512002FFE62 /* Order.m */; };
-		CF1109AC1823CC0F0052D627 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1109AB1823CC0F0052D627 /* Collection.m */; };
 		CFD2EAC817FC4CE900C4446B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD2EAC717FC4CE900C4446B /* Images.xcassets */; };
+		CFDAED3B1894D69000E311DE /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDAED3A1894D69000E311DE /* Collection.m */; };
+		CFDAED3E1894E18B00E311DE /* VideoPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDAED3D1894E18B00E311DE /* VideoPlayerCell.m */; };
+		CFDAED401894E41400E311DE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDAED3F1894E41400E311DE /* MediaPlayer.framework */; };
+		CFDAED421894FACB00E311DE /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDAED411894FACB00E311DE /* MediaToolbox.framework */; };
 		CFE3B9801802EB9800860727 /* AdMobLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE3B97E1802EB9800860727 /* AdMobLoader.m */; };
 		CFEC553518001D2600E8A434 /* welcome_tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553318001D2600E8A434 /* welcome_tattoo.png */; };
 		CFEC553618001D2600E8A434 /* welcome_tattoo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEC553418001D2600E8A434 /* welcome_tattoo@2x.png */; };
@@ -331,9 +334,13 @@
 		CF06C65E17FEA852001EF31E /* youtube_color_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youtube_color_48@2x.png"; sourceTree = "<group>"; };
 		CF07829C18070512002FFE62 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Models/CoreDataModels/Order.h; sourceTree = "<group>"; };
 		CF07829D18070512002FFE62 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Models/CoreDataModels/Order.m; sourceTree = "<group>"; };
-		CF1109AA1823CC0F0052D627 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
-		CF1109AB1823CC0F0052D627 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
 		CFD2EAC717FC4CE900C4446B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		CFDAED391894D69000E311DE /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collection.h; path = Models/CoreDataModels/Collection.h; sourceTree = "<group>"; };
+		CFDAED3A1894D69000E311DE /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collection.m; path = Models/CoreDataModels/Collection.m; sourceTree = "<group>"; };
+		CFDAED3C1894E18B00E311DE /* VideoPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPlayerCell.h; path = FeedControllers/Cells/VideoPlayerCell.h; sourceTree = "<group>"; };
+		CFDAED3D1894E18B00E311DE /* VideoPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoPlayerCell.m; path = FeedControllers/Cells/VideoPlayerCell.m; sourceTree = "<group>"; };
+		CFDAED3F1894E41400E311DE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CFDAED411894FACB00E311DE /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 		CFE3B97D1802EB9800860727 /* AdMobLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdMobLoader.h; path = Models/AdMobLoader.h; sourceTree = "<group>"; };
 		CFE3B97E1802EB9800860727 /* AdMobLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdMobLoader.m; path = Models/AdMobLoader.m; sourceTree = "<group>"; };
 		CFE3B97F1802EB9800860727 /* SupportKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupportKeys.h; path = Models/SupportKeys.h; sourceTree = "<group>"; };
@@ -401,6 +408,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDAED421894FACB00E311DE /* MediaToolbox.framework in Frameworks */,
+				CFDAED401894E41400E311DE /* MediaPlayer.framework in Frameworks */,
 				CF056CCA180D436500785751 /* CoreData.framework in Frameworks */,
 				CFF657E217FFBEDE00AE4C9D /* Security.framework in Frameworks */,
 				CFF657E017FFBEBF00AE4C9D /* OpenGLES.framework in Frameworks */,
@@ -436,8 +445,8 @@
 				CFFDDDD1180519E700234AA8 /* CoreDataHandler.h */,
 				CFFDDDD2180519E700234AA8 /* CoreDataHandler.m */,
 				CE00D9BB17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld */,
-				CF1109AA1823CC0F0052D627 /* Collection.h */,
-				CF1109AB1823CC0F0052D627 /* Collection.m */,
+				CFDAED391894D69000E311DE /* Collection.h */,
+				CFDAED3A1894D69000E311DE /* Collection.m */,
 				CF07829C18070512002FFE62 /* Order.h */,
 				CF07829D18070512002FFE62 /* Order.m */,
 				CFFAA3B218039CDA00DBEECE /* Order+Rest.h */,
@@ -521,6 +530,8 @@
 			children = (
 				CE90D27017534328009C5BD3 /* StylishCellViewCell.h */,
 				CE90D27117534328009C5BD3 /* StylishCellViewCell.m */,
+				CFDAED3C1894E18B00E311DE /* VideoPlayerCell.h */,
+				CFDAED3D1894E18B00E311DE /* VideoPlayerCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -607,6 +618,8 @@
 		CED8FE871750A2FF00867230 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFDAED411894FACB00E311DE /* MediaToolbox.framework */,
+				CFDAED3F1894E41400E311DE /* MediaPlayer.framework */,
 				CEDDD08E17DC11A6008FF32E /* AdSupport.framework */,
 				CEDDD08A17DC1176008FF32E /* AudioToolbox.framework */,
 				CFF657D717FFBE5200AE4C9D /* AVFoundation.framework */,
@@ -1106,6 +1119,7 @@
 				CE3FABCA17BCF11A00F2BE59 /* RestApiHelpers.m in Sources */,
 				CE00D9BD17BE072500136CDA /* CoreDataKanjiMe.xcdatamodeld in Sources */,
 				CE0FDE2B17BE3F5200BF6125 /* CoreDataTableViewController.m in Sources */,
+				CFDAED3B1894D69000E311DE /* Collection.m in Sources */,
 				CF07829E18070512002FFE62 /* Order.m in Sources */,
 				CE0FDE2E17BE4C1600BF6125 /* NamesTableViewController.m in Sources */,
 				CFFA937317FD63B400E7820D /* UtilHelper.m in Sources */,
@@ -1117,7 +1131,6 @@
 				CED7788417CF258500C8C1B1 /* FeedCell2.m in Sources */,
 				CED7788517CF258500C8C1B1 /* FeedCell3.m in Sources */,
 				CED7788617CF258500C8C1B1 /* FeedCell4.m in Sources */,
-				CF1109AC1823CC0F0052D627 /* Collection.m in Sources */,
 				CFFDDDD3180519E700234AA8 /* CoreDataHandler.m in Sources */,
 				CED7788717CF258500C8C1B1 /* FeedController1.m in Sources */,
 				CFE3B9801802EB9800860727 /* AdMobLoader.m in Sources */,
@@ -1127,6 +1140,7 @@
 				CED7788F17CF328600C8C1B1 /* FeedDetailViewController.m in Sources */,
 				CED41E6517DB67730029B5D6 /* FeedHeaderCell.m in Sources */,
 				CF0468731806CB5E005ACDB0 /* SelectDesignViewController.m in Sources */,
+				CFDAED3E1894E18B00E311DE /* VideoPlayerCell.m in Sources */,
 				CFFAA3B418039CDA00DBEECE /* Order+Rest.m in Sources */,
 				CFFDDDDF1805457600234AA8 /* OrdersTableViewController.m in Sources */,
 				CEA769E417E7015600DD2A80 /* WebDetailViewController.m in Sources */,

@@ -138,12 +138,11 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
     self.fetchedResultsController = [self.coreDataRep getListOfCollection];
     
     NSUInteger startingPoint = 1;
-    Collection *lastCollection = [self.coreDataRep getLastCollection];
-    
-    if(lastCollection){
-        startingPoint = [lastCollection.collectionId integerValue];
-        startingPoint ++;
-    }
+//    Collection *lastCollection = [self.coreDataRep getLastCollection];
+//    if(lastCollection){
+//        startingPoint = [lastCollection.collectionId integerValue];
+//        startingPoint ++;
+//    }
     
     RestApiFetcher *apiFetcher = [[RestApiFetcher alloc] init];
     [apiFetcher getNames:10000

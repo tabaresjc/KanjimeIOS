@@ -708,6 +708,26 @@
                                     <outlet property="lineTwo" destination="8Pq-5w-OtY" id="8T2-f4-GZm"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoLinkCell" rowHeight="50" id="Hfh-I2-CXQ">
+                                <rect key="frame" x="0.0" y="357" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hfh-I2-CXQ" id="1zM-eW-LCk">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSz-MP-HUJ">
+                                            <rect key="frame" x="73" y="5" width="175" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Instruction Video" backgroundImage="ipad-button-red.png"/>
+                                            <state key="selected" backgroundImage="ipad-button-red-pressed.png"/>
+                                            <state key="highlighted" backgroundImage="ipad-button-red-pressed.png"/>
+                                            <connections>
+                                                <action selector="playVideo:" destination="0a1-AF-Ixo" eventType="touchUpInside" id="DeL-F2-G2v"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="0a1-AF-Ixo" id="6h5-y6-rTm"/>
@@ -1210,8 +1230,14 @@ Please check the samples
         <image name="info.png" width="32" height="32"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
         <image name="ipad-button-blue.png" width="157" height="49"/>
+        <image name="ipad-button-blue.png" width="157" height="49"/>
         <image name="ipad-button-green.png" width="159" height="51"/>
+        <image name="ipad-button-red-pressed.png" width="156" height="49"/>
+        <image name="ipad-button-red-pressed.png" width="156" height="49"/>
+        <image name="ipad-button-red.png" width="159" height="51"/>
         <image name="star.png" width="24" height="24"/>
+        <image name="star.png" width="24" height="24"/>
+        <image name="star_on.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
         <image name="starmenu.png" width="24" height="24"/>
         <image name="tattoosample.png" width="320" height="480"/>

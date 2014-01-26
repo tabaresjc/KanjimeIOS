@@ -18,6 +18,8 @@
 #define NAME_CREATED @"Collection.created"
 #define NAME_MODIFIED @"Collection.modified"
 #define NAME_ID @"Collection.id"
+#define NAME_URL @"Collection.url_video"
+#define NAME_HASH @"Collection.hash"
 
 @interface CoreDataHandler()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -72,7 +74,7 @@
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     
     if(!_persistentStoreCoordinator){
-        NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV2.sqlite"]];
+        NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV3.sqlite"]];
         NSError *error = nil;
         
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
@@ -94,7 +96,7 @@
 
 - (void)startDocument:(void (^)(BOOL success))completionHandler
 {
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV2.sqlite"]];
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV3.sqlite"]];
     NSError *error = nil;
     
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
@@ -114,7 +116,7 @@
 
 - (void)removeOldVersionSqlLite
 {
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMe.sqlite"]];
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"KanjiMeV2.sqlite"]];
     [self removeFileAtUrl:storeUrl];
 }
 
@@ -210,7 +212,17 @@
                                               error:&error];
     
     if (!matches || ([matches count] > 1)) {
-        // handle error
+        if ([collection.hash_value isEqualToString:[collectionDictionary valueForKeyPath:NAME_HASH]]) {
+            collection.title = [collectionDictionary valueForKeyPath:NAME_TITLE];
+            collection.subtitle = [collectionDictionary valueForKeyPath:NAME_SUBTITLE];
+            collection.extraTitle = [collectionDictionary valueForKeyPath:NAME_DESCRIPTION];
+            collection.body = [collectionDictionary valueForKeyPath:NAME_BODY];
+            collection.created = [self.dateFormatter dateFromString:[NSString stringWithFormat:@"%@",[collectionDictionary valueForKeyPath:NAME_CREATED]]];
+            
+            collection.url_video = [collectionDictionary valueForKeyPath:NAME_URL];
+            collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
+            collection.hash_value = [collectionDictionary valueForKeyPath:NAME_HASH];
+        }
     } else if (![matches count]) {
         collection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection"
                                                    inManagedObjectContext:self.managedObjectContext];
@@ -220,9 +232,11 @@
         collection.extraTitle = [collectionDictionary valueForKeyPath:NAME_DESCRIPTION];
         collection.body = [collectionDictionary valueForKeyPath:NAME_BODY];
         collection.created = [self.dateFormatter dateFromString:[NSString stringWithFormat:@"%@",[collectionDictionary valueForKeyPath:NAME_CREATED]]];
+        
+        collection.url_video = [collectionDictionary valueForKeyPath:NAME_URL];
         collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
         collection.favorite = [NSNumber numberWithBool:NO];
-        
+        collection.hash_value = [collectionDictionary valueForKeyPath:NAME_HASH];
     } else {
         collection = [matches lastObject];
     }

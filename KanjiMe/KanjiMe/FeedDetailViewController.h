@@ -11,7 +11,7 @@
 #import "AdMobLoader.h"
 #import "GADBannerViewDelegate.h"
 
-@interface FeedDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, GADBannerViewDelegate> {
+@interface FeedDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, GADBannerViewDelegate, UIWebViewDelegate> {
     // Declare one as an instance variable
     GADBannerView *bannerView_;
 }
