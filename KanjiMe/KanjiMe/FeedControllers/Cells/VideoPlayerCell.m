@@ -12,25 +12,16 @@
 
 @interface VideoPlayerCell()
 
-@property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
 @end
 
 @implementation VideoPlayerCell
-@synthesize urlVideo;
-
-- (MPMoviePlayerController *)videoPlayer
-{
-    if(!_videoPlayer){
-        _videoPlayer = [[MPMoviePlayerController alloc] init];
-    }
-    return _videoPlayer;
-}
+@synthesize bgView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        
     }
     return self;
 }
@@ -41,17 +32,16 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)playVideo:(id)sender {
-    NSURL *movieURL = [NSURL URLWithString:self.urlVideo];
-    [self.videoPlayer setContentURL:movieURL];
-    [self.videoPlayer prepareToPlay];
-    if([UtilHelper isVersion6AndBelow]) {
-        [self.videoPlayer.view setFrame: self.superview.bounds];
-        [self.superview addSubview:self.videoPlayer.view];
+-(void)awakeFromNib{
+    if ([UtilHelper isVersion6AndBelow]) {
+        self.bgView.backgroundColor = [UIColor whiteColor];
     } else {
-        [self.videoPlayer.view setFrame: self.superview.superview.bounds];
-        [self.superview.superview addSubview:self.videoPlayer.view];
-    }    
-    [self.videoPlayer play];
+        self.bgView.tintColor = [UIColor whiteColor];
+    }
+    
+    self.bgView.layer.cornerRadius = 3.0f;
+    self.bgView.clipsToBounds = YES;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
+
 @end

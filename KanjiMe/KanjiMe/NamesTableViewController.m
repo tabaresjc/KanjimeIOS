@@ -276,6 +276,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
         
         if((indexPath.row%2)==0){
             cell.contentView.backgroundColor = UIColorFromRGBWithAlpha(0xf0f0f0, 1);
+            cell.backgroundColor = UIColorFromRGBWithAlpha(0xf0f0f0, 1);
         }
         
         return cell;
@@ -291,6 +292,7 @@ static NSString *searchCellIdentifier = @"SearchNameRow";
         if([[NSDate date] compare:[collection.created dateByAddingTimeInterval:604800]]!=NSOrderedDescending){
             cell.newItem = YES;
         }
+        cell.disclosureImageView.highlighted = [collection has_url];
         return cell;
     }
 }

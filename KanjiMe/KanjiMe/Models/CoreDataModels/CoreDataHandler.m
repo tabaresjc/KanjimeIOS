@@ -211,8 +211,9 @@
     NSArray *matches = [self.managedObjectContext executeFetchRequest:request
                                               error:&error];
     
-    if (!matches || ([matches count] > 1)) {
-        if ([collection.hash_value isEqualToString:[collectionDictionary valueForKeyPath:NAME_HASH]]) {
+    if (matches && [matches count] > 0) {
+        collection = [matches lastObject];
+        if (![collection.hash_value isEqualToString:[collectionDictionary valueForKeyPath:NAME_HASH]]) {
             collection.title = [collectionDictionary valueForKeyPath:NAME_TITLE];
             collection.subtitle = [collectionDictionary valueForKeyPath:NAME_SUBTITLE];
             collection.extraTitle = [collectionDictionary valueForKeyPath:NAME_DESCRIPTION];
@@ -223,7 +224,7 @@
             collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
             collection.hash_value = [collectionDictionary valueForKeyPath:NAME_HASH];
         }
-    } else if (![matches count]) {
+    } else {
         collection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection"
                                                    inManagedObjectContext:self.managedObjectContext];
         collection.collectionId = [NSNumber numberWithInteger:[[collectionDictionary valueForKeyPath:NAME_ID] integerValue]];
@@ -237,8 +238,6 @@
         collection.modified = [collectionDictionary valueForKeyPath:NAME_MODIFIED];
         collection.favorite = [NSNumber numberWithBool:NO];
         collection.hash_value = [collectionDictionary valueForKeyPath:NAME_HASH];
-    } else {
-        collection = [matches lastObject];
     }
     return collection;
 }

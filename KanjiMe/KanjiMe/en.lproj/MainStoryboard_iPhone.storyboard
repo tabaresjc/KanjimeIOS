@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u41-fb-yRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="-617"/>
+            <point key="canvasLocation" x="2535" y="-609"/>
         </scene>
         <!--Navigation Controller - Home-->
         <scene sceneID="11">
@@ -205,11 +205,11 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V96-t7-GFq">
                                             <rect key="frame" x="5" y="4" width="310" height="39"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="ipad-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="SJg-8i-Q0Y">
-                                            <rect key="frame" x="291" y="17" width="9" height="13"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="right" fixedFrame="YES" image="ipad-arrow.png" highlightedImage="forward.png" translatesAutoresizingMaskIntoConstraints="NO" id="SJg-8i-Q0Y">
+                                            <rect key="frame" x="290" y="15" width="10" height="16"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVR-Fj-8c7">
-                                            <rect key="frame" x="62" y="9" width="180" height="18"/>
+                                            <rect key="frame" x="62" y="9" width="140" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +224,7 @@
                                             <rect key="frame" x="8" y="4" width="45" height="39"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHf-c3-NfT">
-                                            <rect key="frame" x="248" y="11" width="35" height="25"/>
+                                            <rect key="frame" x="242" y="11" width="35" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="14"/>
@@ -378,7 +378,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCellHeader" id="aJo-WH-1sq" customClass="FeedHeaderCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCellHeader" id="aJo-WH-1sq" customClass="FeedHeaderCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aJo-WH-1sq" id="HiS-mn-TB2">
@@ -470,7 +470,7 @@
                                     <outlet property="titleLabel" destination="YUF-1k-hea" id="AAm-lY-c85"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell4" rowHeight="265" id="13k-0i-GvF" customClass="FeedCell4">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell4" rowHeight="265" id="13k-0i-GvF" customClass="FeedCell4">
                                 <rect key="frame" x="0.0" y="92" width="320" height="265"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="13k-0i-GvF" id="DEK-Fw-2eu">
@@ -708,25 +708,40 @@
                                     <outlet property="lineTwo" destination="8Pq-5w-OtY" id="8T2-f4-GZm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoLinkCell" rowHeight="50" id="Hfh-I2-CXQ">
-                                <rect key="frame" x="0.0" y="357" width="320" height="50"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoLinkCell" rowHeight="60" id="Hfh-I2-CXQ" customClass="VideoPlayerCell">
+                                <rect key="frame" x="0.0" y="357" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hfh-I2-CXQ" id="1zM-eW-LCk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSz-MP-HUJ">
-                                            <rect key="frame" x="73" y="5" width="175" height="40"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUe-tR-BvP">
+                                            <rect key="frame" x="9" y="1" width="302" height="53"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Instruction Video" backgroundImage="ipad-button-red.png"/>
-                                            <state key="selected" backgroundImage="ipad-button-red-pressed.png"/>
-                                            <state key="highlighted" backgroundImage="ipad-button-red-pressed.png"/>
-                                            <connections>
-                                                <action selector="playVideo:" destination="0a1-AF-Ixo" eventType="touchUpInside" id="DeL-F2-G2v"/>
-                                            </connections>
-                                        </button>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QL-eb-UjJ">
+                                                    <rect key="frame" x="231" y="3" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="youtube_color_48.png"/>
+                                                    <connections>
+                                                        <segue destination="5AW-dr-ZM7" kind="push" identifier="playVideo" id="lmh-VH-qst"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Learn how to write this kanji" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXF-RW-JW2">
+                                                    <rect key="frame" x="20" y="16" width="194" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bgView" destination="ZUe-tR-BvP" id="CAu-7P-8db"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -742,7 +757,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4n-1P-TFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1547" y="96"/>
+            <point key="canvasLocation" x="1688" y="88"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="B8U-4s-es1">
@@ -1226,22 +1241,18 @@ Please check the samples
         <image name="Icon-Small-80.png" width="80" height="80"/>
         <image name="cart.png" width="24" height="24"/>
         <image name="comment_check.png" width="32" height="32"/>
+        <image name="forward.png" width="16" height="16"/>
         <image name="home.png" width="24" height="24"/>
         <image name="info.png" width="32" height="32"/>
         <image name="ipad-arrow.png" width="9" height="14"/>
         <image name="ipad-button-blue.png" width="157" height="49"/>
-        <image name="ipad-button-blue.png" width="157" height="49"/>
         <image name="ipad-button-green.png" width="159" height="51"/>
-        <image name="ipad-button-red-pressed.png" width="156" height="49"/>
-        <image name="ipad-button-red-pressed.png" width="156" height="49"/>
-        <image name="ipad-button-red.png" width="159" height="51"/>
         <image name="star.png" width="24" height="24"/>
-        <image name="star.png" width="24" height="24"/>
-        <image name="star_on.png" width="24" height="24"/>
         <image name="star_on.png" width="24" height="24"/>
         <image name="starmenu.png" width="24" height="24"/>
         <image name="tattoosample.png" width="320" height="480"/>
         <image name="warning.png" width="24" height="24"/>
+        <image name="youtube_color_48.png" width="48" height="48"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1250,5 +1261,6 @@ Please check the samples
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="wZB-kX-5Zn"/>
+        <segue reference="lmh-VH-qst"/>
     </inferredMetricsTieBreakers>
 </document>

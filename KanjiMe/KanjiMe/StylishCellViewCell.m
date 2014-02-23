@@ -55,23 +55,16 @@
         
     }
     
-    [titleLabel setShadowOffset:CGSizeMake(0, -1)];
-    
-    if(!self.isNotFirtRun){
-        CALayer *l1 = [bgImageView layer];
-        [l1 setMasksToBounds:YES];
-        [l1 setCornerRadius:5.0];
-        
-        CALayer *l2 = [btnLike layer];
-        [l2 setMasksToBounds:YES];
-        [l2 setCornerRadius:5.0];
-        
-        self.like = NO;
-        self.isNotFirtRun = true;
-        
-        [self.badgeLabel.layer setCornerRadius:5.0];
-    }
     [super setSelected:selected animated:animated];
+}
+
+- (void)awakeFromNib
+{
+    [self.bgImageView.layer setCornerRadius:5.0];
+    [self.btnLike.layer setCornerRadius:5.0];
+    [self.badgeLabel.layer setCornerRadius:5.0];
+    self.like = NO;
+    [titleLabel setShadowOffset:CGSizeMake(0, -1)];
 }
 
 - (void)setNewItem:(BOOL)newItem

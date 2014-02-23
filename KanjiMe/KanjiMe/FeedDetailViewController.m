@@ -179,7 +179,7 @@
         return cell;
     } else {
         if (indexPath.row == 0 && [self.collection has_url]) {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoLinkCell"];
+            VideoPlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoLinkCell"];
             
             return cell;
         } else {
@@ -222,7 +222,7 @@
     if (indexPath.section==0) {
         return 75.0f;
     } else if (indexPath.row == 0 && [self.collection has_url]) {
-        return 50.0f;
+        return 60.0f;
     } else {
         return 265.0f;
     }
@@ -256,7 +256,6 @@
 
 - (NSMutableArray *)getRange:(NSString *)text
 {
-    
     int pos, len;
     NSRange range;
     NSMutableArray *listData = [[NSMutableArray alloc] init];
@@ -302,5 +301,19 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.collection.url_video]];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"playVideo"]) {
+        if([segue.destinationViewController respondsToSelector:@selector(setUrlToWebView:withTitle:)]){
+            NSString *urlString = self.collection.url_video;
+            NSString *titleString = [NSString stringWithFormat:@"%@ - %@", self.collection.title, self.collection.subtitle];
+            
+            
+            [segue.destinationViewController performSelector:@selector(setUrlToWebView:withTitle:)
+                                                  withObject:urlString
+                                                  withObject:titleString];
+        }
+    }
+}
 
 @end

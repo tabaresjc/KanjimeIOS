@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VideoPlayerCell : UITableViewCell
-@property (strong, nonatomic) NSString *urlVideo;
+@property (strong, nonatomic) IBOutlet UIView *bgView;
+
 @end
