@@ -8,4 +8,4 @@ Pods/Pods.xcodeproj/project.xcworkspace
 Pods/Pods.xcodeproj/xcuserdata
 Pods/Documentation/
 /build
-KanjiMe/KanjiMe/SupportKeys.h
+KanjiMe/KanjiMe/Models/SupportKeys.h
