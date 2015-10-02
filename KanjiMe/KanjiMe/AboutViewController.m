@@ -29,7 +29,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -44,11 +44,11 @@
 {
     if ([[segue identifier] isEqualToString:@"SendUrl"]) {
         if([segue.destinationViewController respondsToSelector:@selector(setUrlToWebView:withTitle:)]){
-            NSIndexPath *indexPath = (NSIndexPath *)sender;            
-            
+            NSIndexPath *indexPath = (NSIndexPath *)sender;
+
             NSString *urlString = @"http://www.learnjapanese123.com/";
             NSString *titleString = @"LearnJapanese123";
-            
+
             if(indexPath.section==2){
                 urlString = @"https://itunes.apple.com/us/app/travelers-japanese/id447519027?mt=8";
                 titleString = @"Traveler's Japanese";
@@ -67,7 +67,7 @@
                 urlString = @"http://www.linkedin.com/in/juanctt";
                 titleString = @"Linkedin";
             }
-            
+
             [segue.destinationViewController performSelector:@selector(setUrlToWebView:withTitle:)
                                                   withObject:urlString
                                                   withObject:titleString];
@@ -163,8 +163,8 @@
         }
     } else if(indexPath.section==4){
         cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
-        cell.textLabel.text = @"Juan Tabares";
-        cell.detailTextLabel.text = @"juan.ctt@live.com";
+        cell.textLabel.text = @"name";
+        cell.detailTextLabel.text = @"name@email.com";
         cell.imageView.image = [UIImage tallImageNamed:@"linkedin_color_48.png"];
     } else if(indexPath.section==5){
         cell = [tableView dequeueReusableCellWithIdentifier:@"FooterCell" forIndexPath:indexPath];
@@ -175,7 +175,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSString *titleText = @"";
-    
+
     if(section==0){
         titleText = @"KanjiMe iOS";
     } else if(section==1){
@@ -189,10 +189,10 @@
     } else {
         return nil;
     }
-    
+
     UIImageView *headerTitleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    
-    
+
+
     UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, 25)];
     sectionTitleLabel.textColor = [UIColor whiteColor];
     sectionTitleLabel.backgroundColor = [UIColor clearColor];
@@ -201,7 +201,7 @@
     sectionTitleLabel.font = [UIFont fontWithName:@"MyriadPro-BoldCond" size:20];
     [sectionTitleLabel setAdjustsFontSizeToFitWidth:YES];
     [headerTitleView addSubview:sectionTitleLabel];
-    
+
     return headerTitleView;
 }
 
@@ -217,7 +217,7 @@
 
 - (IBAction)cancelDialog:(UIStoryboardSegue *)segue
 {
-    
+
 }
 
 @end
