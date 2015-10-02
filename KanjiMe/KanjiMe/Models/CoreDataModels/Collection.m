@@ -2,7 +2,7 @@
 //  Collection.m
 //  KanjiMe
 //
-//  Created by Juan Tabares on 1/26/14.
+//  Created by Lion User on 1/26/14.
 //  Copyright (c) 2014 LearnJapanese123. All rights reserved.
 //
 

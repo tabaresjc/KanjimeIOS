@@ -2,7 +2,7 @@
 //  TattooViewController.m
 //  KanjiMe
 //
-//  Created by Juan Tabares on 10/4/13.
+//  Created by Lion User on 10/4/13.
 //  Copyright (c) 2013 Alteran System. All rights reserved.
 //
 
@@ -66,8 +66,8 @@
     self.inputEmail.delegate = self;
     self.inputComments.delegate = self;
     
-    self.inputName.text = @"Juan Tabares";
-    self.inputTattooText.text = @"Juan Tabares";
+    self.inputName.text = @"Lion User";
+    self.inputTattooText.text = @"Lion User";
     self.inputEmail.text = @"juan.ctt2002@live.com";
     self.inputComments.text = @"";
 
